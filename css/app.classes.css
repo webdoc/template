@@ -24,7 +24,12 @@
   background-color: rgb(230,230,230);
 }
 
+.back_button {
+  
+}
+
 .action_button {
+  /* .action_buttons are for actions that change the webdoc. */
   -webkit-border-radius: 0.3333em;
      -moz-border-radius: 0.3333em;
           border-radius: 0.3333em;

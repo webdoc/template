@@ -35,7 +35,7 @@
 		<!-- In tabs_index and filters_index the li tags have
 		     display: inline-block. Spaces between these tags
 		     will interfere with layout, so make sure there
-		     are no spaces between li tags. -->
+		     are no spaces between <li> tags. -->
 		
 		<ul class="three_tabs_index tabs_index index">
 			 <li><a class="tab_button button" href="#tab1">Tab</a></li
@@ -43,8 +43,11 @@
 			><li><a class="tab_button button" href="#tab3">Tab</a></li>
 		</ul>
 		
-		<section class="tab" id="tab1">
-			<!-- Filters can be made with a tags... -->
+		<!-- To make a tab open by default, give it the class
+		     .active. -->
+		
+		<section class="active tab" id="tab1">
+			<!-- Filters can be made with <a> tags... -->
 			<ul class="filters_index index">
 				 <li><a class="filter_button button" href="#">Filter</a></li
 				><li><a class="filter_button button" href="#">Filter</a></li
