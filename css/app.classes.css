@@ -1,0 +1,105 @@
+.app_header {
+  padding: 0.8333em 0.8333em 0.8333em 84px;
+  min-height: 84px;
+}
+
+.app_header > .app_thumb {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
+/* .thumb classes */
+
+.app_thumb {
+  /* TODO: this is temporary, so we can see it! */
+  background-color: #999999;
+}
+
+
+/* .button classes */
+
+.button {  
+  background-color: rgb(230,230,230);
+}
+
+.action_button {
+  -webkit-border-radius: 0.3333em;
+     -moz-border-radius: 0.3333em;
+          border-radius: 0.3333em;
+}
+
+.tab_button {
+  background-color: rgb(220,220,220);
+  
+  border: 1px solid #999999;
+  border-bottom-color: black;
+  
+  -webkit-border-top-left-radius:  0.25em;
+     -moz-border-radius-topleft:   0.25em;
+          border-top-left-radius:  0.25em;
+  -webkit-border-top-right-radius: 0.25em;
+     -moz-border-radius-topright:  0.25em;
+          border-top-right-radius: 0.25em;
+}
+
+.tab_button.active {
+  background-color: transparent;
+  border-color: black;
+  border-bottom-color: transparent;
+}
+
+.filter_button {
+  background-color: rgb(220,220,220);
+  
+  -webkit-border-radius: 0.25em;
+     -moz-border-radius: 0.25em;
+          border-radius: 0.25em;
+}
+
+.filter_button.active {
+  background-color: rgb(180,180,180);
+  
+  -webkit-border-radius: 0.25em;
+     -moz-border-radius: 0.25em;
+          border-radius: 0.25em;
+}
+
+
+/* .tab classes */
+
+.tab {
+  padding: 0.83333em;
+}
+
+
+/* .index classes */
+
+.tabs_index > li {
+
+}
+
+.filters_index > li {
+  margin-right: 0.6667em;
+  margin-bottom: 0.8333em;
+}
+
+/* .index classes with horizontal layout */
+
+.filters_index {
+  /* To form grids with a horizontal index, line-height
+     needs to be smaller than the items in the index. */
+	line-height: 0;
+}
+
+.filters_index > li {
+  display: inline-block;
+  vertical-align: top;
+  /* Reset the line-height to the base line-height. */
+  line-height: 1.5;
+}
+
+.filters_index > li:last-child {
+  margin-right: 0;
+}
