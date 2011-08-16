@@ -23,7 +23,10 @@
   background-position: 50% 50%;
 }
 
-
+.image_thumb {
+  background-image: url('../images/thumbs/thumb_image.png');
+  background-position: 12px 50%;
+}
 
 .drag_thumb {
   width: 92px;
