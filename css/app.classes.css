@@ -18,7 +18,15 @@
 }
 
 .widget_thumb {
-  
+  width: 92px;
+}
+
+.large_widget_thumb {
+  width: 192px;
+}
+
+.xlarge_widget_thumb {
+  width: 392px;
 }
 
 .drag_thumb {
@@ -27,6 +35,8 @@
   -webkit-border-radius: 0.3333em;
      -moz-border-radius: 0.3333em;
           border-radius: 0.3333em;
+  
+  
 }
 
 .drag_thumb:before {

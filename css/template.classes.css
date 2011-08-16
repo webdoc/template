@@ -765,9 +765,10 @@
 
 .tab {
 	display: none;
-	/* This technique overlays tabs on top of one another but still
-	   allows the height of the blocks to stay in the flow. It's
-	   better than using position: absolute. In short, it rocks. */
+	/* The inline-block technique overlays tabs on top of one another
+	   but still allows the height of the blocks to stay in the flow.
+	   It's better than using position: absolute. In short, it rocks. */
+	vertical-align: top;
 	position: relative;
 	width: 100%;
 	margin-right: -100%;
