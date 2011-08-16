@@ -24,3 +24,13 @@ body > .footer {
   
   border-top: 1px solid black;
 }
+
+hr {
+  margin-bottom: 0.8333em;
+  border-color: rgb(128,129,132);
+  
+  -webkit-box-shadow: 0 1px 1px white;
+     -moz-box-shadow: 0 1px 1px white;
+       -o-box-shadow: 0 1px 1px white;
+          box-shadow: 0 1px 1px white;
+}

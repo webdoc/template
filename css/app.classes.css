@@ -155,10 +155,6 @@
   background-color: rgb(230,230,230);
 }
 
-.back_button {
-  
-}
-
 .action_button {
   font-weight: bold;
   
@@ -178,6 +174,7 @@
   background-image:         linear-gradient(rgb(203,204,205), rgb(178,179,180));
 }
 
+.back_action_button,
 .primary_action_button {
   background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
   background-image: -webkit-linear-gradient(rgb(127,161,214), rgb(99,127,172));
