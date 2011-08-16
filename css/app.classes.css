@@ -29,7 +29,7 @@
 }
 
 .drag_thumb {
-  width: 91px;
+  width: 85px;
   
   border: 1px solid rgb(165,168,171);
   
@@ -39,15 +39,15 @@
 }
 
 .l_drag_thumb {
-  width: 124px;
+  width: 116px;
 }
 
 .xl_drag_thumb {
-  width: 190px;
+  width: 178px;
 }
 
 .xxl_drag_thumb {
-  width: 388px;
+  width: 364px;
 }
 
 .drag_thumb:before {
