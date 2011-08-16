@@ -9,6 +9,10 @@
   left: 10px;
 }
 
+.app_footer {
+  background-color: rgb(237,237,237);
+}
+
 
 /* .thumb classes */
 
@@ -156,10 +160,31 @@
 }
 
 .action_button {
+  font-weight: bold;
+  
+  color: white;
+  text-shadow: 0 1px #666666;
+  
   /* .action_buttons are for actions that change the webdoc. */
   -webkit-border-radius: 0.3333em;
      -moz-border-radius: 0.3333em;
           border-radius: 0.3333em;
+
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
+  background-image: -webkit-linear-gradient(rgb(203,204,205), rgb(178,179,180));
+  background-image:    -moz-linear-gradient(rgb(203,204,205), rgb(178,179,180));
+  background-image:     -ms-linear-gradient(rgb(203,204,205), rgb(178,179,180));
+  background-image:      -o-linear-gradient(rgb(203,204,205), rgb(178,179,180));
+  background-image:         linear-gradient(rgb(203,204,205), rgb(178,179,180));
+}
+
+.primary_action_button {
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
+  background-image: -webkit-linear-gradient(rgb(127,161,214), rgb(99,127,172));
+  background-image:    -moz-linear-gradient(rgb(127,161,214), rgb(99,127,172));
+  background-image:     -ms-linear-gradient(rgb(127,161,214), rgb(99,127,172));
+  background-image:      -o-linear-gradient(rgb(127,161,214), rgb(99,127,172));
+  background-image:         linear-gradient(rgb(127,161,214), rgb(99,127,172));
 }
 
 .tab_button {
@@ -186,6 +211,13 @@
 }
 
 .filter_button {
+  /* overide default label styles */
+  font-weight: normal;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 2em;
+  
+  
   background-color: rgb(208,209,210);
   
   -webkit-border-radius: 0.25em;
@@ -194,6 +226,8 @@
 }
 
 .filter_button.active {
+  
+  color: white;
   background-color: rgb(109,111,112);
   
   -webkit-border-radius: 0.25em;
@@ -212,8 +246,8 @@
 
 /* .index classes */
 
-.tabs_index > li {
-
+.actions_index > li {
+  margin-right: 0.6667em;
 }
 
 .thumbs_index,
