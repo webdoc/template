@@ -1,8 +1,21 @@
-body {
+html, body {
+  height: 100%;
   overflow: hidden;
 }
 
-.footer {
+body {
+  height: 100%;
+  /* Compensate for the space the footer takes up. */
+  padding-bottom: 3em;
+}
+
+body > .content {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+}
+
+body > .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
