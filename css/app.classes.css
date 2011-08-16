@@ -73,6 +73,9 @@
 }
 
 .tab_button {
+  height: 2.6667em;
+  line-height: 2.6667em;
+  
   background-color: rgb(220,220,220);
   
   border: 1px solid #999999;
