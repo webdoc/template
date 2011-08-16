@@ -204,6 +204,13 @@
 
 }
 
+.thumbs_index,
+.filters_index {
+  /* Compensate for the margin-right on the last li
+     of each line. */
+  margin-right: -0.6667em;
+}
+
 .thumbs_index > li,
 .filters_index > li {
   margin-right: 0.6667em;
