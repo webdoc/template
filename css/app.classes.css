@@ -29,7 +29,7 @@
 }
 
 .drag_thumb {
-  width: 92px;
+  width: 91px;
   
   border: 1px solid rgb(165,168,171);
   
@@ -38,12 +38,16 @@
           border-radius: 0.3333em;
 }
 
-.large_drag_thumb {
-  width: 192px;
+.l_drag_thumb {
+  width: 124px;
 }
 
-.xlarge_drag_thumb {
-  width: 392px;
+.xl_drag_thumb {
+  width: 190px;
+}
+
+.xxl_drag_thumb {
+  width: 388px;
 }
 
 .drag_thumb:before {
