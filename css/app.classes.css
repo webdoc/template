@@ -136,6 +136,14 @@
           border-bottom-left-radius: inherit;
 }
 
+.drag_thumb.active {
+  border-color: rgb(250,244,0);
+  
+  -webkit-box-shadow: 0 0 1px 1px rgb(250,244,0);
+     -moz-box-shadow: 0 0 1px 1px rgb(250,244,0);
+       -o-box-shadow: 0 0 1px 1px rgb(250,244,0);
+          box-shadow: 0 0 1px 1px rgb(250,244,0);
+}
 
 /* .button classes */
 
