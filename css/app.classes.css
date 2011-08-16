@@ -35,13 +35,33 @@
   -webkit-border-radius: 0.3333em;
      -moz-border-radius: 0.3333em;
           border-radius: 0.3333em;
-  
-  
 }
 
 .drag_thumb:before {
+  /* Make the background gradient. */
   content: '';
   position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  
+  border-radius: inherit;
+
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
+  background-image: -webkit-linear-gradient(rgb(240,240,241), rgb(218,220,222));
+  background-image:    -moz-linear-gradient(rgb(240,240,241), rgb(218,220,222));
+  background-image:     -ms-linear-gradient(rgb(240,240,241), rgb(218,220,222));
+  background-image:      -o-linear-gradient(rgb(240,240,241), rgb(218,220,222));
+  background-image:         linear-gradient(rgb(240,240,241), rgb(218,220,222));
+}
+
+.drag_thumb:after {
+  /* Make the drag strip. */
+  content: '';
+  position: absolute;
+  z-index: 1;
   left: 1px;
   top: 1px;
   bottom: 1px;
