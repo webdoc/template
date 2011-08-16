@@ -19,6 +19,10 @@
 
 .widget_thumb {
   width: 92px;
+  
+  background-image: url('../images/thumbs/thumb_widget.png');
+  background-size: auto;
+  background-position: 50% 50%;
 }
 
 .large_widget_thumb {
