@@ -87,13 +87,13 @@
 }
 
 .tab_button.active {
-  background-color: transparent;
+  background-color: rgb(237,237,237);
   border-color: black;
-  border-bottom-color: transparent;
+  border-bottom-color: rgb(237,237,237);
 }
 
 .filter_button {
-  background-color: rgb(220,220,220);
+  background-color: rgb(208,209,210);
   
   -webkit-border-radius: 0.25em;
      -moz-border-radius: 0.25em;
@@ -101,7 +101,7 @@
 }
 
 .filter_button.active {
-  background-color: rgb(180,180,180);
+  background-color: rgb(109,111,112);
   
   -webkit-border-radius: 0.25em;
      -moz-border-radius: 0.25em;
@@ -112,6 +112,7 @@
 /* .tab classes */
 
 .tab {
+  background-color: rgb(237,237,237);
   padding: 0.83333em;
 }
 
