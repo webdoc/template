@@ -69,7 +69,7 @@
 	padding-left: 87px;
 }
 
-.min-height_border-box .drag_card {
+.min-height_content-box .drag_card {
 	min-height: 62px;
 }
 
@@ -89,7 +89,7 @@
 	
 }
 
-.min-height_border-box .l_drag_card {
+.min-height_content-box .l_drag_card {
 	min-height: 94px;
 }
 
@@ -103,7 +103,7 @@
 	padding-left: 158px;
 }
 
-.min-height_border-box .xl_drag_card {
+.min-height_content-box .xl_drag_card {
 	min-height: 126px;
 }
 
