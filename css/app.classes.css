@@ -73,9 +73,17 @@
 	min-height: 62px;
 }
 
+.drag_card:hover {
+	text-decoration: none;
+}
+
 .drag_card > .thumb {
 	top: 8px;
 	left: 15px;
+}
+
+.drag_card > .title {
+	color: black;
 }
 
 .drag_card > .d {
@@ -365,11 +373,28 @@
 
 .search_form > input {
 	display: inline-block;
+	vertical-align: top;
+}
+
+.search_form > input[type="search"] {
+	-webkit-appearance: textfield;
+}
+
+.search_form > input[type="search"]::-webkit-input-placeholder {
+	height: 2em;
 }
 
 .search_form > .search_input {
 	width: 100%;
 	margin-right: -100%;
+	height: 2em;
+	line-height: 2em;
+	
+	border: 1px solid rgb(165,168,171);
+	
+  -webkit-border-radius: 0.25em;
+     -moz-border-radius: 0.25em;
+          border-radius: 0.25em;
 }
 
 .search_form > .action_button {
