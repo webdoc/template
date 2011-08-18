@@ -4,6 +4,20 @@
 
 jQuery.noConflict();
 
+
+// Add css support classes to html
+
+(function(jQuery, undefined){
+	var support = jQuery.support,
+			classes = [];
+	
+	classes.push('min-height('+support.css.minHeight+')');
+	classes.push('min-width('+support.css.minWidth+')');
+	
+	jQuery(document.documentElement).addClass(classes.join(' '));
+})(jQuery);
+
+
 // Handle dropdowns, popdowns and tabs
 //
 // TODO: I've found some serious problems in here. It works, 
