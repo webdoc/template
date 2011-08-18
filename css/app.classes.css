@@ -29,13 +29,15 @@
 
 .image_thumb {
   background-image: url('../images/thumbs/thumb_image.png');
-  background-position: 12px 50%;
+}
+
+.drag_thumb,
+.drag_card {
+	border: 1px solid rgb(165,168,171);
 }
 
 .drag_thumb {
   width: 85px;
-  
-  border: 1px solid rgb(165,168,171);
   
   -webkit-border-radius: 0.3333em;
      -moz-border-radius: 0.3333em;
@@ -54,7 +56,52 @@
   width: 364px;
 }
 
-.drag_thumb:before {
+.drag_thumb.image_thumb {
+	/* Moves the image away from the drag strip */
+	background-position: 12px 50%;
+}
+
+.drag_card {
+	min-height: 82px;
+	padding-top: 0.75em;
+	padding-right: 0.8333em;
+	padding-bottom: 0.75em;
+	padding-left: 87px;
+}
+
+.drag_card > .thumb {
+	top: 8px;
+	left: 15px;
+}
+
+.drag_card > .d {
+	color: rgb(128,129,130);
+	margin-bottom: 0;
+}
+
+.l_drag_card {
+	min-height: 114px;
+	padding-left: 118px;
+	
+}
+
+.l_drag_card > .thumb {
+	width: 96px;
+	height: 96px;
+}
+
+.xl_drag_card {
+	min-height: 146px;
+	padding-left: 158px;
+}
+
+.xl_drag_card > .thumb {
+	width: 128px;
+	height: 128px;
+}
+
+.drag_thumb:before,
+.drag_card:before {
   /* Make the background gradient. */
   content: '';
   position: absolute;
@@ -74,7 +121,8 @@
   background-image:         linear-gradient(rgb(240,240,241), rgb(218,220,222));
 }
 
-.drag_thumb:hover:before {
+.drag_thumb:hover:before,
+.drag_card:hover:before {
   /* Make the background gradient. */
   content: '';
   position: absolute;
@@ -94,7 +142,8 @@
   background-image:         linear-gradient(rgb(250,250,250), rgb(240,240,241));
 }
 
-.drag_thumb:after {
+.drag_thumb:after,
+.drag_card:after {
   /* Make the drag strip. */
   content: '';
   position: absolute;
@@ -115,7 +164,7 @@
   */
   
   background-color: transparent;
-  border-top: 6px solid transparent;
+  border-top: 7px solid transparent;
   border-bottom: 6px solid transparent;
 
   -webkit-background-clip: padding-box;
@@ -140,8 +189,12 @@
           border-bottom-left-radius: inherit;
 }
 
-.drag_thumb.active {
+.drag_thumb.active,
+.drag_card.active {
   border-color: rgb(250,244,0);
+  
+  /* Makes the box shadow render over the top of its neighbours. */
+  z-index: 1;
   
   -webkit-box-shadow: 0 0 1px 1px rgb(250,244,0);
      -moz-box-shadow: 0 0 1px 1px rgb(250,244,0);
@@ -247,6 +300,14 @@
   margin-right: 0.6667em;
 }
 
+.cards_index {
+	margin-bottom: 0.8333em;
+}
+
+.cards_index > li {
+	margin-bottom: -1px;
+}
+
 .thumbs_index,
 .filters_index {
   /* Compensate for the margin-right on the last li
@@ -280,4 +341,14 @@
 .thumbs_index > li:last-child,
 .filters_index > li:last-child {
   margin-right: 0;
+}
+
+/* forms */
+
+.search_form {
+	
+}
+
+.search_form > input {
+	display: inline-block;
 }

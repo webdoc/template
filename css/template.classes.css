@@ -1075,10 +1075,6 @@
   /* Act as position parent */
   position: relative;
   
-  -webkit-border-radius: 0.3333em;
-     -moz-border-radius: 0.3333em;
-          border-radius: 0.3333em;
-  
   -webkit-user-drag: element;
 }
 
