@@ -7,6 +7,7 @@ body {
   height: 100%;
   /* Compensate for the space the footer takes up. */
   padding-bottom: 3.5em;
+  background-color: rgb(245,245,245);
 }
 
 body > .content {

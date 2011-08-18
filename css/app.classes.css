@@ -228,6 +228,7 @@
 }
 
 .back_action_button,
+.submit_action_button,
 .primary_action_button {
   background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
   background-image: -webkit-linear-gradient(rgb(127,161,214), rgb(99,127,172));
@@ -346,9 +347,22 @@
 /* forms */
 
 .search_form {
-	
+	margin-bottom: 0.8333em;
+	margin-right: 6.75em;
 }
 
 .search_form > input {
 	display: inline-block;
+}
+
+.search_form > .search_input {
+	width: 100%;
+	margin-right: -100%;
+}
+
+.search_form > .action_button {
+	width: 6em;
+	position: relative;
+	margin-left: 0.75em;
+	left: 100%;
 }
