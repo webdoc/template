@@ -255,19 +255,19 @@
 }
 
 .tabs_index > li {
-  /* Stop content pushing column wider than it should be */
+  /* Stop content pushing li wider than it should be */
   overflow: visible;
   min-height: 100%;
-  margin-right: 2%;
+  margin-right: 0;
 }
 
-.two_tabs_index > li   { width: 49%; }
-.three_tabs_index > li { width: 32%; }
-.four_tabs_index > li  { width: 23.5%; }
-.five_tabs_index > li  { width: 18.4%; }
-.six_tabs_index > li   { width: 15%; }
-.seven_tabs_index > li { width: 12.5714%; }
-.eight_tabs_index > li { width: 10.75%; }
+.two_tabs_index > li   { width: 50%; }
+.three_tabs_index > li { width: 33.33%; }
+.four_tabs_index > li  { width: 25%; }
+.five_tabs_index > li  { width: 20%; }
+.six_tabs_index > li   { width: 16.66%; }
+.seven_tabs_index > li { width: 14.28%; }
+.eight_tabs_index > li { width: 12.5%; }
 
 .tabs_index > li:last-child		{ margin-right: 0; }
 .tabs_index > li.last         { margin-right: 0; }
@@ -308,19 +308,33 @@
    the html.
 */
 
-.horizontal {
+.horizontal,
+.tabs_index,
+.actions_index {
   /* To form grids with a horizontal index, line-height
      needs to be smaller than the items in the index. */
 	line-height: 0;
 }
 
-.horizontal > * {
+.horizontal > *,
+.tabs_index > li,
+.actions_index > li {
   display: inline-block;
   vertical-align: top;
-  height: 100%;
-  /* Reset the line-height we zeroed on the parent. */
-  line-height: 1.6667;
 }
+
+.horizontal > *:last-child,
+.tabs_index > li:last-child,
+.actions_index > li:last-child {
+    margin-right: 0;
+}
+
+.horizontal > *.last,
+.tabs_index > li.last,
+.actions_index > li.last {
+    margin-right: 0;
+}
+
 
 .horizontal > input[type='radio'],
 .horizontal > input[type='checkbox'] {
@@ -328,14 +342,6 @@
     height: auto;
     width: auto;
     margin-top: 0.25em;
-}
-
-.horizontal > *:last-child {
-    margin-right: 0;
-}
-
-.horizontal > *.last {
-    margin-right: 0;
 }
 
 .horizontal.index > dt,
@@ -778,9 +784,16 @@
 
 
 
-
 .tab {
 	display: none;
+	/* The inline-block technique overlays tabs on top of one another
+	   but still allows the height of the blocks to stay in the flow.
+	   It's better than using position: absolute. In short, it rocks. */
+	vertical-align: top;
+	position: relative;
+	width: 100%;
+	margin-right: -100%;
+	
 	opacity: 0;
 	z-index: 1;
 	
@@ -790,7 +803,7 @@
 }
 
 .tab.active {
-	display: block;
+	display: inline-block;
 	opacity: 1;
 	z-index: 2;
 	
@@ -800,11 +813,25 @@
 }
 
 .tab.transition {
-	display: block;
+	display: inline-block;
 }
 
 
+.step {
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	left: -100%;
+	margin-right: -100%;
+}
 
+.step.active {
+	left: 0;
+}
+
+.step.active ~ .step {
+	left: 100%;
+}
 
 
 /* .popup, .popdown, .dropdown, .stopdown */
@@ -928,10 +955,9 @@
 
 .menu_button,
 .tab_button {
-  width: 100%;
+	width: 100%;
 	padding-left: 0.8333em;
 	padding-right: 0.8333em;
-  text-align: left;
   
   /* Remove default border and shadow */
   
@@ -944,6 +970,9 @@
           border-radius: 0;
 }
 
+.menu_button {
+	text-align: left;
+}
 
 /* .thumb */
 
@@ -1062,10 +1091,6 @@
   
   /* Act as position parent */
   position: relative;
-  
-  -webkit-border-radius: 0.3333em;
-     -moz-border-radius: 0.3333em;
-          border-radius: 0.3333em;
   
   -webkit-user-drag: element;
 }

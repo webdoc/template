@@ -16,10 +16,7 @@
 	<!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<!-- Disable image toolbar in IE6 -->
 	<!--[if lte IE 6]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
-	
-	<link rel="icon" type="image/png" href="../images/favicon.png" />
-	<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
-	
+
 	<link rel="stylesheet" type="text/css" href="../css/template.reset.css" />
 	<link rel="stylesheet" type="text/css" href="../css/template.typography.css" />
 	<link rel="stylesheet" type="text/css" href="../css/template.typography.14_24.css" />
@@ -29,8 +26,6 @@
 	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="../css/template.ie8.css" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../css/template.ie7.css" /><![endif]-->
 	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../css/template.ie6.css" /><![endif]-->
-	<link rel="stylesheet" type="text/css" href="../css/site.layout.css" />
-	<link rel="stylesheet" type="text/css" href="../css/site.typography.css" />
 
 	<style>
 		section {
@@ -81,6 +76,23 @@
 		.tab.active.transition {
 			position: relative;
 		}
+		
+		.steps_wrap {
+			width: 60%;
+			height: 120px;
+			background-color: red;
+		}
+		
+		.step {
+			background-color: orange;
+		}
+		
+		.n1_step { background-color: yellow; }
+		.n2_step { background-color: orange; }
+		.n3_step { background-color: fuchsia; }
+		.n4_step { background-color: purple; }
+		.n5_step { background-color: blue; }
+
 	</style>
 </head>
 
@@ -130,6 +142,38 @@
 				</ul>
 			</li>
 		</ul>
+	</section>
+	
+	<section>
+		<ul class="horizontal tab_buttons_index buttons_index index">
+			<li><a class="step_button button" href="#step1">Step 1</a></li>
+			<li><a class="step_button button" href="#step2">Step 2</a></li>
+			<li><a class="step_button button" href="#step3">Step 3</a></li>
+			<li><a class="step_button button" href="#step4">Step 4</a></li>
+			<li><a class="step_button button" href="#step4">Step 5</a></li>
+		</ul>
+		
+		<div class="steps_wrap wrap">
+			 <div class="n1_step step" id="step1">
+				<p>Step 1</p>
+			</div
+			
+			><div class="n2_step step" id="step2">
+				<p>Step 2</p>
+			</div
+			
+			><div class="n3_step step active" id="step3">
+				<p>Step 3</p>
+			</div
+			
+			><div class="n4_step step" id="step4">
+				<p>Step 4</p>
+			</div
+			
+			><div class="n5_step step" id="step5">
+				<p>Step 5</p>
+			</div>
+		</div>
 	</section>
 	
 	<section>
@@ -201,11 +245,10 @@
 	
 	<script src="../js/js.extensions.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery.js"%3E%3C/script%3E'));</script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="../js/jquery.js"%3E%3C/script%3E'));</script>
 	<script src="../js/jquery.extensions.js"></script>
 	<script src="../js/jquery.event.activate.js"></script>
 	<script src="../js/jquery.transitions.js"></script>
-	<script src="../js/jquery.popup.js"></script>
 	<script src="../js/template.ui.js"></script>
 	
 	<script src="../js/js.debug.js"></script>
