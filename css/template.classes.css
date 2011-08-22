@@ -817,6 +817,23 @@
 }
 
 
+.step {
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	left: -100%;
+	margin-right: -100%;
+}
+
+.step.active {
+	left: 0;
+}
+
+.step.active ~ .step {
+	left: 100%;
+}
+
+
 /* .popup, .popdown, .dropdown, .stopdown */
 
 .popdown,

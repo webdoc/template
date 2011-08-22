@@ -52,6 +52,14 @@ jQuery.noConflict();
 	    		}
 	    	},
 	    	
+	    	'.step': {
+	    		activate: function(e) {
+	    			var step = jQuery(e.target),
+	    			    data = step.data('step');
+	    			
+	    		}
+	    	},
+	    	
 	    	'.popdown': {
 	    		activate: function(e) {
 	    			var target = e.currentTarget,
@@ -92,7 +100,7 @@ jQuery.noConflict();
 	    			jQuery.event.add(target, 'click', click);
 	    			jQuery.event.add(target, 'deactivate', deactivate);
 	    		}
-	    	}
+	    	},
 	    },
 	
 	    selector = Object.keys(classes).join(', ');
