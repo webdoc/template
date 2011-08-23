@@ -817,7 +817,7 @@
 }
 
 
-.step {
+.slide {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
@@ -835,18 +835,18 @@
 	        transition: left 0.33s ease-in;
 }
 
-.step.active {
+.slide.active {
 	left: 0;
 	height: auto;
 	overflow: visible;
 }
 
-.step.transition {
+.slide.transition {
 	height: auto;
 	overflow: visible;
 }
 
-.step.active ~ .step {
+.slide.active ~ .slide {
 	left: 100%;
 }
 
