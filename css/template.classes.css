@@ -819,14 +819,31 @@
 
 .step {
 	display: inline-block;
-	width: 100%;
+	vertical-align: top;
 	position: relative;
+	width: 100%;
 	left: -100%;
 	margin-right: -100%;
+	
+	/* Steps have no height by default to stop them influencing
+	   scrollbars when they are not the active step. */
+	height: 0;
+	overflow: hidden;
+	
+	-webkit-transition: left 0.33s ease-in;
+	   -moz-transition: left 0.33s ease-in;
+	        transition: left 0.33s ease-in;
 }
 
 .step.active {
 	left: 0;
+	height: auto;
+	overflow: visible;
+}
+
+.step.transition {
+	height: auto;
+	overflow: visible;
 }
 
 .step.active ~ .step {

@@ -55,8 +55,59 @@ jQuery.noConflict();
 	    	'.step': {
 	    		activate: function(e) {
 	    			var step = jQuery(e.target),
-	    			    data = step.data('step');
+	    			    data = step.data('step'),
+	    			    selector, tabs, l;
 	    			
+	    			if (!data) {
+	    				//selector = step.data('selector');
+	    				
+	    				//if (selector) {
+	    				//	tabs = jQuery(selector);
+	    				//}
+	    				//else {
+	    					tabs = step.siblings('.step').add(e.target);
+	    				//}
+	    				
+	    				// Attach the tabs object to each of the tabs
+	    				l = tabs.length;
+	    				while (l--) {
+	    					jQuery.data(tabs[l], 'step', { tabs: tabs });
+	    				}
+	    			}
+	    			else {
+	    				tabs = data.tabs;
+	    			}
+	    			
+	    			tabs.trigger('deactivate');
+	    			
+	    			var prev = function(e) {
+	    			    	var i = tabs.index(step) - 1;
+	    			    	
+	    			    	if (i < 0) { i = tabs.length - 1; }
+	    			    	
+	    			    	tabs.eq(i).trigger('activate');
+	    			    	e.preventDefault();
+	    			    },
+	    			    
+	    			    next = function(e) {
+	    			    	var i = tabs.index(step) + 1;
+	    			    	
+	    			    	if (i >= tabs.length) { i = 0; }
+	    			    	
+	    			    	tabs.eq(i).trigger('activate');
+	    			    	e.preventDefault();
+	    			    },
+	    			    
+	    			    deactivate = function(e) {
+	    			    	if (step[0] !== e.target) { return; }
+	    			    	step.undelegate('a[href="#prev"]', 'click', prev);
+	    			    	step.undelegate('a[href="#next"]', 'click', next);
+	    			    	jQuery.event.remove(e.target, 'deactivate', deactivate);
+	    			    };
+	    			
+	    			step.delegate('a[href="#prev"]', 'click', prev);
+	    			step.delegate('a[href="#next"]', 'click', next);
+	    			jQuery.event.add(step[0], 'deactivate', deactivate);
 	    		}
 	    	},
 	    	
@@ -147,10 +198,14 @@ jQuery.noConflict();
 	
 	// Mousedown on buttons toggle activate on their targets
 	.delegate('a[href^="#"]', 'mousedown touchstart', function(e) {
-		var link = jQuery(e.currentTarget),
-				href = link.attr('href'),
-				elem, data, type, t;
+		var link, href, elem, data, type, t;
 		
+		// Default is prevented indicates that this link has already
+		// been handled. Save ourselves the overhead of further handling.
+		if (e.isDefaultPrevented()) { return; }
+		
+		link = jQuery(e.currentTarget);
+		href = link.attr('href');
 		elem = jQuery(href);
 		
 		if (elem.length === 0) { return; }
@@ -193,6 +248,7 @@ jQuery.noConflict();
 	})
 	.delegate('a[href="#close"]', 'click', close)
 	.delegate('.tab', 'activate', classes['.tab'].activate)
+	.delegate('.step', 'activate', classes['.step'].activate)
 	.delegate('.popdown', 'activate', classes['.popdown'].activate)
 	.delegate('.dropdown', 'activate', classes['.dropdown'].activate);
 })( jQuery );
