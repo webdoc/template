@@ -50,9 +50,6 @@
 		     To make a tab open by default, give it the class .active. -->
 		
 		<section class="active tab" id="tab1">
-			<ul class="actions_index index">
-				<li><a class="back_action_button action_button button" href>Back</a></li>
-			</ul>
 			
 			<!-- Filters can be made with <a> tags... -->
 			<ul class="filters_index index">
@@ -205,8 +202,57 @@
 			</ul>
 		</section
 		
-		><section class="tab" id="tab2">
-			Tab 2
+		><section class="slides_tab tab" id="tab2">
+			<div class="slide active">
+				<div class="slide_header header">
+					<h1 class="slide_title title">Slide with cards</h1>
+				</div>
+				
+				<ul class="cards_index index">
+					<li>
+						<a class="drag_card card" href="#next">
+							<h2 class="card_title title">Card title</h2>
+							<div class="image_thumb thumb"></div>
+							<p class="card_d d">Card description</p>
+						</a>
+					</li
+					><li>
+						<a class="drag_card card" href="#next">
+							<h2 class="card_title title">Card title</h2>
+							<div class="image_thumb thumb"></div>
+							<p class="card_d d">Card description</p>
+						</a>
+					</li>
+				</ul>
+			</div
+			
+			><div class="slide">
+				<div class="slide_header header">
+					<h1 class="slide_title title">Slide with details</h1>
+					<ul class="actions_index index">
+						<li><a class="back_action_button action_button button" href="#prev">Back</a></li>
+					</ul>
+				</div>
+				
+				<p><a href="#whatever">A link to another slide</a></p>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+
+				<h2>Slide details</h2>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+			</div
+			
+			><div class="slide" id="whatever">
+				<div class="slide_header header">
+					<h1 class="slide_title title">Another slide</h1>
+					<ul class="actions_index index">
+						<li><a class="back_action_button action_button button" href="#prev">Back</a></li>
+					</ul>
+				</div>
+				
+				<p>Another slide. The third slide, in fact.</p>
+			</div>
 		</section
 		
 		><section class="tab" id="tab3">
@@ -226,6 +272,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery.js"%3E%3C/script%3E'));</script>
 	<script src="js/jquery.extensions.js"></script>
+	<script src="js/jquery.event.activate.js"></script>
 	<script src="js/jquery.validator.js"></script>
 	<script src="js/jquery.transitions.js"></script>
 	<script src="js/jquery.loading.js"></script>

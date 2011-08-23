@@ -1,18 +1,45 @@
+.app_footer {
+  background-color: rgb(237,237,237);
+}
+
+
+/* .header classes */
+
 .app_header {
   padding: 0.8333em 0.8333em 0.8333em 84px;
   min-height: 84px;
 }
 
-.app_header > .app_thumb {
+.app_header > .thumb {
   position: absolute;
   top: 10px;
   left: 10px;
 }
 
-.app_footer {
-  background-color: rgb(237,237,237);
+.slide_header {
+	width: 100%;
+	height: 3.5em;
+	margin-bottom: 0.8333em;
+	padding: 0.75em 0.8333em;
+	border-bottom: 1px solid rgb(220,220,220);
 }
 
+.slide_header > .title {
+	position: absolute;
+	top: 0.8333em;
+	left: 25%;
+	width: 50%;
+}
+
+
+/* .title classes */
+
+.slide_title {
+	font-size: 1.25em;
+	font-weight: bold;
+	line-height: 1.6em;
+	text-align: center;
+}
 
 /* .thumb classes */
 
@@ -312,6 +339,26 @@
 .tab {
   background-color: rgb(237,237,237);
   padding: 0.83333em;
+}
+
+.slides_tab {
+	padding: 0;
+}
+
+
+/* .slide classes */
+
+.slide {
+	padding: 0.83333em;
+	padding-top: 4.3333em;
+}
+
+.slide > .header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 3.5em;
 }
 
 
