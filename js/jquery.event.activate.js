@@ -67,17 +67,16 @@
 		}
 	};
 	
-	// Activate the node that corresponds to the hashref
-	// in the location bar.
-	
 	jQuery(document).ready(function(){
 		var id = window.location.hash;
 		
-		// Check if it's an alphanumeric id selector (not a hash bang).
-		if (!id || !(/^#[\w\d]/.test(id))) { return; }
-		
 		// Setup all things that start should start out active
 		jQuery('.active').trigger('activate');
+		
+		// Activate the node that corresponds to the hashref
+		// in the location bar, checking if it's an alphanumeric
+		// id selector (not a hash bang).
+		if (!id || !(/^#[\w\d]/.test(id))) { return; }
 		
 		jQuery(id).trigger('activate');
 	});
