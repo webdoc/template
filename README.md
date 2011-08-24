@@ -39,7 +39,7 @@
 
 <h3>.tab and .slide</h3>
 
-<p>Tabs and slides are functionally identical, differing in style only. In any group of tabs or slides, only one can be active at any one time. Normally, all tab or slide siblings of the tab or slide currently being activated automatically become a group. However, this grouping can be overridden with a <code>data-selector</code> attribute. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
+<p>Tabs and slides are functionally identical, differing in style only. In any group of tabs or slides, only one can be active at any one time. Normally, all tab or slide siblings of the tab or slide currently being activated automatically become a group. However, this grouping can be overridden with a <code>data-selector</code> attribute. The <code>data-selector</code> attribute contains a selector that selects all other tabs or slides in the group. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
 
 <pre class="html">&lt;div class=&quot;quote_tab tab&quot; id=&quot;ford&quot; data-selector=&quot;.quote_tab&quot;&gt;
 	&lt;p&gt;Hey, you sass that hoopy Ford Prefect? There's a frood who really knows where his towel is.&lt;/p&gt;
@@ -48,12 +48,14 @@
 	&lt;p&gt;I'm a great and amazing guy, didn't I tell you baby?&lt;/p&gt;
 &lt;/div&gt;</pre>
 
+<p>A little care must be taken. A tab or slide can only belong to one group, and if it is inadvertently selected by another group it will cause some odd behaviour.</p>
+
 <p>Inside tabs and slides, a couple of special links can be used for navigation:</p>
 
 <pre>&lt;a href=&quot;#prev&quot;&gt;Previous slide&lt;/a&gt;
 &lt;a href=&quot;#next&quot;&gt;Next slide&lt;/a&gt;</pre>
 
-<p>&ellips;navigating backwards and forwards respectively.</p>
+<p>&ellips;navigating backwards and forwards through the group respectively.</p>
 
 <h3>Under the hood: the <code>activate</code> event</h3>
 
