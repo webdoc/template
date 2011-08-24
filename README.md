@@ -6,34 +6,61 @@
 
 <h2>Popdowns, dropdowns, tabs and slides</h2>
 
-<p>Popdowns, dropdowns, tabs and slides are class-based animated elements. When they are visible, they have the class <code>active</code>.</p>
+<p>Popdowns, dropdowns, tabs and slides are class-based ui elements with two states. When they are visible, they have the class <code>active</code>. When they are not, they don't.</p>
 
-<h3>.popdown and .dropdown</h3>
+<p>They share a common API for triggering active state. Firstly, they are activated when the user clicks on a link that refers to them by id:</p>
 
-<p>Popdowns and dropdowns are used to make menus, dropdown navigation, and drawers that slide out from underneath other elements. You can activate them by id via a link:</p>
-<pre>&lt;a href=&quot;#id_of_dropdown&quot;&gt;Open dropdown&lt;/a&gt;</pre>
+<pre class="html">&lt;a href=&quot;#id_of_dropdown&quot;&gt;Open dropdown&lt;/a&gt;</pre>
 
-<p>Or you can activate them programmatically using an <code>activate</code> event:</p>
-<pre>jQuery('.dropdown').eq(2).trigger('activate');</pre>
+<p>Secondly, they can also be activated and deactivated programmatically:</p>
 
-<p>Popdowns and dropdowns deactivate as soon as the user mousedowns or touchstarts outside of them, but there is a subtle difference between how they react to user events inside of them: A dropdown deactivates as soon as you click on it, making it ideal for the creation of temporary menus; a popdown deactivates only when the user clicks on a close link inside of it:</p>
-<pre>&lt;a href=&quot;#close&quot;&gt;Close dropdown&lt;/a&gt;</pre>
+<pre class="js">jQuery('.dropdown').eq(2).trigger('activate');</pre>
+<pre class="js">jQuery('.dropdown').eq(2).trigger('deactivate');</pre>
 
-<p>Popdowns and dropdowns can also be deactivated programmatically, by triggering a <code>deactivate</code> event:</p>
-<pre>jQuery('.dropdown').eq(2).trigger('deactivate');</pre>
+<p>Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
+
+<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to a node. Here we add the class <code>popdown</code> to a div:</p>
+
+<pre class="html">&lt;a href=&quot;#arthur&quot;&gt;Open dropdown&lt;/a&gt;
+&lt;div class=&quot;popdown&quot; id=&quot;arthur&quot;&gt;
+	&lt;p&gt;Ford, there is an infinite number of monkeys outside, who want to
+	talk to us about this script for Hamlet they have worked out.&lt;/p&gt;
+&lt;/div&gt;</pre>
+
+<p>In addition to the common functionality, each of these ui classes has some specific behaviour.</p>
+
+<h3>.dropdown</h3>
+
+<p>Dropdowns are used to make menus and navigation. Once active, they deactivate when the user touches or mousedowns outside them, or when the user clicks on or inside them.</p>
+
+<h3>.popdown</h3>
+
+<p>Popdowns are used to make menus, drawers, and elements that require explicit deactivation. Once active, they deactivate when the user touches or mousedowns outside them, or when a <code>#close</code> link is clicked inside them:</p>
+
+<pre class="html">&lt;a href=&quot;#close&quot;&gt;Close&lt;/a&gt;</pre>
 
 <h3>.tab and .slide</h3>
 
-<p>As with dropdowns and popdowns, a tab or slide can be referenced with a link:</p>
-<pre>&lt;a href=&quot;#id_of_slide&quot;&gt;Go to slide&lt;/a&gt;</pre>
+<p>Tabs and slides are functionally identical, differing in style only.</p>
 
-<p>Or you can activate them programmatically using an <code>activate</code> event:</p>
-<pre>jQuery('.slide').eq(2).trigger('activate');</pre>
+<p>In any group of tabs or slides, only one can be active at any one time. Normally, all tab or slide siblings of the tab or slide currently being activated automatically become a group. However, to be more explicit this grouping can be overridden with a <code>data-selector</code> attribute containing a selector that selects all other tabs or slides for the group. The selector can be any selector the jQuery understands. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
 
-<p>Also, inside slides and tabs, the special links:</p>
+<pre class="html" title="You may be wondering about that odd div closing tag. That's a technique for creating spaceless html. See the section on html style.">&lt;div class=&quot;quote_tab tab&quot; id=&quot;ford&quot; data-selector=&quot;.quote_tab&quot;&gt;
+	&lt;p&gt;Time is an illusion. Lunchtime, doubly so.&lt;/p&gt;
+&lt;/div
+
+&gt;&lt;div class=&quot;quote_tab tab&quot; id=&quot;zaphod&quot; data-selector=&quot;.quote_tab&quot;&gt;
+	&lt;p&gt;I'm a great and amazing guy, didn't I tell you baby?&lt;/p&gt;
+&lt;/div&gt;</pre>
+
+<p>A little care must be taken. A tab or slide can only belong to one group, and if it is inadvertently selected by another group it will cause some odd behaviour.</p>
+
+<p>Inside tabs and slides, a couple of special links can be used for navigation:</p>
+
 <pre>&lt;a href=&quot;#prev&quot;&gt;Previous slide&lt;/a&gt;
 &lt;a href=&quot;#next&quot;&gt;Next slide&lt;/a&gt;</pre>
-<p>&ellips;navigate backwards and forwards respectively.</p>
+
+<p>&ellips;navigating backwards and forwards through the group respectively.</p>
 
 <h3>Under the hood: the <code>activate</code> event</h3>
 
