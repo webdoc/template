@@ -35,7 +35,9 @@
 
 <h3>.popdown</h3>
 
-<p>Popdowns are used to make menus, drawers, and elements that require explicit deactivation. Once active, they deactivate when the user touches or mousedowns outside them, or when a <code>#close</code> link is clicked inside them.</p>
+<p>Popdowns are used to make menus, drawers, and elements that require explicit deactivation. Once active, they deactivate when the user touches or mousedowns outside them, or when a <code>#close</code> link is clicked inside them:</p>
+
+<pre class="html">&lt;a href=&quot;#close&quot;&gt;Close&lt;/a&gt;</pre>
 
 <h3>.tab and .slide</h3>
 
