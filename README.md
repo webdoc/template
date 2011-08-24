@@ -1,6 +1,6 @@
 <h1>template</h1>
 
-<p>A front-end development framework</p>
+<p>A user interface development framework</p>
 
 <blockquote>It is super brilliant! It is really simple to work with your framework. I am really your fan ;) – Dmitri Dudin</blockquote>
 
