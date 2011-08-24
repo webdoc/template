@@ -1,5 +1,6 @@
 <h1>template</h1>
 
+<p>A front-end development framework</p>
 
 <h2>Popdowns, dropdowns, tabs and slides</h2>
 
