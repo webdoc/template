@@ -23,7 +23,8 @@
 
 <pre class="html">&lt;a href=&quot;#arthur&quot;&gt;Open dropdown&lt;/a&gt;
 &lt;div class=&quot;popdown&quot; id=&quot;arthur&quot;&gt;
-	&lt;p&gt;Ford, there is an infinite number of monkeys outside, who want to talk to us about this script for Hamlet they have worked out.&lt;/p&gt;
+	&lt;p&gt;Ford, there is an infinite number of monkeys outside, who want to
+	talk to us about this script for Hamlet they have worked out.&lt;/p&gt;
 &lt;/div&gt;</pre>
 
 <p>In addition to the common functionality, each of these ui classes has some specific behaviour.</p>
