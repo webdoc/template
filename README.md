@@ -41,7 +41,9 @@
 
 <h3>.tab and .slide</h3>
 
-<p>Tabs and slides are functionally identical, differing in style only. In any group of tabs or slides, only one can be active at any one time. Normally, all tab or slide siblings of the tab or slide currently being activated automatically become a group. However, this grouping can be overridden with a <code>data-selector</code> attribute. The <code>data-selector</code> attribute contains a selector that selects all other tabs or slides in the group. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
+<p>Tabs and slides are functionally identical, differing in style only.</p>
+
+<p>In any group of tabs or slides, only one can be active at any one time. Normally, all tab or slide siblings of the tab or slide currently being activated automatically become a group. However, this grouping can be overridden with a <code>data-selector</code> attribute containing a selector that selects all other tabs or slides for the group. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
 
 <pre class="html">&lt;div class=&quot;quote_tab tab&quot; id=&quot;ford&quot; data-selector=&quot;.quote_tab&quot;&gt;
 	&lt;p&gt;Hey, you sass that hoopy Ford Prefect? There's a frood who really knows where his towel is.&lt;/p&gt;
