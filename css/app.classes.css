@@ -343,6 +343,7 @@
 
 .slides_tab {
 	padding: 0;
+	overflow: hidden;
 }
 
 
