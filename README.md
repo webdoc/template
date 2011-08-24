@@ -2,6 +2,8 @@
 
 <p>A front-end development framework</p>
 
+<blockquote>It is super brilliant! It is really simple to work with your framework. I am really your fan ;) – Dmitri Dudin</blockquote>
+
 <h2>Popdowns, dropdowns, tabs and slides</h2>
 
 <p>Popdowns, dropdowns, tabs and slides are class-based animated elements. When they are visible, they have the class <code>active</code>.</p>
