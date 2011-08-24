@@ -19,7 +19,7 @@
 
 <p>Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
 
-<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to a node. Here we add the class <code>popdown</code> to temporarily open a quote:</p>
+<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to a node. Here we add the class <code>popdown</code> to a div:</p>
 
 <pre class="html">&lt;a href=&quot;#arthur&quot;&gt;Open dropdown&lt;/a&gt;
 &lt;div class=&quot;popdown&quot; id=&quot;arthur&quot;&gt;
