@@ -1,8 +1,54 @@
 <h1>template</h1>
 
-<p>A user interface development framework</p>
+<p>A class-based user interface development framework.</p>
 
 <blockquote>It is super brilliant! It is really simple to work with your framework. I am really your fan ;) – Dmitri Dudin</blockquote>
+
+<h2>Techniques</h2>
+
+<p>Before getting started with template, there are a few techniques you should be aware of.</p>
+
+<h3>Inline blocks</h3>
+
+<p>Template uses <code>inline-block</code> extensively to create horizontal layouts. In fact there are no floats in Template. Inline blocks have advantages over floats:</p>
+
+<ul>
+	<li>They stay in the flow, so their parents always 'clear'</li>
+	<li>It is possible to write them in arbitrary content order</li>
+	<li>Inline block layouts can be thought of as a subset of the upcoming box-layout CSS3 module</li>
+</ul>
+
+<p>There is one major gotcha: inline blocks, being inline, are affected by spaces between the blocks. In Template example code, you will frequently see this sort of html formatting:</p>
+
+<pre>&lt;div&gt;
+
+&lt;/div
+
+&gt;&lt;div&gt;
+
+&lt;/div&gt;</pre>
+
+<p>This is a perfectly valid way to format html while avoiding spaces between inline blocks.</p>
+
+<h3></h3>
+
+<h2>CSS</h2>
+
+<!--h3>.button</h3>
+
+<h3>.thumb</h3>
+
+<h3>.card</h3>
+
+<h3>.index</h3>
+
+<h3>.col</h3>
+
+<h3>.wrap</h3-->
+
+<h3>.layer</h3>
+
+<p>Layers are absolutely positioned elements that fill their parents' width and height, and are used to create screens behind popups and loading icons, among other things. Layers inherit their parent's <code class="css">border-radius</code> so to avoid sharp corners over parents that have rounded corners.</p>
 
 <h2>Popdowns, dropdowns, tabs and slides</h2>
 
@@ -64,11 +110,23 @@
 
 <p>&#8230;navigating backwards and forwards through the group respectively.</p>
 
-<h3>Under the hood: the <code>activate</code> event</h3>
+<h2>jQuery</h2>
+
+<p>Template extends jQuery with events and methods.</p>
+
+<h3>activate event</h3>
 
 <p>Popdowns, dropdowns, tabs and slides are all activated by triggering the jQuery special event <code>activate</code>. The definition of this event can be found in js/jquery.event.activate.js. By default, the <code>activate</code> event adds the class <code>active</code> to the element it is triggered on, plus any links that reference that element's id via their <code>href</code> attribute.</p>
 
 <p>The <code>activate</code> event greatly simplifies the code needed to make dropdowns and tabs respond both to user actions and programmatically. Using the <code>activate</code> event as an abstraction, the code that makes dropdowns, popdowns, tabs and slides respond to user events can be found in js/template.ui.js.</p>
+
+<h3>.addLoadingIcon()</h3>
+
+<p>Inserts a <code>.loading_layer</code> with a canvas-animated loading icon into the first element in the current collection.</p>
+
+<h3>.removeLoadingIcon()</h3>
+
+<p>Removes a loading icon from the first element in the current collection. It is important to use this method to cancel loading layers created with <code class="js">.addLoadingIcon()</code> as it also cleans up the animation timer.</p>
 
 <h2>master branch</h2>
 
