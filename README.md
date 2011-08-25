@@ -30,7 +30,7 @@
 <p>In addition to the common functionality, each of these ui classes has some specific behaviour.</p>
 
 <h3>.dropdown</h3>
-
+ 
 <p>Dropdowns are used to make menus and navigation. Once active, they deactivate when the user touches or mousedowns outside them, or when the user clicks on or inside them.</p>
 
 <h3>.popdown</h3>
@@ -39,11 +39,13 @@
 
 <pre class="html">&lt;a href=&quot;#close&quot;&gt;Close&lt;/a&gt;</pre>
 
-<h3>.tab and .slide</h3>
+<h3>.tab, .slide</h3>
 
-<p>Tabs and slides are functionally identical, differing in style only.</p>
+<p>Tabs and slides are functionally identical. Two classes are provided for convenience, as tabs and slides tend to be styled very differently. Where we refer to 'tabs' below, assume that we also mean slides.</p>
 
-<p>In any group of tabs or slides, only one can be active at any one time. Normally, all tab or slide siblings of the tab or slide currently being activated automatically become a group. However, to be more explicit this grouping can be overridden with a <code>data-selector</code> attribute containing a selector that selects all other tabs or slides for the group. The selector can be any selector the jQuery understands. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
+<p>In any group of tabs, only one can be active at any one time. Normally, all <code>.tab</code> siblings of the tab currently being activated automatically become a group.</p>
+
+<p>To be more explicit, the grouping can be overridden with a <code>data-selector</code> attribute containing a selector for all other tabs in the group. The selector can be any that jQuery understands. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
 
 <pre class="html" title="You may be wondering about that odd div closing tag. That's a technique for creating spaceless html. See the section on html style.">&lt;div class=&quot;quote_tab tab&quot; id=&quot;ford&quot; data-selector=&quot;.quote_tab&quot;&gt;
 	&lt;p&gt;Time is an illusion. Lunchtime, doubly so.&lt;/p&gt;
@@ -53,14 +55,14 @@
 	&lt;p&gt;I'm a great and amazing guy, didn't I tell you baby?&lt;/p&gt;
 &lt;/div&gt;</pre>
 
-<p>A little care must be taken. A tab or slide can only belong to one group, and if it is inadvertently selected by another group it will cause some odd behaviour.</p>
+<p>Of course, this means you can create tab groups from non-sibling elements. A little care must be taken, however; all tabs in a group must share the same <code>data-selector</code>: a tab can only belong to one group, and if it is inadvertently selected by another group it will cause some odd behaviour.</p>
 
 <p>Inside tabs and slides, a couple of special links can be used for navigation:</p>
 
 <pre>&lt;a href=&quot;#prev&quot;&gt;Previous slide&lt;/a&gt;
 &lt;a href=&quot;#next&quot;&gt;Next slide&lt;/a&gt;</pre>
 
-<p>&ellips;navigating backwards and forwards through the group respectively.</p>
+<p>&#8230;navigating backwards and forwards through the group respectively.</p>
 
 <h3>Under the hood: the <code>activate</code> event</h3>
 
