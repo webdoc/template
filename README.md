@@ -8,6 +8,10 @@
 
 <p>Before getting started with template, there are a few techniques you should be aware of.</p>
 
+<h3>CSS class system</h3>
+
+<p>Classes in Template are organised following</p>
+
 <h3>Inline blocks</h3>
 
 <p>Template uses <code>inline-block</code> extensively to create horizontal layouts. In fact there are no floats in Template. Inline blocks have advantages over floats:</p>
@@ -20,13 +24,9 @@
 
 <p>There is one major gotcha: inline blocks, being inline, are affected by spaces between the blocks. In Template example code, you will frequently see this sort of html formatting:</p>
 
-<pre>&lt;div&gt;
+<pre>&lt;div&gt;&lt;/div
 
-&lt;/div
-
-&gt;&lt;div&gt;
-
-&lt;/div&gt;</pre>
+&gt;&lt;div&gt;&lt;/div&gt;</pre>
 
 <p>This is a perfectly valid way to format html while avoiding spaces between inline blocks.</p>
 
@@ -122,11 +122,49 @@
 
 <h3>.addLoadingIcon()</h3>
 
-<p>Inserts a <code>.loading_layer</code> with a canvas-animated loading icon into the first element in the current collection.</p>
+<p>Inserts a <code>.loading_layer</code> with a canvas-animated loading icon into the first element in the collection.</p>
 
 <h3>.removeLoadingIcon()</h3>
 
 <p>Removes a loading icon from the first element in the current collection. It is important to use this method to cancel loading layers created with <code class="js">.addLoadingIcon()</code> as it also cleans up the animation timer.</p>
+
+<h3>.addTransitionClass(<code>class</code> [, <code>fn</code> || <code>options</code>])</h3>
+
+<p>Adds the class <code>class</code>. Analogous to <code>.addClass()</code>, only during a CSS transition caused by adding <code>class</code>, the class <code>transition</code> is also present on the node. This allows for styles that require, for example, <code>display: none;</code> to be applied at the end of a transition, where the class <code>transition</code> can be used to override the <code>display</code> value during the transition.</p>
+
+<p>This is probably more clearly explained with a bit of CSS:</p>
+
+<pre class="css">.popup_layer {
+	opacity: 0;
+	display: none;
+	
+	-webkit-transition: opacity 0.06s ease-in;
+	   -moz-transition: opacity 0.06s ease-in;
+	        transition: opacity 0.06s ease-in;
+}
+
+.popup_layer.active {
+	opacity: 1;
+	display: block;
+}
+
+.popup_layer.transition {
+	display: block;
+}</pre>
+
+<p>For more information, and description of options object, have a look at the repository <a href="http://github.com/stephband/jquery.transitions">github.com/stephband/jquery.transitions</a>.</p>
+
+<h3>.removeTransitionClass(<code>class</code> [, <code>fn</code> || <code>options</code>])</h3>
+
+<p>As <code>.addTransitionClass()</code>, only it removes the class <code>class</code>.</p>
+
+<p>For more information, and description of options object, have a look at the repository <a href="http://github.com/stephband/jquery.transitions">github.com/stephband/jquery.transitions</a>.</p>
+
+<h2>Shims</h2>
+
+<h3>details</h3>
+
+<p></p>
 
 <h2>master branch</h2>
 
