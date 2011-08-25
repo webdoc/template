@@ -43,7 +43,7 @@
 
 <p>Tabs and slides are functionally identical. Two classes are provided for convenience, as tabs and slides tend to be styled very differently. Where we refer to 'tabs' below, assume that we also mean slides.</p>
 
-<p>In any group of tabs, only one can be active at any one time. Normally, all <code>.tab</code> siblings of the tab currently being activated automatically become a group.</p>
+<p>In any group of tabs, only one can be active at any one time. Normally, all <code>.tab</code> or <code>.slide</code> siblings of the tab or slide currently being activated automatically become a group.</p>
 
 <p>To be more explicit, the grouping can be overridden with a <code>data-selector</code> attribute containing a selector for all other tabs in the group. The selector can be any that jQuery understands. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
 
