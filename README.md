@@ -39,7 +39,7 @@
 
 <pre class="html">&lt;a href=&quot;#close&quot;&gt;Close&lt;/a&gt;</pre>
 
-<h3>.tab, .slide</h3>
+<h3>.tab<br/>.slide</h3>
 
 <p>Tabs and slides are functionally identical. Two classes are provided for convenience, as tabs and slides tend to be styled very differently. Where we refer to 'tabs' below, assume that we also mean slides.</p>
 
