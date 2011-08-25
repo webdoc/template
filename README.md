@@ -24,9 +24,11 @@
 
 <p>There is one major gotcha: inline blocks, being inline, are affected by spaces between the blocks. In Template example code, you will frequently see this sort of html formatting:</p>
 
-<pre>&lt;div&gt;&lt;/div
+<pre>&lt;div&gt;
+&lt;/div
 
-&gt;&lt;div&gt;&lt;/div&gt;</pre>
+&gt;&lt;div&gt;
+&lt;/div&gt;</pre>
 
 <p>This is a perfectly valid way to format html while avoiding spaces between inline blocks.</p>
 
