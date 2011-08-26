@@ -60,7 +60,7 @@
 
 .drag_thumb,
 .drag_card {
-	border: 1px solid rgb(165,168,171);
+	border: 1px solid rgb(208,210,211);
 }
 
 .drag_thumb {
@@ -412,11 +412,13 @@
 	height: 2em;
 	line-height: 2em;
 	
-	border: 1px solid rgb(165,168,171);
+	border: 1px solid rgb(187,189,191);
 	
   -webkit-border-radius: 0.25em;
      -moz-border-radius: 0.25em;
           border-radius: 0.25em;
+  
+  background-color: 241,241,242;
 }
 
 .search_form > .action_button {
