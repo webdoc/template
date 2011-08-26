@@ -272,6 +272,11 @@
 .tabs_index > li:last-child		{ margin-right: 0; }
 .tabs_index > li.last         { margin-right: 0; }
 
+.tabs_index > li > .button {
+	/* Firefox leaves a gap below the baseline unless buttons
+	   are aligned to top. */
+	vertical-align: top;
+}
 
 /* Items divided by lines */
 
