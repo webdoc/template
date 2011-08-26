@@ -289,23 +289,18 @@
   height: 2.6667em;
   line-height: 2.6667em;
   
-  background-color: rgb(220,220,220);
-  
-  border: 1px solid #999999;
-  border-bottom-color: black;
-  
-  -webkit-border-top-left-radius:  0.25em;
-     -moz-border-radius-topleft:   0.25em;
-          border-top-left-radius:  0.25em;
-  -webkit-border-top-right-radius: 0.25em;
-     -moz-border-radius-topright:  0.25em;
-          border-top-right-radius: 0.25em;
+  background-color: rgb(230,231,232);
 }
 
 .tab_button.active {
-  background-color: rgb(237,237,237);
-  border-color: black;
-  border-bottom-color: rgb(237,237,237);
+	color: white;
+  background-color: rgb(187,189,191);
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
+  background-image: -webkit-linear-gradient(rgb(187,189,191), rgb(128,129,132));
+  background-image:    -moz-linear-gradient(rgb(187,189,191), rgb(128,129,132));
+  background-image:     -ms-linear-gradient(rgb(187,189,191), rgb(128,129,132));
+  background-image:      -o-linear-gradient(rgb(187,189,191), rgb(128,129,132));
+  background-image:         linear-gradient(rgb(187,189,191), rgb(128,129,132));
 }
 
 .filter_button {
@@ -364,6 +359,11 @@
 
 
 /* .index classes */
+
+.tabs_index {
+	border-top: 1px solid white;
+	border-bottom: 1px solid rgb(153,154,157);
+}
 
 .actions_index > li {
   margin-right: 0.6667em;
