@@ -155,38 +155,18 @@
   z-index: -1;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  left: 0;
+  bottom: 0;
   
+  border-top: 1px solid white;
+  border-bottom: 1px solid rgb(230,231,232);
   border-radius: inherit;
-
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
-  background-image: -webkit-linear-gradient(rgb(240,240,241), rgb(218,220,222));
-  background-image:    -moz-linear-gradient(rgb(240,240,241), rgb(218,220,222));
-  background-image:     -ms-linear-gradient(rgb(240,240,241), rgb(218,220,222));
-  background-image:      -o-linear-gradient(rgb(240,240,241), rgb(218,220,222));
-  background-image:         linear-gradient(rgb(240,240,241), rgb(218,220,222));
+  background-color: rgb(241,241,242);
 }
 
 .drag_thumb:hover:before,
 .drag_card:hover:before {
-  /* Make the background gradient. */
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  
-  border-radius: inherit;
-
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
-  background-image: -webkit-linear-gradient(rgb(250,250,250), rgb(240,240,241));
-  background-image:    -moz-linear-gradient(rgb(250,250,250), rgb(240,240,241));
-  background-image:     -ms-linear-gradient(rgb(250,250,250), rgb(240,240,241));
-  background-image:      -o-linear-gradient(rgb(250,250,250), rgb(240,240,241));
-  background-image:         linear-gradient(rgb(250,250,250), rgb(240,240,241));
+  background-color: rgb(230,231,232);
 }
 
 .drag_thumb:after,
@@ -203,12 +183,6 @@
   background-repeat: repeat-y;
   background-position: 50% 0;
   background-image: url('../images/thumbs/dragstrip.png');
-  
-  /*
-  background-color: rgb(230,231,232);
-  border-top: 6px solid rgb(230,231,232);
-  border-bottom: 6px solid rgb(230,231,232);
-  */
   
   background-color: transparent;
   border-top: 7px solid transparent;
@@ -332,7 +306,7 @@
 /* .tab classes */
 
 .tab {
-  background-color: rgb(237,237,237);
+  background-color: white;
   padding: 0.83333em;
 }
 
