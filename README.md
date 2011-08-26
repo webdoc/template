@@ -4,7 +4,7 @@
 
 <blockquote>It is super brilliant! It is really simple to work with your framework. I am really your fan ;) – Dmitri Dudin</blockquote>
 
-<h2>Techniques</h2>
+<!--h2>Techniques</h2>
 
 <p>Before getting started with template, there are a few techniques you should be aware of.</p>
 
@@ -32,7 +32,7 @@
 
 <p>This is a perfectly valid way to format html while avoiding spaces between inline blocks.</p>
 
-<h3></h3>
+<h3></h3-->
 
 <h2>CSS</h2>
 
