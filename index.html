@@ -13,7 +13,13 @@ layout: site
 <dl>
 	<dt>repository</dt><dd><a href="http://github.com/webdoc/template">github.com/webdoc/template</a></dd>
 	<dt>documentation</dt><dd><a href="http://webdoc.github.com/template">webdoc.github.com/template</a></dd>
-	<dt>issues</dt><dd><a href="http://github.com/webdoc/template">github.com/webdoc/template/issues</a></dd>
+</dl>
+
+<h2>The files</h2>
+
+<dl>
+	<dt>template</dt><dd><a href="#">github.com/webdoc/template.css</a></dd>
+	<dt>documentation</dt><dd><a href="http://webdoc.github.com/template">webdoc.github.com/template</a></dd>
 </dl>
 
 <!--h2>Techniques</h2>
@@ -66,11 +72,20 @@ layout: site
 
 <h2>Popdowns, dropdowns, tabs and slides</h2>
 
+<div class="example">
+	<ul class="dropdown dropdown_index index" id="#id_of_dropdown">
+		<li>First item</li>
+		<li>Second item</li>
+	</ul>
+</div>
+
 <p>Popdowns, dropdowns, tabs and slides are class-based ui elements with two states. When they are visible, they have the class <code>active</code>. When they are not, they don't.</p>
 
 <p>They share a common API for triggering active state. Firstly, they are activated when the user clicks on a link that refers to them by id:</p>
 
+<a href="#id_of_dropdown">
 <pre class="html">&lt;a href=&quot;#id_of_dropdown&quot;&gt;Open dropdown&lt;/a&gt;</pre>
+</a>
 
 <p>Secondly, they can also be activated and deactivated programmatically:</p>
 
