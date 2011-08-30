@@ -1,49 +1,35 @@
 <footer class="footer_panel panel">
   <div class="site_wrap wrap">
     <div class="column of_five">
-      <h4><%= t('footer.learn_about_us') %></h4>
+      <h4>Learn about us</h4>
       <ul class="vertical index">
-        <li><%= link_to t('footer.about'), about_path %></li>
-        <li><%= link_to t('footer.resources'), resources_path %></li>
-        <li><%= link_to t('footer.news'), 'http://www.webdoc.com/documents/C4AC34CD-BF00-0001-F98F-1F001FC07100' %></li>
-        <li><a href="mailto:hello@webdoc.com"><%= t('footer.contact_us') %></a></li>
-        <li><%= link_to t('footer.jobs'), jobs_path %></li>
+        <li>About</li>
+        <li>Resources</li>
+        <li>News</li>
+        <li><a href="mailto:hello@webdoc.com">Contact us</a></li>
+        <li>Jobs</li>
       </ul>
     </div
     ><div class="column of_five">
-      <h4><%= t('footer.communities') %></h4>
+      <h4>Communities</h4>
       <ul class="vertical index">
-        <li><%= link_to t('footer.education'), education_path %></li>
+        <li>Education</li>
       </ul>
     </div
     ><div class="column of_five">
-      <h4><%= t('footer.using_webdoc') %></h4>
+      <h4>Using webdoc</h4>
       <ul class="vertical index">
-        <li><%= link_to t('footer.terms_of_service'), terms_of_service_path %></li>
-        <li><%= link_to t('footer.privacy_policy'), privacy_policy_path %></li>
+        <li>Terms of Service</li>
+        <li>Privacy Policy</li>
       </ul>
     </div
     ><div class="column of_five">
-      <h4><%= t('footer.devices') %></h4>
+      <h4>Platforms</h4>
       <ul class="vertical index">
-        <li><%= link_to t('footer.mobile_site'), "http://#{APP_CONFIG['mobile_host']}?mobile=1" %></li>
-      </ul>
-      <h4><%= t('footer.languages') %></h4>
-      <ul class="vertical index">
-        <li><a href="/locale/en">English</a></li>
-        <li><a href="/locale/fr">Français</a></li>
+        <li>webdoc for mobile</li>
       </ul>
     </div
     ><div class="column of_five">
-      <ul class="vertical index">
-        <li><a href="#back_to_top" class="top button"><%= t('footer.top') %></a></li>
-      </ul>
-      <ul class="vertical index">
-        <li><iframe allowtransparency="true" frameborder="0" scrolling="no"
-  src="http://platform.twitter.com/widgets/follow_button.html?screen_name=webdoc&button=grey&text_color=#737373&link_color=#737373&show_count=false"
-  style="width:150px; height:20px;"></iframe></li>
-        <li><iframe src="http://www.facebook.com/plugins/like.php?app_id=121385027958920&amp;href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FWebdoc%2F221885657851328&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe></li>
-      </ul>
       <ul class="vertical index">
         <li>webdoc © 2011, <%= t('footer.rights') %></li>
       </ul>

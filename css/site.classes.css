@@ -1,0 +1,38 @@
+/* .wrap */
+
+.site_wrap {
+  width: 88%;
+}
+
+/* .header */
+
+.site_header {
+  min-width: 100%;
+  height: 3.8333em;
+  
+  background: rgb(51,51,51);
+  background-image: url('../images/gradient_fallback.png');
+  background: -webkit-gradient(linear, left top, left bottom, from( rgb(77,77,77) ), to( rgb(51,51,51) ));
+  background: -webkit-linear-gradient( rgb(77,77,77), rgb(51,51,51) );
+  background:    -moz-linear-gradient( rgb(77,77,77), rgb(51,51,51) );
+  background:      -o-linear-gradient( top, rgb(77,77,77), rgb(51,51,51) );
+  background:         linear-gradient( rgb(77,77,77), rgb(51,51,51) );
+}
+
+/* .footer */
+
+.site_footer {
+  min-width: 100%;
+  height: 15em;
+  padding-top: 2em;
+  
+  color: rgb(115,115,115);
+  font-size: 0.9167em;
+  
+	background: rgb(204,204,204);
+  background-image: url('../images/gradient_fallback.png');
+	background-image: -moz-linear-gradient(top, rgb(179,179,179) 0%, rgb(204,204,204) 10%);
+  background-image: -o-linear-gradient(top, #B3B3B3 0%, #CCCCCC 10%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(179,179,179)), color-stop(10%,rgb(204,204,204)));
+	background-image: -webkit-linear-gradient(top, rgb(179,179,179) 0%, rgb(204,204,204) 10%);
+}
