@@ -9,8 +9,8 @@ body {
   position: relative;
   padding-top: 7em;
   padding-bottom: 20em;
-  background-attachment: fixed;
-  background-position: 0 0 !important;
+  background-color: rgb(230,230,230);
+  color: rgb(51,51,51);
 }
 
 /* manage layers */
@@ -21,12 +21,22 @@ header                { z-index: 6; }
 body > .loading_layer { z-index: 8; }
 #flash                { z-index: 9; }
 
+
 /* The site header */
 .header_panel {
   top: 0;
   min-width: 100%;
   height: 3.8333em;
+  
+  background: rgb(51,51,51);
+  background-image: url('../images/gradient_fallback.png');
+  background: -webkit-gradient(linear, left top, left bottom, from( rgb(77,77,77) ), to( rgb(51,51,51) ));
+  background: -webkit-linear-gradient( rgb(77,77,77), rgb(51,51,51) );
+  background:    -moz-linear-gradient( rgb(77,77,77), rgb(51,51,51) );
+  background:      -o-linear-gradient( top, rgb(77,77,77), rgb(51,51,51) );
+  background:         linear-gradient( rgb(77,77,77), rgb(51,51,51) );
 }
+
 
 /* The site footer */
 .footer_panel {
@@ -34,8 +44,47 @@ body > .loading_layer { z-index: 8; }
   min-width: 100%;
   height: 15em;
   padding-top: 2em;
+  
+	background: rgb(204,204,204);
+  background-image: url('../images/gradient_fallback.png');
+	background-image: -moz-linear-gradient(top, rgb(179,179,179) 0%, rgb(204,204,204) 10%);
+  background-image: -o-linear-gradient(top, #B3B3B3 0%, #CCCCCC 10%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(179,179,179)), color-stop(10%,rgb(204,204,204)));
+	background-image: -webkit-linear-gradient(top, rgb(179,179,179) 0%, rgb(204,204,204) 10%);
+
+  color: rgb(115,115,115);
+  font-size: 0.9167em;
 }
 
+.footer_panel .vertical + .vertical,
+.footer_panel .vertical + h4 {
+  margin-top: 1.5em;
+}
+
+.footer_panel .vertical > li {
+  line-height: 1.1667em;
+  margin-bottom: 0.666em;
+}
+  
+.footer_panel a {
+	color: rgb(115,115,115);
+}
+
+.footer_panel a:hover {
+	color: rgb(79,79,79);
+}
+  
+.footer_panel h4 {
+  font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.9167em;
+  text-transform: uppercase;
+	color: rgb(79,79,79);
+  margin-bottom: 0.666em;
+}
+
+
+/* .thumb */
 .logo_thumb {
   position: absolute;
   top: 0.5em;
