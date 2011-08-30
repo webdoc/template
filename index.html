@@ -73,24 +73,22 @@ layout: site
 <h2>Popdowns, dropdowns, tabs and slides</h2>
 
 <div class="example">
-	<ul class="dropdown dropdown_index index" id="#id_of_dropdown">
-		<li>First item</li>
-		<li>Second item</li>
-	</ul>
+	<div class="dropdown" id="id_of_dropdown">
+		<p>Ford, there is an infinite number of monkeys outside, who want to
+		talk to us about this script for Hamlet they have worked out.</p>
+	</div>
 </div>
 
 <p>Popdowns, dropdowns, tabs and slides are class-based ui elements with two states. When they are visible, they have the class <code>active</code>. When they are not, they don't.</p>
 
 <p>They share a common API for triggering active state. Firstly, they are activated when the user clicks on a link that refers to them by id:</p>
 
-<a href="#id_of_dropdown">
-<pre class="html">&lt;a href=&quot;#id_of_dropdown&quot;&gt;Open dropdown&lt;/a&gt;</pre>
-</a>
+<pre class="html"><a href="#id_of_dropdown">&lt;a href=&quot;#id_of_dropdown&quot;&gt;Open dropdown&lt;/a&gt;</a></pre>
 
 <p>Secondly, they can also be activated and deactivated programmatically:</p>
 
-<pre class="js">jQuery('.dropdown').eq(2).trigger('activate');</pre>
-<pre class="js">jQuery('.dropdown').eq(2).trigger('deactivate');</pre>
+<pre class="js">jQuery('#id_of_dropdown').trigger('activate');
+jQuery('#id_of_dropdown').trigger('deactivate');</pre>
 
 <p>Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
 
