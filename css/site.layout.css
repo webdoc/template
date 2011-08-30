@@ -1,44 +1,48 @@
 /* layout.css */
 
 html {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  min-height: 100%;
-  position: relative;
-  padding-top: 7em;
-  padding-bottom: 20em;
-  background-color: rgb(230,230,230);
-  color: rgb(51,51,51);
+	min-height: 100%;
+	position: relative;
+	padding-top: 7em;
+	padding-bottom: 20em;
+	background-color: rgb(230,230,230);
+	color: rgb(51,51,51);
 }
 
 body > .site_header {
-  top: 0;
+	position: absolute;
+	overflow: visible;
+	top: 0;
 }
 
 body > .site_footer {
-  bottom: 0;
+	position: absolute;
+	overflow: visible;
+	bottom: 0;
 }
 
 
 /* .popdown */
 
 .popdown {
-  background-color: rgb(235,235,235);
-  background-image: url('../images/gradient_fallback.png');
-  background-image: -moz-linear-gradient(top, rgb(245,245,245), rgb(235,235,235));
-  background-image: -o-linear-gradient(top, rgb(245,245,245), rgb(235,235,235));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(245,245,245)), to(rgb(235,235,235)));
-  
-  -webkit-border-radius: 0.3333em;
-     -moz-border-radius: 0.3333em;
-       -o-border-radius: 0.3333em;
-          border-radius: 0.3333em;
-  
-  -webkit-box-shadow: 0 4px 4px 1px rgba(63,63,63,0.4);
-     -moz-box-shadow: 0 4px 4px 1px rgba(63,63,63,0.4);
-          box-shadow: 0 4px 4px 1px rgba(63,63,63,0.4);
+	background-color: rgb(235,235,235);
+	background-image: url('../images/gradient_fallback.png');
+	background-image: -moz-linear-gradient(top, rgb(245,245,245), rgb(235,235,235));
+	background-image: -o-linear-gradient(top, rgb(245,245,245), rgb(235,235,235));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(245,245,245)), to(rgb(235,235,235)));
+	
+	-webkit-border-radius: 0.3333em;
+		 -moz-border-radius: 0.3333em;
+			 -o-border-radius: 0.3333em;
+					border-radius: 0.3333em;
+	
+	-webkit-box-shadow: 0 4px 4px 1px rgba(63,63,63,0.4);
+		 -moz-box-shadow: 0 4px 4px 1px rgba(63,63,63,0.4);
+					box-shadow: 0 4px 4px 1px rgba(63,63,63,0.4);
 }
 
 /* Dropdown */
@@ -52,15 +56,18 @@ body > .site_footer {
 	   -moz-border-radius: 0.3333em 0.3333em 0 0;
 	        border-radius: 0.3333em 0.3333em 0 0;
 }
+
 .tabs_index li {
-  margin: 0;
-  padding-right: 1px;
+	margin: 0;
+	padding-right: 1px;
 }
+
 .tabs_index li:first-child, .tabs_index li:first-child .tab_button {
 	-webkit-border-radius: 0.3333em 0 0 0;
 	   -moz-border-radius: 0.3333em 0 0 0;
 	        border-radius: 0.3333em 0 0 0;
 }
+
 .tabs_index li::after {
 	content: '';
 	display: block;
@@ -70,12 +77,12 @@ body > .site_footer {
 	width: 1px;
 	height: 100%;
 	background-color: rgb(235,235,235);
-  background-image: url('../images/gradient_fallback.png');
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(245,245,245)), to(rgb(204,204,204)));  
-  background-image: -webkit-linear-gradient(rgb(245,245,245), rgb(204,204,204));  
-  background-image: -moz-linear-gradient(top, rgb(245,245,245), rgb(204,204,204));
-  background-image: -o-linear-gradient(top, rgb(245,245,245), rgb(204,204,204));
-  background-image: linear-gradient(rgb(245,245,245), rgb(204,204,204));
+	background-image: url('../images/gradient_fallback.png');
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(245,245,245)), to(rgb(204,204,204)));	
+	background-image: -webkit-linear-gradient(rgb(245,245,245), rgb(204,204,204));	
+	background-image: -moz-linear-gradient(top, rgb(245,245,245), rgb(204,204,204));
+	background-image: -o-linear-gradient(top, rgb(245,245,245), rgb(204,204,204));
+	background-image: linear-gradient(rgb(245,245,245), rgb(204,204,204));
 }
 
 /* form */
