@@ -5,6 +5,21 @@
 }
 
 
+/* .col */
+
+.doc_col {
+	width: 73%;
+	margin-right: -73%;
+	left: 0;
+}
+
+.example_col {
+	width: 25%;
+	margin-right: -25%;
+	left: 75%;
+}
+
+
 /* .header */
 
 .site_header {
