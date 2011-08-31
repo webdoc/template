@@ -101,13 +101,14 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 	
 	<p>Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
 	
-	<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to a node. Here we add the class <code>popdown</code> to a div:</p>
+	<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to an element. Here we add the class <code>popdown</code> to a div:</p>
 	
-	<pre class="html">&lt;a href=&quot;#arthur&quot;&gt;Open dropdown&lt;/a&gt;
-&lt;div class=&quot;popdown&quot; id=&quot;arthur&quot;&gt;
-	&lt;p&gt;Ford, there is an infinite number of monkeys outside, who want to
-	talk to us about this script for Hamlet they have worked out.&lt;/p&gt;
-&lt;/div&gt;</pre>
+	{% highlight html %}<a href="#arthur">Open dropdown</a>
+
+<div class="popdown" id="arthur">
+  <p>Ford, there is an infinite number of monkeys outside, who want to
+  talk to us about this script for Hamlet they have worked out.</p>
+</div>{% endhighlight %}
 	
 	<p>In addition to the common functionality, each of these ui classes has some specific behaviour.</p>
 </div>
@@ -121,7 +122,7 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 
 <p>Popdowns are used to make menus, drawers, and elements that require explicit deactivation. Once active, they deactivate when the user touches or mousedowns outside them, or when a <code>#close</code> link is clicked inside them:</p>
 
-<pre class="html">&lt;a href=&quot;#close&quot;&gt;Close&lt;/a&gt;</pre>
+{% highlight html %}<a href="#close">Close</a>{% endhighlight %}
 
 <h3>.tab<br/>.slide</h3>
 
@@ -131,20 +132,22 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 
 <p>To be more explicit, the grouping can be overridden with a <code>data-selector</code> attribute containing a selector for all other tabs in the group. The selector can be any that jQuery understands. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
 
-<pre class="html" title="You may be wondering about that odd div closing tag. That's a technique for creating spaceless html. See the section on html style.">&lt;div class=&quot;quote_tab tab&quot; id=&quot;ford&quot; data-selector=&quot;.quote_tab&quot;&gt;
-	&lt;p&gt;Time is an illusion. Lunchtime, doubly so.&lt;/p&gt;
-&lt;/div
+{% highlight html %}<div class="quote_tab tab" id="ford" data-selector=".quote_tab">
+	<p>Time is an illusion. Lunchtime, doubly so.</p>
+</div
 
-&gt;&lt;div class=&quot;quote_tab tab&quot; id=&quot;zaphod&quot; data-selector=&quot;.quote_tab&quot;&gt;
-	&lt;p&gt;I'm a great and amazing guy, didn't I tell you baby?&lt;/p&gt;
-&lt;/div&gt;</pre>
+><div class="quote_tab tab" id="zaphod" data-selector=".quote_tab">
+	<p>I'm a great and amazing guy, didn't I tell you baby?</p>
+</div>{% endhighlight %}
+
+<!-- You may be wondering about that odd div closing tag. That's a technique for creating spaceless html. See the section on working with inline-blocks. -->
 
 <p>Of course, this means you can create tab groups from non-sibling elements. A little care must be taken, however; all tabs in a group must share the same <code>data-selector</code>: a tab can only belong to one group, and if it is inadvertently selected by another group it will cause some odd behaviour.</p>
 
 <p>Inside tabs and slides, a couple of special links can be used for navigation:</p>
 
-<pre>&lt;a href=&quot;#prev&quot;&gt;Previous slide&lt;/a&gt;
-&lt;a href=&quot;#next&quot;&gt;Next slide&lt;/a&gt;</pre>
+{% highlight html %}<a href="#prev">Previous slide</a>
+<a href="#next">Next slide</a>{% endhighlight %}
 
 <p>&#8230;navigating backwards and forwards through the group respectively.</p>
 
