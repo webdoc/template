@@ -1,9 +1,7 @@
-.highlight {
-	margin-bottom: 0.8333em;
-}
+.highlight     {
+	color: #f8f8f2
+	background: #272822;
 
-.highlight pre {
-	background-color: rgba(255,255,255,0.6);
 	padding: 0.8333em;
 	
 	-webkit-border-radius: 0.5em;
@@ -12,7 +10,7 @@
 }
 
 .highlight .hll { background-color: #49483e }
-.highlight     { background: #272822; color: #f8f8f2 }
+
 .highlight .c  { color: #75715e } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
 .highlight .k  { color: #66d9ef } /* Keyword */
