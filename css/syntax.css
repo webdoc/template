@@ -1,6 +1,6 @@
 .highlight {
 	color: #f8f8f2;
-	background-color: hsl(210,80%,20%);
+	background-color: hsl(210,20%,25%);
 
 	padding: 0.8333em;
 	
@@ -15,7 +15,7 @@ a:hover > .highlight {
 }
 
 a:hover > .highlight {
-	background-color: hsl(210,80%,30%);
+	background-color: hsl(210,20%,35%);
 }
 
 .highlight > pre {
