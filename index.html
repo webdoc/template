@@ -2,78 +2,81 @@
 layout: site
 ---
 
-<h1>template</h1>
-
-<p>A class-based web UI development framework for making webdoc.com apps and widgets.</p>
-
-<blockquote>It is super brilliant! It is really simple to work with your framework. I am really your fan ;) – Dmitri Dudin</blockquote>
-
-<h2>The project</h2>
-
-<dl>
-	<dt>repository</dt><dd><a href="http://github.com/webdoc/template">github.com/webdoc/template</a></dd>
-	<dt>documentation</dt><dd><a href="http://webdoc.github.com/template">webdoc.github.com/template</a></dd>
-</dl>
-
-<h2>The files</h2>
-
-<dl>
-	<dt>template</dt><dd><a href="#">github.com/webdoc/template.css</a></dd>
-	<dt>documentation</dt><dd><a href="http://webdoc.github.com/template">webdoc.github.com/template</a></dd>
-</dl>
-
-<!--h2>Techniques</h2>
-
-<p>Before getting started with template, there are a few techniques you should be aware of.</p>
-
-<h3>CSS class system</h3>
-
-<p>Classes in Template are organised following</p>
-
-<h3>Inline blocks</h3>
-
-<p>Template uses <code>inline-block</code> extensively to create horizontal layouts. In fact there are no floats in Template. Inline blocks have advantages over floats:</p>
-
-<ul>
-	<li>They stay in the flow, so their parents always 'clear'</li>
-	<li>It is possible to write them in arbitrary content order</li>
-	<li>Inline block layouts can be thought of as a subset of the upcoming box-layout CSS3 module</li>
-</ul>
-
-<p>There is one major gotcha: inline blocks, being inline, are affected by spaces between the blocks. In Template example code, you will frequently see this sort of html formatting:</p>
-
-<pre>&lt;div&gt;
-&lt;/div
-
-&gt;&lt;div&gt;
-&lt;/div&gt;</pre>
-
-<p>This is a perfectly valid way to format html while avoiding spaces between inline blocks.</p>
-
-<h3></h3-->
-
-<h2>CSS</h2>
-
-<!--h3>.button</h3>
-
-<h3>.thumb</h3>
-
-<h3>.card</h3>
-
-<h3>.index</h3>
-
-<h3>.col</h3>
-
-<h3>.wrap</h3-->
-
-<h3>.layer</h3>
-
-<p>Layers are absolutely positioned elements that fill their parents' width and height, and are used to create screens behind popups and loading icons, among other things. Layers inherit their parent's <code class="css">border-radius</code> so to avoid sharp corners over parents that have rounded corners.</p>
-
-
+<section class="site_wrap wrap">
+	<h1>template</h1>
+	
+	<p>A class-based web UI development framework for making webdoc.com apps and widgets.</p>
+	
+	<blockquote>It is super brilliant! It is really simple to work with your framework. I am really your fan ;) – Dmitri Dudin</blockquote>
+	
+	<h2>The project</h2>
+	
+	<dl>
+		<dt>repository</dt><dd><a href="http://github.com/webdoc/template">github.com/webdoc/template</a></dd>
+		<dt>documentation</dt><dd><a href="http://webdoc.github.com/template">webdoc.github.com/template</a></dd>
+	</dl>
+	
+	<h2>The files</h2>
+	
+	<dl>
+		<dt>template</dt><dd><a href="#">github.com/webdoc/template.css</a></dd>
+		<dt>documentation</dt><dd><a href="http://webdoc.github.com/template">webdoc.github.com/template</a></dd>
+	</dl>
+	
+	<!--h2>Techniques</h2>
+	
+	<p>Before getting started with template, there are a few techniques you should be aware of.</p>
+	
+	<h3>CSS class system</h3>
+	
+	<p>Classes in Template are organised following</p>
+	
+	<h3>Inline blocks</h3>
+	
+	<p>Template uses <code>inline-block</code> extensively to create horizontal layouts. In fact there are no floats in Template. Inline blocks have advantages over floats:</p>
+	
+	<ul>
+		<li>They stay in the flow, so their parents always 'clear'</li>
+		<li>It is possible to write them in arbitrary content order</li>
+		<li>Inline block layouts can be thought of as a subset of the upcoming box-layout CSS3 module</li>
+	</ul>
+	
+	<p>There is one major gotcha: inline blocks, being inline, are affected by spaces between the blocks. In Template example code, you will frequently see this sort of html formatting:</p>
+	
+	<pre>&lt;div&gt;
+	&lt;/div
+	
+	&gt;&lt;div&gt;
+	&lt;/div&gt;</pre>
+	
+	<p>This is a perfectly valid way to format html while avoiding spaces between inline blocks.</p>
+	
+	<h3></h3-->
+</section>
 
 <section>
+	<div class="site_wrap wrap">
+		<h2>CSS</h2>
 
+		<!--h3>.button</h3>
+		
+		<h3>.thumb</h3>
+		
+		<h3>.card</h3>
+		
+		<h3>.index</h3>
+		
+		<h3>.col</h3>
+		
+		<h3>.wrap</h3-->
+		
+		<h3>.layer</h3>
+		
+		<p>Layers are absolutely positioned elements that fill their parents' width and height, and are used to create screens behind popups and loading icons, among other things. Layers inherit their parent's <code class="css">border-radius</code> so to avoid sharp corners over parents that have rounded corners.</p>
+	</div>
+<section>
+
+<section>
 	<div class="site_wrap wrap">
 		<h2>Activatable elements</h2>
 
@@ -98,23 +101,23 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 	</div>
 
 	<div class="example_wrap wrap">
-		{% highlight html %}<a href="#arthur">Open dropdown</a>
+		<div class="site_wrap wrap">
+			{% highlight html %}<a href="#arthur">Open dropdown</a>
 	
 <div class="dropdown" id="arthur">
   <p>Ford, there is an infinite number of monkeys outside, who want to
   talk to us about this script for Hamlet they have worked out.</p>
 </div>{% endhighlight %}
 	
-		<a href="#arthur">Open dropdown</a>
+			<a href="#arthur">Open dropdown</a>
 		
-		<div class="dropdown" id="arthur">
-		  <p>Ford, there is an infinite number of monkeys outside, who want to
-		  talk to us about this script for Hamlet they have worked out.</p>
+			<div class="dropdown" id="arthur">
+				<p>Ford, there is an infinite number of monkeys outside, who want to talk to us about this script for Hamlet they have worked out.</p>
+			</div>
 		</div>
 	</div>
 	
 	<p>In addition to the common functionality, each of these ui classes has some specific behaviour.</p>
-
 
 <h3>.dropdown</h3>
  
