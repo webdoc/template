@@ -94,8 +94,10 @@ layout: site
 	
 	<p>Secondly, they can also be activated and deactivated programmatically:</p>
 	
+	<a class="nostyle" href="#id_of_dropdown">
 	{% highlight js %}jQuery('#id_of_dropdown').trigger('activate');
 jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
+	</a>
 	
 	<p>Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
 	
