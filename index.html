@@ -129,11 +129,12 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 		<h3>.popdown</h3>
 		
 		<p>Popdowns are used to make menus, drawers, and elements that require explicit deactivation. Once active, they deactivate when the user touches or mousedowns outside them, or when a <code>#close</code> link is clicked inside them:</p>
-		
-		<div class="example_wrap wrap">
-			<div class="site_wrap wrap">
-				<div class="doc_col col">
-					{% highlight html %}<a href="#arthur">Open dropdown</a>
+	</div>
+	
+	<div class="example_wrap wrap">
+		<div class="site_wrap wrap">
+			<div class="doc_col col">
+				{% highlight html %}<a href="#arthur">Open dropdown</a>
 	
 <div class="popdown" id="arthur">
   <p>Ford, there is an infinite number of monkeys outside, who want to
@@ -141,29 +142,26 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
   
   <a href="#close">Close</a>
 </div>{% endhighlight %}
-				</div>
+			</div>
 				
-				<div class="example_col col">
-					<a href="#arthur">Open dropdown</a>
-					
-					<div class="popdown" id="arthur">
-						<p>Ford, there is an infinite number of monkeys outside, who want to talk to us about this script for Hamlet they have worked out.</p>
-						
-						<a href="#close">Close</a>
-					</div>
+			<div class="example_col col">
+				<a href="#arthur">Open dropdown</a>
+				
+				<div class="popdown" id="arthur">
+					<p>Ford, there is an infinite number of monkeys outside, who want to talk to us about this script for Hamlet they have worked out.</p>
+					<a href="#close">Close</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-<h3>.tab<br/>.slide</h3>
-
-<p>Tabs and slides are functionally identical. Two classes are provided for convenience, as tabs and slides tend to be styled very differently. Where we refer to 'tabs' below, assume that we also mean slides.</p>
-
-<p>In any group of tabs, only one can be active at any one time. Normally, all <code>.tab</code> or <code>.slide</code> siblings of the tab or slide currently being activated automatically become a group.</p>
-
-<p>To be more explicit, the grouping can be overridden with a <code>data-selector</code> attribute containing a selector for all other tabs in the group. The selector can be any that jQuery understands. Here are two tabs grouped using a class selector:</p>
-
+	<div class="site_wrap wrap">
+		<h3>.tab<br/>.slide</h3>
+		<p>Tabs and slides are functionally identical. Two classes are provided for convenience, as tabs and slides tend to be styled very differently. Where we refer to 'tabs' below, assume that we also mean slides.</p>
+		<p>In any group of tabs, only one can be active at any one time. Normally, all <code>.tab</code> or <code>.slide</code> siblings of the tab or slide currently being activated automatically become a group.</p>
+		<p>To be more explicit, the grouping can be overridden with a <code>data-selector</code> attribute containing a selector for all other tabs in the group. The selector can be any that jQuery understands. Here are two tabs grouped using a class selector:</p>
+	</div>
+	
 {% highlight html %}<div class="quote_tab tab" id="ford" data-selector=".quote_tab">
   <p>Time is an illusion. Lunchtime, doubly so.</p>
 </div
@@ -173,16 +171,17 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 </div>{% endhighlight %}
 
 <!-- You may be wondering about that odd div closing tag. That's a technique for creating spaceless html. See the section on working with inline-blocks. -->
-
-<p>Of course, this means you can create tab groups from non-sibling elements. A little care must be taken, however; all tabs in a group must share the same <code>data-selector</code>: a tab can only belong to one group, and if it is inadvertently selected by another group it will cause some odd behaviour.</p>
-
-<p>Inside tabs and slides, a couple of special links can be used for navigation:</p>
+	<div class="site_wrap wrap">
+		<p>Of course, this means you can create tab groups from non-sibling elements. A little care must be taken, however; all tabs in a group must share the same <code>data-selector</code>: a tab can only belong to one group, and if it is inadvertently selected by another group it will cause some odd behaviour.</p>
+		<p>Inside tabs and slides, a couple of special links can be used for navigation:</p>
+	</div>
 
 {% highlight html %}<a href="#prev">Previous slide</a>
 <a href="#next">Next slide</a>{% endhighlight %}
 
-<p>&#8230;navigating backwards and forwards through the group respectively.</p>
-
+	<div class="site_wrap wrap">
+		<p>&#8230;navigating backwards and forwards through the group respectively.</p>
+	</div>
 </section>
 
 
