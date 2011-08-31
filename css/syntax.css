@@ -60,7 +60,7 @@ a:hover > .highlight {
 .highlight .nf { color: #a6e22e } /* Name.Function */
 .highlight .nl { color: #f8f8f2 } /* Name.Label */
 .highlight .nn { color: #f8f8f2 } /* Name.Namespace */
-.highlight .nx { color: hsl(15,100%,65%); } /* Name.Other */
+.highlight .nx { color: hsl(75,86%,68%); } /* Name.Other */
 .highlight .py { color: #f8f8f2 } /* Name.Property */
 .highlight .nt { color: hsl(30,100%,60%); } /* Name.Tag */
 .highlight .nv { color: #f8f8f2 } /* Name.Variable */
