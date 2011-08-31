@@ -74,7 +74,7 @@ layout: site
 
 <section>
 
-<h2>Popdowns, dropdowns, tabs and slides</h2>
+<h2>Activatable elements</h2>
 
 <div class="example_col col">
 	<div class="dropdown" id="id_of_dropdown">
@@ -101,11 +101,11 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 	
 	<p>Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
 	
-	<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to an element. Here we add the class <code>popdown</code> to a div:</p>
+	<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to an element, then linking to it by id. The link now controls its state:</p>
 	
 	{% highlight html %}<a href="#arthur">Open dropdown</a>
 
-<div class="popdown" id="arthur">
+<div class="dropdown" id="arthur">
   <p>Ford, there is an infinite number of monkeys outside, who want to
   talk to us about this script for Hamlet they have worked out.</p>
 </div>{% endhighlight %}
@@ -130,14 +130,14 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 
 <p>In any group of tabs, only one can be active at any one time. Normally, all <code>.tab</code> or <code>.slide</code> siblings of the tab or slide currently being activated automatically become a group.</p>
 
-<p>To be more explicit, the grouping can be overridden with a <code>data-selector</code> attribute containing a selector for all other tabs in the group. The selector can be any that jQuery understands. Here are two tabs grouped using a <code>data-selector</code> attribute:</p>
+<p>To be more explicit, the grouping can be overridden with a <code>data-selector</code> attribute containing a selector for all other tabs in the group. The selector can be any that jQuery understands. Here are two tabs grouped using a class selector:</p>
 
 {% highlight html %}<div class="quote_tab tab" id="ford" data-selector=".quote_tab">
-	<p>Time is an illusion. Lunchtime, doubly so.</p>
+  <p>Time is an illusion. Lunchtime, doubly so.</p>
 </div
 
 ><div class="quote_tab tab" id="zaphod" data-selector=".quote_tab">
-	<p>I'm a great and amazing guy, didn't I tell you baby?</p>
+  <p>I'm a great and amazing guy, didn't I tell you baby?</p>
 </div>{% endhighlight %}
 
 <!-- You may be wondering about that odd div closing tag. That's a technique for creating spaceless html. See the section on working with inline-blocks. -->
