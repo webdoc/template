@@ -19,7 +19,7 @@
 	left: 75%;
 	
 	min-height: 3em;
-	border-left: 1px solid rgb(96,96,96);
+	background-color: rgba(220,220,220,0.2);
 }
 
 
