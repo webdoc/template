@@ -80,9 +80,9 @@ layout: site
 	<div class="site_wrap wrap">
 		<h2>Activatable elements</h2>
 
-		<p>Popdowns, dropdowns, tabs and slides are class-based ui elements with two states. When they are visible, they have the class <code>active</code>. When they are not, they don't.</p>
+		<p>Popdowns, dropdowns, tabs and slides are ui elements with two states. When they are visible, they have the class <code>active</code>. When they are not, they don't.</p>
 	
-		<p>They share a common API for triggering active state. Firstly, they are activated when the user clicks on a link that refers to them by id:</p>
+		<p>They share a common way to trigger active state. Firstly, they are activated when the user clicks on a link that refers to them by id:</p>
 	
 		<a class="nostyle" href="#id_of_dropdown">
 		{% highlight html %}<a href="#id_of_dropdown">Open dropdown</a>{% endhighlight %}
@@ -94,10 +94,14 @@ layout: site
 {% highlight js %}jQuery('#id_of_dropdown').trigger('activate');
 jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 		</a>
+		
+		<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to an element, then linking to it by id. Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
+	</div>
 	
-		<p>Links that refer to popdowns, dropdowns, tabs and slides are also given the class <code>active</code>, making it easy to create stateful buttons. Transitions to and from active state are defined using CSS transitions.</p>
-	
-		<p>Creating a popdown, dropdown, set of tabs or a slide is as easy as adding a class to an element, then linking to it by id. The link now controls its state:</p>
+	<div class="site_wrap wrap">
+		<h3>.dropdown</h3>
+		
+		<p>Dropdowns are used to make menus and navigation. Once active, they deactivate when the user touches or mousedowns outside them, or when the user clicks on or inside them.</p>
 	</div>
 
 	<div class="example_wrap wrap">
@@ -121,17 +125,36 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 		</div>
 	</div>
 	
-	<p>In addition to the common functionality, each of these ui classes has some specific behaviour.</p>
-
-<h3>.dropdown</h3>
- 
-<p>Dropdowns are used to make menus and navigation. Once active, they deactivate when the user touches or mousedowns outside them, or when the user clicks on or inside them.</p>
-
-<h3>.popdown</h3>
-
-<p>Popdowns are used to make menus, drawers, and elements that require explicit deactivation. Once active, they deactivate when the user touches or mousedowns outside them, or when a <code>#close</code> link is clicked inside them:</p>
-
-{% highlight html %}<a href="#close">Close</a>{% endhighlight %}
+	<div class="site_wrap wrap">
+		<h3>.popdown</h3>
+		
+		<p>Popdowns are used to make menus, drawers, and elements that require explicit deactivation. Once active, they deactivate when the user touches or mousedowns outside them, or when a <code>#close</code> link is clicked inside them:</p>
+		
+		<div class="example_wrap wrap">
+			<div class="site_wrap wrap">
+				<div class="doc_col col">
+					{% highlight html %}<a href="#arthur">Open dropdown</a>
+	
+<div class="popdown" id="arthur">
+  <p>Ford, there is an infinite number of monkeys outside, who want to
+  talk to us about this script for Hamlet they have worked out.</p>
+  
+  <a href="#close">Close</a>
+</div>{% endhighlight %}
+				</div>
+				
+				<div class="example_col col">
+					<a href="#arthur">Open dropdown</a>
+					
+					<div class="popdown" id="arthur">
+						<p>Ford, there is an infinite number of monkeys outside, who want to talk to us about this script for Hamlet they have worked out.</p>
+						
+						<a href="#close">Close</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <h3>.tab<br/>.slide</h3>
 
