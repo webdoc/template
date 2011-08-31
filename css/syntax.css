@@ -1,16 +1,18 @@
-.highlight {
+.example_wrap {
 	color: hsl(210, 10%, 90%);
 	background-color: hsl(210,10%,25%);
-
-	padding: 0.8333em;
 	
-	-webkit-border-radius: 0.5em;
+	/*-webkit-border-radius: 0.5em;
 	   -moz-border-radius: 0.5em;
-	        border-radius: 0.5em;
+	        border-radius: 0.5em;*/
 	
   -webkit-box-shadow: inset 0 2px 16px black;
      -moz-box-shadow: inset 0 2px 16px black;
           box-shadow: inset 0 2px 16px black;
+}
+
+.highlight {
+	padding: 0.8333em;
 }
 
 a:hover > .highlight {
