@@ -1,10 +1,11 @@
-.example_wrap {
+.example_wrap,
+.highlight {
 	color: hsl(210, 10%, 90%);
 	background-color: hsl(210,10%,25%);
 	
-	/*-webkit-border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
 	   -moz-border-radius: 0.5em;
-	        border-radius: 0.5em;*/
+	        border-radius: 0.5em;
 	
   -webkit-box-shadow: inset 0 2px 16px black;
      -moz-box-shadow: inset 0 2px 16px black;
@@ -13,6 +14,19 @@
 
 .highlight {
 	padding: 0.8333em;
+}
+
+.example_wrap .highlight {
+	color: inherit;
+	background-color: transparent;
+	
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+	        border-radius: 0;
+	
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
 }
 
 a:hover > .highlight {
