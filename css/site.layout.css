@@ -25,6 +25,11 @@ body > .site_footer {
 	bottom: 0;
 }
 
+a.nostyle,
+a.nostyle:hover {
+	text-decoration: none;
+}
+
 .highlight {
 	margin-bottom: 1em;
 }

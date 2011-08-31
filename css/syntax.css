@@ -13,11 +13,6 @@
           box-shadow: inset 0 2px 16px black;
 }
 
-a > .highlight,
-a:hover > .highlight {
-	text-decoration: none;
-}
-
 a:hover > .highlight {
 	background-color: hsl(210,10%,40%);
 }
