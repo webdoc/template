@@ -182,23 +182,20 @@ jQuery('#id_of_dropdown').trigger('deactivate');{% endhighlight %}
 
 <p>This is probably more clearly explained with a bit of CSS:</p>
 
-<pre class="css">.popup_layer {
-	opacity: 0;
-	display: none;
-	
-	-webkit-transition: opacity 0.06s ease-in;
-	   -moz-transition: opacity 0.06s ease-in;
-	        transition: opacity 0.06s ease-in;
+{% highlight css %}.popup_layer {
+  opacity: 0;
+  display: none;
+  transition: opacity 0.06s ease-in;
 }
 
 .popup_layer.active {
-	opacity: 1;
-	display: block;
+  opacity: 1;
+  display: block;
 }
 
 .popup_layer.transition {
-	display: block;
-}</pre>
+  display: block;
+}{% endhighlight %}
 
 <p>For more information, and description of options object, have a look at the repository <a href="http://github.com/stephband/jquery.transitions">github.com/stephband/jquery.transitions</a>.</p>
 
