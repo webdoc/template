@@ -16,12 +16,13 @@
 	left: 0;
 }
 
-.example_col {
-	width: 25%;
-	margin-right: -25%;
-	left: 75%;
+.example {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
 	
-	min-height: 3em;
+	width: 33%;
 	background-color: rgba(220,220,220,0.2);
 }
 
