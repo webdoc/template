@@ -24,7 +24,13 @@
 	
 	width: 33%;
 	padding: 0.8333em;
+	
+	color: hsl(204,10%,90%);
 	background-color: rgba(220,220,220,0.4);
+}
+
+.example a {
+	color: white;
 }
 
 
