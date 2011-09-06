@@ -4,8 +4,17 @@
 	width: 88%;
 }
 
+h3 {
+	margin-top: 2.8571em;
+}
+
 .example_wrap {
-	margin-bottom: 2.8571em;
+	margin-bottom: 0.7143em;
+}
+
+.example_wrap > .site_wrap {
+	padding-top: 0.7143em;
+	padding-bottom: 0.7143em;
 }
 
 /* .col */
@@ -16,6 +25,24 @@
 	left: 0;
 }
 
+.example_col {
+	width: 33%;
+	margin-right: -33%;
+	left: 67%;
+	
+	margin-top: -0.7143em;
+	margin-bottom: -0.7143em;
+	padding-left: 0.7143em;
+	padding-right: 0.7143em;
+	padding-top: 0.7143em;
+	padding-bottom: 0.7143em;
+	
+	min-height: 4.2em;
+	
+	color: hsl(204,10%,90%);
+	background-color: rgba(220,220,220,0.4);
+}
+
 .example {
 	position: absolute;
 	right: 0;
@@ -23,13 +50,16 @@
 	bottom: 0;
 	
 	width: 33%;
-	padding: 0.8333em;
+	padding: 0.7143em;
+	
+	overflow: hidden;
 	
 	color: hsl(204,10%,90%);
 	background-color: rgba(220,220,220,0.4);
 }
 
-.example a {
+.example a,
+.example_col a {
 	color: white;
 }
 
