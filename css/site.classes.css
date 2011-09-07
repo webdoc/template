@@ -45,9 +45,9 @@ h3 {
 
 .app_example_col {
 	width: 400px;
-	margin-right: -400px;
-	left: auto;
-	right: 0;
+	margin-left: -400px;
+	margin-right: 0;
+	left: 100%;
 	padding: 0;
 }
 
