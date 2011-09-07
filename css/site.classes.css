@@ -43,6 +43,14 @@ h3 {
 	background-color: rgba(220,220,220,0.4);
 }
 
+.app_example_col {
+	width: 400px;
+	margin-right: -400px;
+	left: auto;
+	right: 0;
+	padding: 0;
+}
+
 .example {
 	position: absolute;
 	right: 0;
