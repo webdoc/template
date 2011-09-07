@@ -1,0 +1,45 @@
+---
+layout: site
+---
+
+<div class="site_wrap wrap">
+	<h2>Techniques</h2>
+	
+	<p>Before getting started with Template, there are a few techniques you should be aware of.</p>
+	
+	<!--h3>CSS class system</h3>
+	
+	<p>Classes in Template are organised following</p-->
+</div>
+
+<div class="site_wrap wrap" id="inlineblocks">	
+	<h3>Inline blocks</h3>
+	
+	<p>Template uses <code>inline-block</code> extensively to create horizontal layouts. In fact there are no floats in Template. Inline blocks have advantages over floats:</p>
+	
+	<ul>
+	  <li>They stay in the flow, so their parents always 'clear'</li>
+	  <li>It is possible to write them in arbitrary content order</li>
+	  <li>Inline block layouts have direct analogues with parts of the upcoming box-layout CSS3 module</li>
+	</ul>
+	
+	<p>There is one major gotcha: inline blocks, being inline, are affected by spaces between the blocks. In Template example code, you will frequently see this sort of html formatting:</p>
+</div>
+
+<div class="example_wrap wrap">
+	<div class="site_wrap wrap">
+		{% highlight html %}<ul class="horizontal index">
+  <li>
+  </li
+  
+  ><li>
+  </li>
+</ul>{% endhighlight %}
+	</div>
+</div>
+
+<div class="site_wrap wrap">
+	<p>That first <code>li</code> closing tag may look mal-formed, but in fact it is a perfectly valid way to format html while avoiding spaces between inline blocks.</p>
+</div>
+
+<iframe src="apps.iframe.html"></iframe>
