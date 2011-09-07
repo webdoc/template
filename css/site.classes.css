@@ -44,11 +44,12 @@ h3 {
 }
 
 .app_example_col {
-	width: 400px;
+	width: 402px;
 	margin-left: -400px;
 	margin-right: 0;
 	left: 100%;
 	padding: 0;
+	border: 1px solid black;
 }
 
 .example {
