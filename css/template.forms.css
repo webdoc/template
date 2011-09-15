@@ -247,14 +247,6 @@ textarea:focus {
   /* In Webkit, outline doesn't fit the border curves, and in FF outline
      is ugly. Lets recreate it with box-shadow */
   outline: none;
-  
-  /* Old Safari doesn't do blur radius */
-  -webkit-box-shadow: 0 0 12px hsl( 72, 100%, 50% );
-  /* but Chrome does... */
-  -webkit-box-shadow: 0 0 4px 2px hsl( 72, 100%, 50% ), inset 0 0 4px hsl( 72, 100%, 50% );
-  /* Create webkit-like outlines for FF */
-  -moz-box-shadow:    0 0 4px 2px hsl( 72, 100%, 50% ), inset 0 0 4px hsl( 72, 100%, 50% );
-  box-shadow:         0 0 4px 2px hsl( 72, 100%, 50% ), inset 0 0 4px hsl( 72, 100%, 50% );
 }
 input[type='text'].error,
 input[type='password'].error,
