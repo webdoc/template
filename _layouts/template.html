@@ -22,20 +22,17 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/template.reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/template.typography.css" />
-	<link rel="stylesheet" type="text/css" href="css/template.typography.14_20.css" />
 	<link rel="stylesheet" type="text/css" href="css/template.forms.css" />
 	<link rel="stylesheet" type="text/css" href="css/template.classes.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/template.ie.css" /><![endif]-->
 	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="css/template.ie8.css" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/template.ie7.css" /><![endif]-->
 	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/template.ie6.css" /><![endif]-->
-	<link rel="stylesheet" type="text/css" href="css/site.classes.css" />
-	<link rel="stylesheet" type="text/css" href="css/site.layout.css" />
-	<link rel="stylesheet" type="text/css" href="css/syntax.css" />
+	
 	{% if page.css %}
-		{% for css in page.css %}
-			<link rel="stylesheet" type="text/css" href="{{ css }}" />
-		{% endfor %}
+	{% for css in page.css %}
+	<link rel="stylesheet" type="text/css" href="{{ css }}" />
+	{% endfor %}
 	{% endif %}
 </head>
 
@@ -53,12 +50,11 @@
 	<script src="js/jquery.loading.js"></script>
 	<script src="js/jquery.popup.js"></script>
 	<script src="js/template.ui.js"></script>
-	<script src="js/site.ui.js"></script>
 	
 	{% if page.js %}
-		{% for js in page.js %}
-			<script src="{{ js }}"></script>
-		{% endfor %}
+	{% for js in page.js %}
+	<script src="{{ js }}"></script>
+	{% endfor %}
 	{% endif %}
 </body>
 </html>
