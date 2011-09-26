@@ -7,7 +7,7 @@ body {
   height: 100%;
   /* Compensate for the space the footer takes up. */
   padding-bottom: 3.5em;
-  background-color: rgb(245,245,245);
+  background-color: rgb(242,242,242);
 }
 
 body > .content {
@@ -35,3 +35,14 @@ hr {
        -o-box-shadow: 0 1px 1px white;
           box-shadow: 0 1px 1px white;
 }
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(108,153,206);
+}
+
