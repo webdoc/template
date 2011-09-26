@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="">
+	<meta name="description" content="">
+	
+	<title>App Title</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/template.reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/template.typography.css" />
+	<link rel="stylesheet" type="text/css" href="css/template.typography.12_18.css" />
+	<link rel="stylesheet" type="text/css" href="css/template.forms.css" />
+	<link rel="stylesheet" type="text/css" href="css/template.classes.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.classes.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.layout.css" />
+</head>
+
+<body>
+	<div class="content">
+		<header class="app_header">
+			<h1>App title</h1>
+			
+			<div class="app_thumb thumb">App title</div>
+			<p>The quick brown fox jumps over the lazy dog.</p>
+			
+			<details>
+				<summary>more</summary>
+				<h2>App details</h2>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+			</details>
+		</header>
+		
+		<!-- In tabs_index and filters_index the li tags have
+		     display: inline-block. Spaces between these tags
+		     will interfere with layout, so make sure there
+		     are no spaces between <li> tags. -->
+		
+		<ul class="three_tabs_index tabs_index index">
+			 <li><a class="tab_button button" href="#tab1">Tab title</a></li
+			><li><a class="tab_button button" href="#tab2">Tab title</a></li
+			><li><a class="tab_button button" href="#tab3">Tab title</a></li>
+		</ul>
+		
+		<!-- In .tab panels are displayed as inline-block. Spaces
+		     between the tags interfere with layout. Make sure there
+		     are no spaces between .tabs.
+		     
+		     To make a tab open by default, give it the class .active. -->
+		
+		<section class="active tab" id="tab1">
+			
+			<!-- Filters can be made with <a> tags... -->
+			<ul class="filters_index index">
+				 <li><a class="filter_button button" href="#">Filter</a></li
+				><li><a class="filter_button button" href="#">Filter</a></li
+				><li><a class="filter_button button" href="#">Filter</a></li>
+			</ul>
+			
+			<!-- ...or labels... -->
+			<ul class="filters_index index">
+				 <li>
+					<label class="filter_button button" for="filter1">Filter</label>
+					<input class="custom" type="radio" id="filter1" name="filter" />
+				</li
+				><li>
+					<label class="filter_button button" for="filter2">Filter</label>
+					<input class="custom" type="radio" id="filter2" name="filter" />
+				</li
+				><li>
+					<label class="filter_button button" for="filter3">Filter</label>
+					<input class="custom" type="radio" id="filter3" name="filter" />
+				</li>
+			</ul>
+			
+			<hr/>
+			
+			<form class="search_form">
+				<input class="search_input" type="search"  placeholder="Enter a search term..."
+			/><input class="submit_action_button action_button button" type="submit" value="Search" />
+			</form>
+
+			<ul class="widgets_index index">
+				<li>
+					<div class="l_col thumb_col col">
+						<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					><div class="s_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+				
+				<li>
+					<div class="l_col thumb_col col">
+						<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					><div class="s_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+
+				<li>
+					<div class="l_col thumb_col col">
+						<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					><div class="s_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+			</ul>
+			
+			<ul class="widgets_index index">
+				<li>
+					<div class="m_col thumb_col col">
+						<a class="image_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					><div class="m_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the lazy dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+				
+				<li>
+					<div class="m_col thumb_col col">
+						<a class="image_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					><div class="m_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the lazy dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+
+				<li>
+					<div class="m_col thumb_col col">
+						<a class="image_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					><div class="m_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the lazy dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+			</ul>
+			
+			<ul class="widgets_index index">
+				<li>
+					<div class="s_col thumb_col col">
+						<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					
+					><div class="l_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the lazy dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+				
+				<li>
+					<div class="s_col thumb_col col">
+						<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					
+					><div class="l_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the lazy dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+
+				<li>
+					<div class="s_col thumb_col col">
+						<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+					</div
+					
+					><div class="l_col text_col col">
+				 		<h2 class="widget_title title">Widget title</h2>
+				 		<p>The quick brown fox jumps over the lazy dog.</p>
+				 		<a href="#">more&hellip;</a>
+					</div>
+				</li>
+			</ul>
+		</section
+		
+		><section class="slides_tab tab" id="tab2">
+			<div class="slide active">
+				<div class="slide_header header">
+					<h1 class="slide_title title">Slide with cards</h1>
+				</div>
+				
+				<ul class="widgets_index index">
+					<li>
+						<div class="s_col thumb_col col">
+							<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+						</div
+						><div class="l_col text_col col">
+					 		<h2 class="widget_title title">Widget title</h2>
+					 		<p>The quick brown fox jumps over the lazy dog.</p>
+					 		<a href="#next">more&hellip;</a>
+						</div>
+					</li>
+					
+					<li>
+						<div class="s_col thumb_col col">
+							<a class="widget_thumb drag_thumb thumb" href="">Widget title</a>
+						</div
+						><div class="l_col text_col col">
+					 		<h2 class="widget_title title">Widget title</h2>
+					 		<p>The quick brown fox jumps over the lazy dog.</p>
+					 		<a href="#next">more&hellip;</a>
+						</div>
+					</li>
+				</ul>
+			</div
+			
+			><div class="slide">
+				<div class="slide_header header">
+					<h1 class="slide_title title">Slide with details</h1>
+					<ul class="actions_index index">
+						<li><a class="back_action_button action_button button" href="#prev">Back</a></li>
+					</ul>
+				</div>
+				
+				<p><a href="#whatever">A link to another slide</a></p>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+
+				<h2>Slide details</h2>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+			</div
+			
+			><div class="slide" id="whatever">
+				<div class="slide_header header">
+					<h1 class="slide_title title">Another slide</h1>
+					<ul class="actions_index index">
+						<li><a class="back_action_button action_button button" href="#prev">Back</a></li>
+					</ul>
+				</div>
+				
+				<p>Another slide. The third slide, in fact.</p>
+			</div>
+		</section
+		
+		><section class="tab" id="tab3">
+			Tab 3
+		</section>
+	</div>
+	
+	<footer class="app_footer footer">
+		<ul class="actions_index index">
+			 <li><a class="primary_action_button action_button button" href="#">Add to page</a></li
+			><li><a class="action_button button" href="#">Add to selected app</a></li>
+		</ul>
+	</footer>
+	
+	<script src="js/js.extensions.js"></script>
+	<script src="js/js.details.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery.js"%3E%3C/script%3E'));</script>
+	<script src="js/jquery.extensions.js"></script>
+	<script src="js/jquery.event.activate.js"></script>
+	<script src="js/jquery.validator.js"></script>
+	<script src="js/jquery.transitions.js"></script>
+	<script src="js/jquery.loading.js"></script>
+	<script src="js/template.ui.js"></script>
+	<script src="js/app.ui.js"></script>
+</body>
+</html>

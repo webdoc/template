@@ -1,5 +1,6 @@
 .app_footer {
-  background-color: rgb(237,237,237);
+	border-top: 1px solid rgb(179,179,179);
+  background-color: rgb(242,242,242);
 }
 
 
@@ -8,6 +9,7 @@
 .app_header {
   padding: 0.8333em 0.8333em 0.8333em 84px;
   min-height: 84px;
+  border-bottom: 1px solid rgb(204,204,204);
 }
 
 .app_header > .thumb {
@@ -41,6 +43,12 @@
 	text-align: center;
 }
 
+.widget_title {
+	font-weight: bold;
+	margin-bottom: 0;
+	color: rgb(65,65,65);
+}
+
 /* .thumb classes */
 
 .app_thumb {
@@ -49,6 +57,9 @@
 }
 
 .widget_thumb {
+  /* TODO: this is temporary, so we can see it! */
+  background-color: #bbbbbb;
+  
   background-image: url('../images/thumbs/thumb_widget.png');
   background-size: auto;
   background-position: 50% 50%;
@@ -58,171 +69,34 @@
   background-image: url('../images/thumbs/thumb_image.png');
 }
 
-.drag_thumb,
-.drag_card {
-	border: 1px solid rgb(208,210,211);
+.l_thumb {
+	width: 230px;
+}
+
+.m_thumb {
+	width: 175px;
+}
+
+.s_thumb {
+	width: 125px;
+}
+
+.drag_thumb:hover,
+.drag_thumb:focus {
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.5);
+	   -moz-box-shadow: 0 0 2px rgba(0,0,0,0.5);
+	    -ms-box-shadow: 0 0 2px rgba(0,0,0,0.5);
+	     -o-box-shadow: 0 0 2px rgba(0,0,0,0.5);
+	        box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 .drag_thumb {
-  width: 85px;
-  
-  -webkit-border-radius: 0.3333em;
-     -moz-border-radius: 0.3333em;
-          border-radius: 0.3333em;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+       -o-border-radius: 8px;
+          border-radius: 8px;
 }
 
-.l_drag_thumb {
-  width: 116px;
-}
-
-.xl_drag_thumb {
-  width: 178px;
-}
-
-.xxl_drag_thumb {
-  width: 364px;
-}
-
-.drag_thumb.image_thumb {
-	/* Moves the image away from the drag strip */
-	background-position: 12px 50%;
-}
-
-.drag_card {
-	min-height: 82px;
-	padding-top: 0.75em;
-	padding-right: 0.8333em;
-	padding-bottom: 0.75em;
-	padding-left: 87px;
-	background-color: transparent;
-}
-
-.min-height_content-box .drag_card {
-	min-height: 62px;
-}
-
-.drag_card:hover {
-	text-decoration: none;
-}
-
-.drag_card > .thumb {
-	top: 8px;
-	left: 15px;
-}
-
-.drag_card > .title {
-	color: black;
-}
-
-.drag_card > .d {
-	color: rgb(128,129,130);
-	margin-bottom: 0;
-}
-
-.l_drag_card {
-	min-height: 114px;
-	padding-left: 118px;
-	
-}
-
-.min-height_content-box .l_drag_card {
-	min-height: 94px;
-}
-
-.l_drag_card > .thumb {
-	width: 96px;
-	height: 96px;
-}
-
-.xl_drag_card {
-	min-height: 146px;
-	padding-left: 158px;
-}
-
-.min-height_content-box .xl_drag_card {
-	min-height: 126px;
-}
-
-.xl_drag_card > .thumb {
-	width: 128px;
-	height: 128px;
-}
-
-.drag_thumb:before,
-.drag_card:before {
-  /* Make the background gradient. */
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  
-  border-top: 1px solid white;
-  border-bottom: 1px solid rgb(230,231,232);
-  border-radius: inherit;
-  background-color: rgb(241,241,242);
-}
-
-.drag_thumb:hover:before,
-.drag_card:hover:before {
-  background-color: rgb(230,231,232);
-}
-
-.drag_thumb:after,
-.drag_card:after {
-  /* Make the drag strip. */
-  content: '';
-  position: absolute;
-  z-index: 1;
-  left: 1px;
-  top: 1px;
-  bottom: 1px;
-  width: 12px;
-
-  background-repeat: repeat-y;
-  background-position: 50% 0;
-  background-image: url('../images/thumbs/dragstrip.png');
-  
-  background-color: transparent;
-  border-top: 7px solid transparent;
-  border-bottom: 6px solid transparent;
-
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding-box;
-      -ms-background-clip: padding-box;
-       -o-background-clip: padding-box;
-          background-clip: padding-box;
-
-  -webkit-background-origin: padding-box;
-     -moz-background-origin: padding;
-     -moz-background-origin: padding-box;
-      -ms-background-origin: padding-box;
-       -o-background-origin: padding-box;
-          background-origin: padding-box;
-  
-  -webkit-border-top-left-radius:    inherit;
-     -moz-border-radius-topleft:     inherit;
-          border-top-left-radius:    inherit;
-  
-  -webkit-border-bottom-left-radius: inherit;
-     -moz-border-radius-bottomleft:  inherit;
-          border-bottom-left-radius: inherit;
-}
-
-.drag_thumb.active,
-.drag_card.active {
-  border-color: rgb(250,244,0);
-  
-  /* Makes the box shadow render over the top of its neighbours. */
-  z-index: 1;
-  
-  -webkit-box-shadow: 0 0 1px 1px rgb(250,244,0);
-     -moz-box-shadow: 0 0 1px 1px rgb(250,244,0);
-       -o-box-shadow: 0 0 1px 1px rgb(250,244,0);
-          box-shadow: 0 0 1px 1px rgb(250,244,0);
-}
 
 /* .button classes */
 
@@ -247,6 +121,11 @@
   background-image:     -ms-linear-gradient(rgb(203,204,205), rgb(178,179,180));
   background-image:      -o-linear-gradient(rgb(203,204,205), rgb(178,179,180));
   background-image:         linear-gradient(rgb(203,204,205), rgb(178,179,180));
+}
+
+.action_button:hover,
+.action_button:focus {
+	color: white;
 }
 
 .back_action_button,
@@ -304,6 +183,43 @@
 }
 
 
+/* .col classes */
+
+.text_col {
+	color: rgb(89,89,92);
+}
+
+.text_col p {
+	margin-bottom: 0;
+}
+
+.l_col {
+	width: 62.1622%;
+	margin-right: -62.1622%;
+}
+
+.m_col {
+	width: 47.2973%;
+	margin-right: -47.2973%;
+}
+
+.s_col {
+	width: 33.7838%;
+	margin-right: -33.7838%;
+}
+
+.thumb_col {
+	left: 0;
+}
+
+.thumb_col > .thumb {
+	width: 100%;
+}
+
+.text_col.l_col { left: 37.8378%; }
+.text_col.m_col { left: 52.7027%; }
+.text_col.s_col { left: 66.2162%; }
+
 /* .tab classes */
 
 .tab {
@@ -332,6 +248,15 @@
 	height: 3.5em;
 }
 
+.tab > .widgets_index,
+.slide > .widgets_index {
+	/* Tabs have there own padding, but if we want to retain the 
+	   dimensions of these lists - and we do - we must reduce
+	   their padding inside tabs. */
+	padding-left: 0.8333em;
+	padding-right: 0.4167em;
+}
+
 
 /* .index classes */
 
@@ -344,22 +269,24 @@
   margin-right: 0.6667em;
 }
 
-.cards_index {
+.widgets_index {
 	margin-bottom: 0.8333em;
+	padding-left: 1.6667em;
+	padding-right: 1.25em;
 }
 
-.cards_index > li {
-	margin-bottom: -1px;
+.widgets_index > li {
+	padding-top: 1.6667em;
+	padding-bottom: 1.6667em;
+	border-bottom: 1px solid rgb(204,204,204);
 }
 
-.thumbs_index,
 .filters_index {
   /* Compensate for the margin-right on the last li
      of each line. */
   margin-right: -0.6667em;
 }
 
-.thumbs_index > li,
 .filters_index > li {
   margin-right: 0.6667em;
   margin-bottom: 0.8333em;
@@ -367,14 +294,12 @@
 
 /* .index classes with horizontal layout */
 
-.thumbs_index,
 .filters_index {
   /* To form grids with a horizontal index, line-height
      needs to be smaller than the items in the index. */
 	line-height: 0;
 }
 
-.thumbs_index > li,
 .filters_index > li {
   display: inline-block;
   vertical-align: top;
@@ -382,7 +307,6 @@
   line-height: 1.5;
 }
 
-.thumbs_index > li:last-child,
 .filters_index > li:last-child {
   margin-right: 0;
 }
@@ -411,7 +335,6 @@
 	width: 100%;
 	margin-right: -100%;
 	height: 2em;
-	line-height: 2em;
 	
 	border: 1px solid rgb(187,189,191);
 	
