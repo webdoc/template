@@ -36,6 +36,15 @@
 
 /* .title classes */
 
+.app_title {
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: bold;
+	margin-bottom: 0;
+	
+	color: rgb(65,65,65);
+}
+
 .slide_title {
 	font-size: 1.25em;
 	font-weight: bold;
