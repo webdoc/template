@@ -97,9 +97,26 @@
           border-radius: 8px;
 }
 
-.selected,
-.drag_thumb.selected,
-.drag_card.selected {
+.m_drag_thumb {
+	width: 85px;
+}
+
+.l_drag_thumb {
+  width: 116px;
+}
+
+.xl_drag_thumb {
+  width: 178px;
+}
+
+.xxl_drag_thumb {
+  width: 364px;
+}
+
+
+/* .selected class */
+
+.selected {
   border-color: rgb(250,244,0);
   
   /* Makes the box shadow render over the top of its neighbours. */
@@ -308,8 +325,18 @@
   margin-bottom: 0.8333em;
 }
 
+.crumbs_index > li + li:before {
+	content: "▶";
+	font-size: 0.6667em;
+	display: inline-block;
+	vertical-align: baseline;
+	margin-left: 0.6em;
+	margin-right: 0.6em;
+}
+
 /* .index classes with horizontal layout */
 
+.crumbs_index,
 .thumbs_index,
 .filters_index {
   /* To form grids with a horizontal index, line-height
@@ -317,6 +344,7 @@
 	line-height: 0;
 }
 
+.crumbs_index > li,
 .thumbs_index > li,
 .filters_index > li {
   display: inline-block;
@@ -325,6 +353,7 @@
   line-height: 1.5;
 }
 
+.crumbs_index > li:last-child,
 .thumbs_index > li:last-child,
 .filters_index > li:last-child {
   margin-right: 0;
