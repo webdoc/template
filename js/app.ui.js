@@ -41,6 +41,8 @@ jQuery(document)
 		closeHtml = header.html();
 		closeHeight = header.outerHeight();
 		
+		header.css({ height: closeHeight });
+		
 		header
 		.delegate('a[href="#toggle"]', 'mousedown touchstart', function(e) {
 			if (state) {
