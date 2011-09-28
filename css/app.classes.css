@@ -97,8 +97,9 @@
           border-radius: 8px;
 }
 
-.drag_thumb.active,
-.drag_card.active {
+.selected,
+.drag_thumb.selected,
+.drag_card.selected {
   border-color: rgb(250,244,0);
   
   /* Makes the box shadow render over the top of its neighbours. */
