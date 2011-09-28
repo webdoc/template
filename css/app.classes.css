@@ -308,16 +308,6 @@
 	height: 3.5em;
 }
 
-.tab > .widgets_index,
-.slide > .widgets_index {
-	/* Tabs have there own padding, but if we want to retain the 
-	   dimensions of these lists - and we do - we must reduce
-	   their padding inside tabs. */
-	padding-left: 0.8333em;
-	padding-right: 0.4167em;
-}
-
-
 /* .index classes */
 
 .tabs_index {
@@ -331,14 +321,25 @@
 
 .widgets_index {
 	margin-bottom: 0.8333em;
-	padding-left: 1.6667em;
-	padding-right: 1.25em;
+	/*padding-left: 1.6667em;
+	padding-right: 1.25em;*/
 }
 
 .widgets_index > li {
 	padding-top: 1.6667em;
 	padding-bottom: 1.6667em;
 	border-bottom: 1px solid rgb(204,204,204);
+}
+
+.slide_crumbs_index > li {
+	/* Width of crumb items needs to be limited, as we have
+	   limited horizontal space. The problem is that we have to
+	   treat them all the same. This will catch a some cases but
+	   not all. If they are all too long, the breadcrumb trail
+	   will be too long.
+	   
+	   In other words, this is a fudge. */
+	max-width: 38%;
 }
 
 .thumbs_index,
