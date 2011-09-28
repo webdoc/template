@@ -221,12 +221,10 @@
 		
 		
 		><section class="slides_tab tab active" id="tab3">
-			<div class="slide active">
+			<div class="slide active" id="albums">
 				<header class="slide_header header">
 					<ul class="slide_crumbs_index crumbs_index index">
-						 <li>Albums</li
-						><li>Name of album</li
-						><li>Name of image</li>
+						 <li><a class="crumb_button button" href="#albums">Albums</a></li>
 					</ul>
 				</header>
 				
@@ -255,15 +253,15 @@
 				</ul>
 			</div
 			
-			><div class="slide">
-				<div class="slide_header header">
-					<h1 class="slide_title title">Slide with details</h1>
-					<ul class="actions_index index">
-						<li><a class="back_action_button action_button button" href="#prev">Back</a></li>
+			><div class="slide" id="images">
+				<header class="slide_header header">
+					<ul class="slide_crumbs_index crumbs_index index">
+						 <li><a class="crumb_button button" href="#albums">Albums</a></li
+						><li><a class="crumb_button button" href="#images">Name of album</a></li>
 					</ul>
-				</div>
+				</header>
 				
-				<p><a href="#whatever">A link to another slide</a></p>
+				<p><a href="#image">A link to an image slide</a></p>
 				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
 				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
 
@@ -272,13 +270,21 @@
 				<p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
 			</div
 			
-			><div class="slide" id="whatever">
-				<div class="slide_header header">
+			><div class="slide" id="image">
+				<header class="slide_header header">
+					<ul class="slide_crumbs_index crumbs_index index">
+						 <li><a class="crumb_button button" href="#albums">Albums</span></li
+						><li><a class="crumb_button button" href="#images">Name of album</a></li
+						><li><a class="crumb_button button" href="#image">Name of image</a></li>
+					</ul>
+				</header>
+
+				<!--div class="slide_header header">
 					<h1 class="slide_title title">Another slide</h1>
 					<ul class="actions_index index">
 						<li><a class="back_action_button action_button button" href="#prev">Back</a></li>
 					</ul>
-				</div>
+				</div-->
 				
 				<p>Another slide. The third slide, in fact.</p>
 			</div>

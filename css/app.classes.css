@@ -188,6 +188,26 @@
   background-image:         linear-gradient(rgb(187,189,191), rgb(128,129,132));
 }
 
+.crumb_button {
+	padding-left: 0;
+	padding-right: 0;
+	
+	font-weight: bold;
+	
+	color: rgb(109,155, 208);
+	background: none;
+}
+
+.crumb_button.active:hover,
+.crumb_button.active:focus {
+	color: rgb(109,155, 208);
+}
+
+.crumb_button.active {
+	font-weight: normal;
+	color: rgb(109,155, 208);
+}
+
 .filter_button {
   /* overide default label styles */
   font-weight: normal;
@@ -325,18 +345,8 @@
   margin-bottom: 0.8333em;
 }
 
-.crumbs_index > li + li:before {
-	content: "▶";
-	font-size: 0.6667em;
-	display: inline-block;
-	vertical-align: baseline;
-	margin-left: 0.6em;
-	margin-right: 0.6em;
-}
-
 /* .index classes with horizontal layout */
 
-.crumbs_index,
 .thumbs_index,
 .filters_index {
   /* To form grids with a horizontal index, line-height
@@ -344,7 +354,6 @@
 	line-height: 0;
 }
 
-.crumbs_index > li,
 .thumbs_index > li,
 .filters_index > li {
   display: inline-block;
@@ -353,7 +362,6 @@
   line-height: 1.5;
 }
 
-.crumbs_index > li:last-child,
 .thumbs_index > li:last-child,
 .filters_index > li:last-child {
   margin-right: 0;
