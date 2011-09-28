@@ -22,9 +22,8 @@ jQuery(document)
 		openHeight = header.outerHeight() + 36;
 		state = false;
 		
-		while (header.height() > 72) {
+		while (header.height() > 71) {
 			children = header.children();
-			length = children.length;
 			last = children.last().remove();
 		}
 		
@@ -43,9 +42,7 @@ jQuery(document)
 		closeHeight = header.outerHeight();
 		
 		header
-		.delegate('a[href="#toggle"]', 'mousedown touchstart', function(e){
-			console.log('nahnah');
-			
+		.delegate('a[href="#toggle"]', 'mousedown touchstart', function(e) {
 			if (state) {
 				header
 				.css({ height: closeHeight })
