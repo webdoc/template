@@ -295,12 +295,14 @@
 	border-bottom: 1px solid rgb(204,204,204);
 }
 
+.thumbs_index,
 .filters_index {
   /* Compensate for the margin-right on the last li
      of each line. */
   margin-right: -0.6667em;
 }
 
+.thumbs_index > li,
 .filters_index > li {
   margin-right: 0.6667em;
   margin-bottom: 0.8333em;
@@ -308,12 +310,14 @@
 
 /* .index classes with horizontal layout */
 
+.thumbs_index,
 .filters_index {
   /* To form grids with a horizontal index, line-height
      needs to be smaller than the items in the index. */
 	line-height: 0;
 }
 
+.thumbs_index > li,
 .filters_index > li {
   display: inline-block;
   vertical-align: top;
@@ -321,6 +325,7 @@
   line-height: 1.5;
 }
 
+.thumbs_index > li:last-child,
 .filters_index > li:last-child {
   margin-right: 0;
 }
