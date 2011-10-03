@@ -8,7 +8,7 @@
 
 .app_header {
   padding: 0.8333em 0.8333em 0.8333em 84px;
-  min-height: 84px;
+  min-height: 80px;
   border-bottom: 1px solid rgb(204,204,204);
   
 	-webkit-transition: height 0.33s ease-in;
@@ -16,6 +16,10 @@
 	    -ms-transition: height 0.33s ease-in;
 	     -o-transition: height 0.33s ease-in;
 	        transition: height 0.33s ease-in;
+}
+
+.min-height_content-box .app_header {
+	min-height: 60px;
 }
 
 .app_header > .thumb {
