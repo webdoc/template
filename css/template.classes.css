@@ -298,11 +298,14 @@
 	content: "▶";
 	font-size: 0.75em;
 	display: inline-block;
-	vertical-align: baseline;
+	vertical-align: top;
 	width: 2em;
+	height: 2em;
 	text-align: center;
 	margin-left: -2em;
 	margin-right: 0;
+	padding-top: 0.6666em;
+	
 }
 
 .crumbs_index > li > .button {
