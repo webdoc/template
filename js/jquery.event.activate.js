@@ -5,7 +5,10 @@
 // can be enabled by adding the class 'active'.
 
 (function(jQuery, undefined){
-	var debug = (window.console && window.console.log);
+	var debug = (window.console && window.console.log),
+	    options = {
+	    	cache: true
+	    };
 	
 	function returnTrue() {
 		return true;
@@ -17,7 +20,8 @@
 		
 		if (!data) {
 			data = {
-				elem: jQuery(target)
+				elem: jQuery(target),
+				buttons: options.cache && jQuery('a[href="#'+id+'"]')
 			};
 			
 			jQuery.data(target, 'active', data);
@@ -42,8 +46,10 @@
 			
 			data.state = true;
 			data.elem.addTransitionClass('active');
-			jQuery('a[href="#'+e.target.id+'"]').addClass('active');
-		}
+			(data.buttons || jQuery('a[href="#'+e.target.id+'"]')).addClass('active');
+		},
+		
+		options: options
 	};
 	
 	jQuery.event.special.deactivate = {
@@ -62,14 +68,16 @@
 			
 			data.state = false;
 			data.elem.removeTransitionClass('active');
-			jQuery('a[href="#'+e.target.id+'"]').removeClass('active');
-		}
+			(data.buttons || jQuery('a[href="#'+e.target.id+'"]')).removeClass('active');
+		},
+		
+		options: options
 	};
 	
 	jQuery(document).ready(function(){
 		var id = window.location.hash;
 		
-		// Setup all things that start should start out active
+		// Setup all things that should start out active
 		jQuery('.active').trigger('activate');
 		
 		// Activate the node that corresponds to the hashref
