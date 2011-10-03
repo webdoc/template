@@ -69,6 +69,11 @@
 .app_thumb {
   /* TODO: this is temporary, so we can see it! */
   background-color: #999999;
+  padding-top: 60px;
+  width: 60px;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
 }
 
 .widget_thumb {
