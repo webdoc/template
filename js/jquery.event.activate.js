@@ -17,9 +17,8 @@
 		
 		if (!data) {
 			data = {
-			  elem: jQuery(target),
-			  buttons: jQuery('a[href="#'+id+'"]')
-			}
+				elem: jQuery(target)
+			};
 			
 			jQuery.data(target, 'active', data);
 		}
@@ -36,14 +35,14 @@
 		_default: function(e) {
 			var data = cacheData(e.target);
 			
-			if (debug) { console.log('[activate] default | target:', e.target.id); }
+			if (debug) { console.log('[activate] default | target:', e.target.id, 'active:', data.state); }
 			
 			// Don't do anything if elem is already active
 			if (data.state) { return; }
 			
-			data.elem.addTransitionClass('active');
-			data.buttons.addClass('active');
 			data.state = true;
+			data.elem.addTransitionClass('active');
+			jQuery('a[href="#'+e.target.id+'"]').addClass('active');
 		}
 	};
 	
@@ -56,14 +55,14 @@
 		_default: function(e) {
 			var data = cacheData(e.target);
 			
+			if (debug) { console.log('[deactivate] default | target:', e.target.id, 'active:', data.state); }
+			
 			// Don't do anything if elem is already inactive
 			if (!data.state) { return; }
 			
-			if (debug) { console.log('[deactivate] default | target:', e.target.id); }
-			
-			data.elem.removeTransitionClass('active');
-			data.buttons.removeClass('active');
 			data.state = false;
+			data.elem.removeTransitionClass('active');
+			jQuery('a[href="#'+e.target.id+'"]').removeClass('active');
 		}
 	};
 	
