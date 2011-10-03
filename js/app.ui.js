@@ -22,7 +22,7 @@ jQuery(document)
 		openHeight = header.outerHeight() + 36;
 		state = false;
 		
-		while (header.height() > 71) {
+		if (header.height() > 71) {
 			children = header.children();
 			last = children.last().remove();
 		}
