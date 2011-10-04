@@ -66,14 +66,28 @@ blockquote, q { quotes: "" ""; }
 /* Get rid of default focus outlines in FF */
 a:focus { outline: none; }
 
-/* Make draggable elements draggable in WebKit */
-*[draggable] {
-  -webkit-user-drag: element;
+[draggable] {
   cursor: move;
+  
+  /* Make draggable elements draggable in WebKit */
+  -webkit-user-drag: element;
+  
+  /* Prevent the text contents of draggable elements from being selectable. */
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-*[draggable="false"] {
-  -webkit-user-drag: none;
+
+[draggable="false"] {
   cursor: auto;
+  
+  -webkit-user-drag: none;
+  
+  -webkit-user-select: text;
+   -khtml-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
 }
 
 
