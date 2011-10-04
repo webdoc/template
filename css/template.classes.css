@@ -1070,7 +1070,7 @@
   -webkit-user-drag: element;
 }
 
-.card .thumb {
+.card > .thumb {
   position: absolute;
   top: 0.8333em;
   left: 0.8333em;
