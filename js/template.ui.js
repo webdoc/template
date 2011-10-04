@@ -544,7 +544,8 @@ jQuery.noConflict();
 // Define event handlers
 
 (function(jQuery, undefined){
-
+	var debug = (window.console && window.console.log);
+	
 	function prepareDragData(e){
 		var elem = jQuery( e.target ),
 		    data = elem.data('mimetypes'),
@@ -553,20 +554,31 @@ jQuery.noConflict();
 		if (!data) { return; }
 	
 		for (mimetype in data){
-			ddd('[drag data] mimetype:', mimetype, 'data:', data[mimetype]);
+			if (debug) { console.log('[drag data] mimetype:', mimetype, 'data:', data[mimetype]); }
 			e.originalEvent.dataTransfer.setData(mimetype, JSON.stringify(data[mimetype]));
 		}
 	};
 	
 	function prepareDragFeedback(e){
-		var elem = jQuery( e.target ),
+		var elem = jQuery(e.target),
 		    data = elem.data('feedback'),
 		    offset, dragOffset;
-
-		if (data && data.node){
-			ddd('[drag feedback] node:', data.node);
-			jQuery(document.body).append(data.node);
-			e.originalEvent.dataTransfer.setDragImage(data.node, data.width || 32, data.height || 32);
+		
+		if (data){
+			if (debug) { console.log('[drag feedback] data:', data); }
+			
+			if (typeof data === 'string') {
+				// When feedback is a selector string, turn it into
+				// a jQuery object.
+				data = jQuery(data);
+				
+				// Abort if no node has been selected.
+				if (!data.length) { return; }
+				
+				elem.data('feedback', data);
+			}
+			
+			e.originalEvent.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
 		}
 		else {
 			offset = elem.offset();
@@ -575,10 +587,12 @@ jQuery.noConflict();
 				offsetY: e.pageY - offset.top
 			};
 
-			ddd('[drag feedback] offset:', dragOffset);
+			if (debug) { console.log('[drag feedback] offset:', dragOffset); }
 			e.originalEvent.dataTransfer.setDragImage( e.target, dragOffset.left, dragOffset.top );
 			e.originalEvent.dataTransfer.setData( 'webdoc/offset', JSON.stringify(dragOffset) );
 		}
 	};
+	
+	jQuery(document).bind('dragstart', prepareDragFeedback);
 	
 })(jQuery);

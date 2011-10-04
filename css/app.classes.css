@@ -73,6 +73,7 @@
 .app_thumb {
   /* TODO: this is temporary, so we can see it! */
   background-color: #999999;
+  
   padding-top: 60px;
   width: 60px;
   -webkit-border-radius: 6px;
@@ -82,7 +83,7 @@
 
 .widget_thumb {
   /* TODO: this is temporary, so we can see it! */
-  background-color: #bbbbbb;
+  background-color: #d0d0d0;
   
   background-image: url('../images/thumbs/thumb_widget.png');
   background-size: auto;
@@ -105,15 +106,17 @@
 	width: 125px;
 }
 
-.drag_thumb:hover,
+/*.drag_thumb:hover,
 .drag_thumb:focus {
 	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	   -moz-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	    -ms-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	     -o-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	        box-shadow: 0 0 2px rgba(0,0,0,0.5);
-}
+}*/
 
+.widget_thumb,
+.image_thumb,
 .drag_thumb {
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -121,20 +124,21 @@
           border-radius: 4px;
 }
 
-.m_drag_thumb {
-	width: 85px;
+.m_drag_thumb   { width: 85px; }
+.l_drag_thumb   { width: 116px; }
+.xl_drag_thumb  { width: 178px; }
+.xxl_drag_thumb { width: 364px; }
+.a_drag_thumb   { width: 95px; }
+
+.arrow_thumb {
+	width: 25px;
+	padding-top: 25px;
+	background-image: url('../images/spritemap.png');
+	background-position: 0 -25px;
 }
 
-.l_drag_thumb {
-  width: 116px;
-}
-
-.xl_drag_thumb {
-  width: 178px;
-}
-
-.xxl_drag_thumb {
-  width: 364px;
+.arrow_thumb:hover {
+	background-position: 0 0;
 }
 
 
@@ -268,33 +272,6 @@
 	margin-bottom: 0;
 }
 
-.l_col {
-	width: 62.1622%;
-	margin-right: -62.1622%;
-}
-
-.m_col {
-	width: 47.2973%;
-	margin-right: -47.2973%;
-}
-
-.s_col {
-	width: 33.7838%;
-	margin-right: -33.7838%;
-}
-
-.thumb_col {
-	left: 0;
-}
-
-.thumb_col > .thumb {
-	width: 100%;
-}
-
-.text_col.l_col { left: 37.8378%; }
-.text_col.m_col { left: 52.7027%; }
-.text_col.s_col { left: 66.2162%; }
-
 /* .tab classes */
 
 .tab {
@@ -336,13 +313,9 @@
 
 .widgets_index {
 	margin-bottom: 0.8333em;
-	/*padding-left: 1.6667em;
-	padding-right: 1.25em;*/
 }
 
 .widgets_index > li {
-	padding-top: 1.6667em;
-	padding-bottom: 1.6667em;
 	border-bottom: 1px solid rgb(204,204,204);
 }
 
@@ -391,6 +364,89 @@
 .filters_index > li:last-child {
   margin-right: 0;
 }
+
+.spaced_thumbs_index {
+	padding-top: 15px;
+	padding-left: 15px;
+	margin-right: -10px;
+}
+
+.spaced_thumbs_index > li {
+	margin-right: 25px;
+	margin-bottom: 30px;
+}
+
+
+/* .card classes */
+
+.card {
+	background-color: transparent;
+}
+
+.drag_card {
+	padding-top: 0.8333em;
+	padding-bottom: 0.8333em;
+	padding-left: 0.8333em;
+	padding-right: 1.25em;
+}
+
+.drag_card:hover {
+	background-color: rgb(242,242,242);
+}
+
+.l_drag_card {
+	padding-left: 220px;
+}
+
+.m_drag_card {
+	padding-left: 193px;
+}
+
+.s_drag_card {
+	padding-left: 125px;
+}
+
+.drag_card > .widget_thumb,
+.drag_card > .image_thumb  {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	top: 0;
+}
+
+.l_drag_card > .widget_thumb,
+.l_drag_card > .image_thumb {
+	width: 195px;
+	margin-right: -195px;
+	left: -210px;
+}
+
+.m_drag_card > .widget_thumb,
+.m_drag_card > .image_thumb {
+	width: 168px;
+	margin-right: -168px;
+	left: -183px;
+}
+
+.s_drag_card > .widget_thumb,
+.s_drag_card > .image_thumb {
+	width: 100px;
+	margin-right: -100px;
+	left: -115px;
+}
+
+.link_card {
+	padding-right: 4.5833em;
+}
+
+.link_card > .arrow_thumb {
+	position: absolute;
+	top: 50%;
+	margin-top: -13px;
+	left: auto;
+	right: 15px;
+}
+
 
 /* forms */
 
