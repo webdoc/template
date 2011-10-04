@@ -94,17 +94,6 @@
   background-image: url('../images/thumbs/thumb_image.png');
 }
 
-.l_thumb {
-	width: 230px;
-}
-
-.m_thumb {
-	width: 175px;
-}
-
-.s_thumb {
-	width: 125px;
-}
 
 /*.drag_thumb:hover,
 .drag_thumb:focus {
@@ -381,6 +370,7 @@
 
 .card {
 	background-color: transparent;
+	min-height: 0;
 }
 
 .drag_card {
@@ -395,11 +385,11 @@
 }
 
 .l_drag_card {
-	padding-left: 220px;
+	padding-left: 217px;
 }
 
 .m_drag_card {
-	padding-left: 193px;
+	padding-left: 190px;
 }
 
 .s_drag_card {
@@ -416,16 +406,16 @@
 
 .l_drag_card > .widget_thumb,
 .l_drag_card > .image_thumb {
-	width: 195px;
-	margin-right: -195px;
-	left: -210px;
+	width: 192px;
+	margin-right: -192px;
+	left: -207px;
 }
 
 .m_drag_card > .widget_thumb,
 .m_drag_card > .image_thumb {
-	width: 168px;
-	margin-right: -168px;
-	left: -183px;
+	width: 165px;
+	margin-right: -165px;
+	left: -180px;
 }
 
 .s_drag_card > .widget_thumb,
@@ -451,13 +441,21 @@
 /* forms */
 
 .search_form {
+	position: relative;
 	margin-bottom: 0.8333em;
-	margin-right: 6.75em;
+	padding-right: 6.75em;
 }
 
 .search_form > input {
 	display: inline-block;
 	vertical-align: top;
+}
+
+.search_form .submit_action_button {
+	position: absolute;
+	width: 6em;
+	right: 0;
+	top: 0;
 }
 
 .search_form > input[type="search"] {
