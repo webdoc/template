@@ -1,4 +1,14 @@
 // jQuery.collapse.js
+// 
+// 0.1
+// 
+// Collapses a node to a given height by truncating it's contents
+// and adding a 'more...' link. 0.1 is quick and dirty. It may fail
+// if the inner HTML is more than one child deep. It makes assumptions
+// about the height the more link adds (+ 36). It must be called on
+// a jQuery object of length 1. In other words, it's a bit sucky.
+// 
+// jQuery(node).collapse(60);
 
 (function() {
 	var debug = (window.console && window.console.log);
