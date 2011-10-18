@@ -1,5 +1,5 @@
 .app_footer {
-	border-top: 1px solid rgb(179,179,179);
+	border-top: 1px solid rgb(153,154,157);
   background-color: rgb(242,242,242);
 }
 
@@ -9,7 +9,9 @@
 .app_header {
   padding: 0.8333em 0.8333em 0.8333em 84px;
   min-height: 80px;
+  
   border-bottom: 1px solid rgb(204,204,204);
+  background-color: rgb(242,242,242);
   
 	-webkit-transition: height 0.33s ease-in;
 	   -moz-transition: height 0.33s ease-in;
