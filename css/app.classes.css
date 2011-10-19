@@ -398,6 +398,10 @@
 	padding-left: 125px;
 }
 
+.drag_card > .thumb {
+  cursor: inherit;
+}
+
 .drag_card > .widget_thumb,
 .drag_card > .image_thumb  {
 	display: inline-block;
