@@ -541,6 +541,9 @@ jQuery.noConflict();
 })(jQuery);
 
 
+// Allow drag data to be defined as JSON in a data-mimetype attribute,
+// or by setting a key: value hash via .data('mimetype', obj).
+// 
 // Allow drag feedback to be defined as a jQuery selector in a
 // data-feedback attribute, or as a jQuery object set as
 // .data('feedback', obj).
@@ -591,6 +594,6 @@ jQuery.noConflict();
 		}
 	};
 	
+	jQuery(document).bind('dragstart', prepareDragData);
 	jQuery(document).bind('dragstart', prepareDragFeedback);
-	
 })(jQuery);
