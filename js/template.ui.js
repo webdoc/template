@@ -4,237 +4,252 @@
 
 jQuery.noConflict();
 
-// Handle dropdowns, popdowns and tabs
-//
-// TODO: I've found some serious problems in here. It works, 
-// but not without really doubling some calls. If you click on an
-// opening link for a popdown/dropdown/stopdown, all is well, but
-// if you now click on it while the object is active, the object
-// first receives an activate event, then a deactivate event, because
-// the original click handler is first called. In fact the only reason
-// it works is if we can gaurantee that handlers that are bound later get
-// called later. Which is true, but we shouldn't rely on it.
+
+// Add css support classes to html
 
 (function(jQuery, undefined){
+	var support = jQuery.support,
+			classes = [];
 	
-	var debug = (window.console && console.log);
+	classes.push('min-height_'+support.css.minHeight);
+	classes.push('min-width_'+support.css.minWidth);
 	
-	var doc = jQuery(document),
-			objects = {};
-	
-	function type(object) {
-		var type;
-		for (type in setup) {
-			if (object.hasClass(type)) {
-				return type;
-			}
-		}
-	}
-	
-	function store(selector, options, fn) {
-		var object;
-		
-		// Cache the obj against the selector, or false when
-		// there is no object. Buttons can have a many-to-one
-		// relationship to objects, so we search for them all.
-		
-		if ( objects[selector] === undefined ) {
-			object = options.object || jQuery(selector);
-			
-			objects[selector] = object.length ? {
-				button: options.button || jQuery('a[href="'+selector+'"]'),
-				object: object,
-				type: type(object)
-			} : false ;
-		}
-		
-		if (objects[selector] && fn) {
-			fn(objects[selector].button, objects[selector].object, objects[selector].type);
-		}
-	}
-	
-	// !Handlers
-	
-	var setup = {
-		tab: (function(){
-			// Keep data about tabs
-			var tabsdata = {};
-			
-			return function(selector, button, object, fn){
-				var data = tabsdata[selector],
-						contents = object.add(object.siblings('.tab'));
-				
-				if (data){
-					// Ignore clicks on an already active button
-					if (data.activeObject[0] === object[0]) { return; }
+	jQuery(document.documentElement).addClass(classes.join(' '));
+})(jQuery);
+
+
+// Handle dropdowns, popdowns and tabs
+
+(function( jQuery, undefined ){
+	var classes = {
+	    	'.tab': {
+	    		activate: activatePane
+	    	},
+	    	
+	    	'.slide': {
+	    		activate: activatePane
+	    	},
+	    	
+	    	'.popdown': {
+					activate: function(e) {
+	    			// Default is prevented indicates that this link has already
+	    			// been handled, possibly by an inner pane.
+	    			if (e.isDefaultPrevented()) { return; }
 					
-					data.activeObject.trigger('deactivate');
-				}
-				else {
-					data = {};
-				
-					// Give data to all tabs in this tab index
-					contents.each(function(i){
-						var elem = jQuery(this),
-								selector = '#' + this.id;
+						var target = e.currentTarget,
+						    elem = jQuery(target);
 						
-						tabsdata[selector] = data;
-						
-						store(selector, { object: elem }, function(button, object){
-							object.trigger('deactivate');
-							// Hmmm. deactivate has not yet been bound,
-							// so the above has no effect.
-							button.removeClass('active');
-							object.removeTransitionClass('active');
+						function mousedown(e) {
+							// If event is in it or on it, do nothing.
+							if (target === e.target || jQuery.contains(target, e.target)) { return; }
 							
-						});
-					});
-				}
-				
-				data.activeObject = object;
-				
-				fn && fn();
-			};
-		})(),
-		
-		popdown: function(selector, button, object, fn){
-			// For popdown and dropdown:
-			function click(e) {
-				var target = jQuery(e.target);
-				
-				// If the click is inside it, or is on it, do nothing.
-				if (object[0] === e.target || jQuery.contains(object[0], e.target)) {
-					return;
-				}
-				
-				object.trigger({ type: 'deactivate' });
-			}
-			
-			doc.bind('click', click);
-			
-			fn && fn(function(){
-				doc.unbind('click', click);
-			});
-		},
-		
-		stopdown: function(selector, button, object, fn){
-			function click(e) {
-				var l = button.length;
-				
-				while (l--) {
-					if (button[l] === jQuery(e.target).closest('a')[0]) {
-						object.trigger({ type: 'deactivate' });
-					}
-				}
-			}
-			
-			doc.bind('click', click);
-			
-			fn && fn(function() {
-				doc.unbind('click', click);
-			});
-		},
-		
-		dropdown: function(selector, button, object, fn){
-			// For popdown and dropdown:
-			function click(e) {
-				var target = jQuery(e.target);
-				
-				// If we've clicked on a file input inside it, wait
-				// for the input to change. This is a fix for file
-				// inputs not firing change events when they're made
-				// invisible. Deserves further investigation.
-				if (jQuery.contains( object[0], e.target ) && target.is('input[type="file"]') ) {
-					target.bind('change', function(e){
-						object.trigger({ type: 'deactivate' });
-					});
-					
-					return;
-				}
-				
-				object.trigger({ type: 'deactivate' });
-			}
-			
-			doc
-			.bind('click', click);
-			
-			fn && fn(function(){
-				doc.unbind('click', click);
-			});
-		}
+							jQuery(target).trigger('deactivate');
+	    			}
+	    			
+	    			function close(e) {
+	    				// A prevented default indicates that this link has already
+	    				// been handled, possibly by an inner pane.
+	    				if (e.isDefaultPrevented()) { return; }
+	    				
+	    				elem.trigger('deactivate');
+	    			}
+	    			
+	    			function deactivate(e) {
+	    				if (target !== e.target) { return; }
+	    				
+	    				elem.undelegate('a[href="#close"]', 'click', close);
+	    				jQuery.event.remove(document, 'mousedown touchstart', mousedown);
+	    				jQuery.event.remove(target, 'deactivate', deactivate);
+	    			}
+	    			
+	    			elem.delegate('a[href="#close"]', 'click', close);
+	    			jQuery.event.add(document, 'mousedown touchstart', mousedown);
+	    			jQuery.event.add(target, 'deactivate', deactivate);
+	    		}
+	    	},
+	    	
+	    	'.dropdown': {
+	    		activate: function(e) {
+	    			var target = e.currentTarget;
+	    			
+	    			function mousedown(e) {
+							// If event is in it or on it, do nothing.
+							if (target === e.target || jQuery.contains(target, e.target)) { return; }
+							
+							jQuery(target).trigger('deactivate');
+	    			}
+	    			
+	    			function deactivate(e) {
+	    				if (target !== e.target) { return; }
+	    			  
+	    				jQuery.event.remove(document, 'mousedown touchstart', mousedown);
+	    				jQuery.event.remove(target, 'click', click);
+	    				jQuery.event.remove(target, 'deactivate', deactivate);
+	    			}
+	    			
+	    			jQuery.event.add(document, 'mousedown touchstart', mousedown);
+	    			jQuery.event.add(target, 'click', click);
+	    			jQuery.event.add(target, 'deactivate', deactivate);
+	    		}
+	    	},
+	    },
+	
+	    selector = Object.keys(classes).join(', ');
+	
+	function activate(elem) {
+		elem.trigger('activate');
 	}
 	
-	function activate(e) {
-		var id = e.currentTarget.id,
-				selector = '#'+id;
-		
-		store(selector, { object: jQuery(e.currentTarget) }, function(button, object, type){
-			// Set up based on type
-			setup[type] && setup[type](selector, button, object, function(deactivateFn){
-				button.addClass('active');
-				
-				object
-				.addTransitionClass('active')
-				.bind('deactivate', {button: button, object: object, fn: deactivateFn}, deactivate);
-			});
-		});
+	function deactivate(elem) {
+		elem.trigger('deactivate');
 	}
 	
-	function deactivate(e) {
-		// Check that the event is coming from this node
-		if (e.target !== e.currentTarget) { return; }
-		
-		e.data.button.removeClass('active');
-		
-		e.data.object
-		.removeTransitionClass('active')
-		.unbind('deactivate', deactivate);
-		
-		e.data.fn && e.data.fn();
+	function preventDefault(e) {
+		e.preventDefault();
 	}
 	
-	var actions = {
-		'#close': function(button) {
-			var object = button.closest('.popup, .popdown, .dropdown, .stopdown, .tab');
+	function activatePane(e) {
+	  var pane = jQuery(e.target),
+	      data = pane.data('activePane'),
+		    selector, panes, l;
+	      
+		function prev(e) {
+			// A prevented default indicates that this link has already
+			// been handled, possibly by an inner pane.
+			if (e.isDefaultPrevented()) { return; }
 			
-			object.length && object.trigger('deactivate');
-		}
-	}
-	
-	doc
-	.delegate('.popup, .popdown, .dropdown, .stopdown, .tab', 'activate', activate)
-	.delegate('a', 'click', function(e) {
-		var button = jQuery( e.currentTarget ),
-				href = button.attr('href'),
-				hashRefFlag = /^#/.test( href );
-		
-		// Don't even bother if the clicked link isn't a hash ref
-		if (!hashRefFlag) { return; }
-		
-		if (actions[href]) { return actions[href](button); }
-		
-		// Store the object if it is not already stored
-		store(href, { button: button }, function(button, object){
-			object.trigger('activate');
+			var i = panes.index(pane) - 1;
 			
-			// Don't let the click do anything browsery.
+			if (i < 0) { i = panes.length - 1; }
+			
+			panes.eq(i).trigger('activate');
 			e.preventDefault();
-		});
+		}
+		
+		function next(e) {
+			// A prevented default indicates that this link has already
+			// been handled, possibly by an inner pane.
+			if (e.isDefaultPrevented()) { return; }
+			
+			var i = panes.index(pane) + 1;
+			
+			if (i >= panes.length) { i = 0; }
+			
+			panes.eq(i).trigger('activate');
+			e.preventDefault();
+		}
+		
+	  function deactivate(e) {
+			if (pane[0] !== e.target) { return; }
+			
+			pane.undelegate('a[href="#prev"]', 'click', prev);
+			pane.undelegate('a[href="#next"]', 'click', next);
+			jQuery.event.remove(e.target, 'deactivate', deactivate);
+		}
+	  
+	  if (!data) {
+	  	selector = pane.data('selector');
+	  	
+	  	if (selector) {
+	  		panes = jQuery(selector);
+	  	}
+	  	else {
+	  		// Choose all sibling panes of the same class
+	  		panes = pane.siblings(pane.hasClass('tab') ? '.tab' : '.slide').add(e.target);
+	  	}
+	  	
+	  	// Attach the panes object to each of the panes
+	  	l = panes.length;
+	  	while (l--) {
+	  		jQuery.data(panes[l], 'activePane', { panes: panes });
+	  	}
+	  }
+	  else {
+	  	panes = data.panes;
+	  }
+	  
+	  panes.trigger('deactivate');
+	  
+	  pane.delegate('a[href="#prev"]', 'click', prev);
+	  pane.delegate('a[href="#next"]', 'click', next);
+	  jQuery.event.add(pane[0], 'deactivate', deactivate);
+	}
+	
+	function click(e) {
+		var target = e.currentTarget;
+		
+		// If we've clicked on a file input inside it, wait
+		// for the input to change. This is a fix for file
+		// inputs not firing change events when they're made
+		// invisible. Deserves further investigation.
+		if (e.target.nodeName.toLowerCase() === 'input' && document.getAttribute('type') === 'file') {
+			jQuery.event.add(e.target, 'change', function(e){
+				jQuery(target).trigger('deactivate');
+			});
+			
+			return;
+		}
+		
+		jQuery(e.currentTarget).trigger('deactivate');
+	}
+	
+	
+	jQuery(document)
+	
+	// Mousedown on buttons toggle activate on their targets
+	.delegate('a[href^="#"]', 'mousedown touchstart', function(e) {
+		var link, href, elem, data, type, t;
+		
+		// Default is prevented indicates that this link has already
+		// been handled. Save ourselves the overhead of further handling.
+		if (e.isDefaultPrevented()) { return; }
+		
+		link = jQuery(e.currentTarget);
+		href = link.attr('href');
+		elem = jQuery(href);
+		
+		if (elem.length === 0) { return; }
+		
+		// Get the active data that may have been created by a previous
+		// activate event.
+		data = jQuery.data(elem[0], 'active');
+		
+		// Decide what type this object is.
+		if (data && data.type) {
+			type = data.type;
+		}
+		else {
+			for (t in classes) {
+				if (elem.is(t)) {
+					type = t;
+					break;
+				}
+			}
+		}
+		
+		// If it has no type, we have no business trying to activate
+		// it on mousedown.
+		if (!type) { return; }
+		
+		e.preventDefault();
+		
+		link.bind('click', preventDefault);
+		
+		if ((data && data.state) || elem.hasClass('active')) {
+			
+		}
+		else {
+			elem.trigger('activate');
+			
+			if (!data) {
+			  jQuery.data(elem[0], 'active').type = type;
+			}
+		}
 	})
-	
-	// Activate the node that corresponds to the hashref
-	// in the location bar. 
-	
-	.ready(function(){
-		var href = window.location.hash;
-		
-		// Check if it's an alphanumeric id selector (not a hash bang).
-		if (!href || !(/^#[a-zA-Z0-9]/.exec(href))) { return; }
-		
-		store(href, {}, function(button, object){
-			object.trigger('activate');
-		});
-	});
+	.delegate('.tab', 'activate', classes['.tab'].activate)
+	.delegate('.slide', 'activate', classes['.slide'].activate)
+	.delegate('.popdown', 'activate', classes['.popdown'].activate)
+	.delegate('.dropdown', 'activate', classes['.dropdown'].activate);
 })( jQuery );
 
 
@@ -496,7 +511,7 @@ jQuery.noConflict();
 				    elem = jQuery(this),
 				    id = input.id || identify(input),
 				    value = input.value,
-				    height = input.tagName.toLowerCase() === 'input' ?
+				    height = input.nodeName.toLowerCase() === 'input' ?
 				    	elem.height() : 20,
 				    text = elem.attr('placeholder'),
 				    placeholder = jQuery('<label/>', {
@@ -526,10 +541,17 @@ jQuery.noConflict();
 })(jQuery);
 
 
-// Define event handlers
+// Allow drag feedback to be defined as a jQuery selector in a
+// data-feedback attribute, or as a jQuery object set as
+// .data('feedback', obj).
+// 
+// It is assumed that jQuery has been set up to copy the dataTransfer
+// property over to it's normalised event object. In Template, that
+// code is in jquery.extensions.js.
 
 (function(jQuery, undefined){
-
+	var debug = (window.console && window.console.log);
+	
 	function prepareDragData(e){
 		var elem = jQuery( e.target ),
 		    data = elem.data('mimetypes'),
@@ -538,20 +560,31 @@ jQuery.noConflict();
 		if (!data) { return; }
 	
 		for (mimetype in data){
-			ddd('[drag data] mimetype:', mimetype, 'data:', data[mimetype]);
-			e.originalEvent.dataTransfer.setData(mimetype, JSON.stringify(data[mimetype]));
+			if (debug) { console.log('[drag data] mimetype:', mimetype, 'data:', data[mimetype]); }
+			e.dataTransfer.setData(mimetype, JSON.stringify(data[mimetype]));
 		}
 	};
 	
 	function prepareDragFeedback(e){
-		var elem = jQuery( e.target ),
+		var elem = jQuery(e.target),
 		    data = elem.data('feedback'),
 		    offset, dragOffset;
-
-		if (data && data.node){
-			ddd('[drag feedback] node:', data.node);
-			jQuery(document.body).append(data.node);
-			e.originalEvent.dataTransfer.setDragImage(data.node, data.width || 32, data.height || 32);
+		
+		if (data){
+			if (debug) { console.log('[drag feedback] data:', data); }
+			
+			if (typeof data === 'string') {
+				// When feedback is a selector string, turn it into
+				// a jQuery object.
+				data = jQuery(data);
+				
+				// Abort if no node has been selected.
+				if (!data.length) { return; }
+				
+				elem.data('feedback', data);
+			}
+			
+			e.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
 		}
 		else {
 			offset = elem.offset();
@@ -560,10 +593,12 @@ jQuery.noConflict();
 				offsetY: e.pageY - offset.top
 			};
 
-			ddd('[drag feedback] offset:', dragOffset);
-			e.originalEvent.dataTransfer.setDragImage( e.target, dragOffset.left, dragOffset.top );
-			e.originalEvent.dataTransfer.setData( 'webdoc/offset', JSON.stringify(dragOffset) );
+			if (debug) { console.log('[drag feedback] offset:', dragOffset); }
+			e.dataTransfer.setDragImage( e.target, dragOffset.left, dragOffset.top );
+			e.dataTransfer.setData( 'webdoc/offset', JSON.stringify(dragOffset) );
 		}
 	};
+	
+	jQuery(document).bind('dragstart', prepareDragFeedback);
 	
 })(jQuery);
