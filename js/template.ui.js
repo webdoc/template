@@ -22,79 +22,79 @@ jQuery.noConflict();
 
 (function( jQuery, undefined ){
 	var classes = {
-	    	'.tab': {
-	    		activate: activatePane
-	    	},
-	    	
-	    	'.slide': {
-	    		activate: activatePane
-	    	},
-	    	
-	    	'.popdown': {
+			 	'.tab': {
+			 		activate: activatePane
+			 	},
+			 	
+			 	'.slide': {
+			 		activate: activatePane
+			 	},
+			 	
+			 	'.popdown': {
 					activate: function(e) {
-	    			// Default is prevented indicates that this link has already
-	    			// been handled, possibly by an inner pane.
-	    			if (e.isDefaultPrevented()) { return; }
+			 			// Default is prevented indicates that this link has already
+			 			// been handled, possibly by an inner pane.
+			 			if (e.isDefaultPrevented()) { return; }
 					
 						var target = e.currentTarget,
-						    elem = jQuery(target);
+								elem = jQuery(target);
 						
 						function mousedown(e) {
 							// If event is in it or on it, do nothing.
 							if (target === e.target || jQuery.contains(target, e.target)) { return; }
 							
 							jQuery(target).trigger('deactivate');
-	    			}
-	    			
-	    			function close(e) {
-	    				// A prevented default indicates that this link has already
-	    				// been handled, possibly by an inner pane.
-	    				if (e.isDefaultPrevented()) { return; }
-	    				
-	    				elem.trigger('deactivate');
-	    			}
-	    			
-	    			function deactivate(e) {
-	    				if (target !== e.target) { return; }
-	    				
-	    				elem.undelegate('a[href="#close"]', 'click', close);
-	    				jQuery.event.remove(document, 'mousedown touchstart', mousedown);
-	    				jQuery.event.remove(target, 'deactivate', deactivate);
-	    			}
-	    			
-	    			elem.delegate('a[href="#close"]', 'click', close);
-	    			jQuery.event.add(document, 'mousedown touchstart', mousedown);
-	    			jQuery.event.add(target, 'deactivate', deactivate);
-	    		}
-	    	},
-	    	
-	    	'.dropdown': {
-	    		activate: function(e) {
-	    			var target = e.currentTarget;
-	    			
-	    			function mousedown(e) {
+			 			}
+			 			
+			 			function close(e) {
+			 				// A prevented default indicates that this link has already
+			 				// been handled, possibly by an inner pane.
+			 				if (e.isDefaultPrevented()) { return; }
+			 				
+			 				elem.trigger('deactivate');
+			 			}
+			 			
+			 			function deactivate(e) {
+			 				if (target !== e.target) { return; }
+			 				
+			 				elem.undelegate('a[href="#close"]', 'click', close);
+			 				jQuery.event.remove(document, 'mousedown touchstart', mousedown);
+			 				jQuery.event.remove(target, 'deactivate', deactivate);
+			 			}
+			 			
+			 			elem.delegate('a[href="#close"]', 'click', close);
+			 			jQuery.event.add(document, 'mousedown touchstart', mousedown);
+			 			jQuery.event.add(target, 'deactivate', deactivate);
+			 		}
+			 	},
+			 	
+			 	'.dropdown': {
+			 		activate: function(e) {
+			 			var target = e.currentTarget;
+			 			
+			 			function mousedown(e) {
 							// If event is in it or on it, do nothing.
 							if (target === e.target || jQuery.contains(target, e.target)) { return; }
 							
 							jQuery(target).trigger('deactivate');
-	    			}
-	    			
-	    			function deactivate(e) {
-	    				if (target !== e.target) { return; }
-	    			  
-	    				jQuery.event.remove(document, 'mousedown touchstart', mousedown);
-	    				jQuery.event.remove(target, 'click', click);
-	    				jQuery.event.remove(target, 'deactivate', deactivate);
-	    			}
-	    			
-	    			jQuery.event.add(document, 'mousedown touchstart', mousedown);
-	    			jQuery.event.add(target, 'click', click);
-	    			jQuery.event.add(target, 'deactivate', deactivate);
-	    		}
-	    	},
-	    },
+			 			}
+			 			
+			 			function deactivate(e) {
+			 				if (target !== e.target) { return; }
+			 				
+			 				jQuery.event.remove(document, 'mousedown touchstart', mousedown);
+			 				jQuery.event.remove(target, 'click', click);
+			 				jQuery.event.remove(target, 'deactivate', deactivate);
+			 			}
+			 			
+			 			jQuery.event.add(document, 'mousedown touchstart', mousedown);
+			 			jQuery.event.add(target, 'click', click);
+			 			jQuery.event.add(target, 'deactivate', deactivate);
+			 		}
+			 	},
+			 },
 	
-	    selector = Object.keys(classes).join(', ');
+			 selector = Object.keys(classes).join(', ');
 	
 	function activate(elem) {
 		elem.trigger('activate');
@@ -109,10 +109,10 @@ jQuery.noConflict();
 	}
 	
 	function activatePane(e) {
-	  var pane = jQuery(e.target),
-	      data = pane.data('activePane'),
-		    selector, panes, l;
-	      
+		 var pane = jQuery(e.target),
+				 data = pane.data('activePane'),
+				selector, panes, l;
+				 
 		function prev(e) {
 			// A prevented default indicates that this link has already
 			// been handled, possibly by an inner pane.
@@ -139,40 +139,40 @@ jQuery.noConflict();
 			e.preventDefault();
 		}
 		
-	  function deactivate(e) {
+		 function deactivate(e) {
 			if (pane[0] !== e.target) { return; }
 			
 			pane.undelegate('a[href="#prev"]', 'click', prev);
 			pane.undelegate('a[href="#next"]', 'click', next);
 			jQuery.event.remove(e.target, 'deactivate', deactivate);
 		}
-	  
-	  if (!data) {
-	  	selector = pane.data('selector');
-	  	
-	  	if (selector) {
-	  		panes = jQuery(selector);
-	  	}
-	  	else {
-	  		// Choose all sibling panes of the same class
-	  		panes = pane.siblings(pane.hasClass('tab') ? '.tab' : '.slide').add(e.target);
-	  	}
-	  	
-	  	// Attach the panes object to each of the panes
-	  	l = panes.length;
-	  	while (l--) {
-	  		jQuery.data(panes[l], 'activePane', { panes: panes });
-	  	}
-	  }
-	  else {
-	  	panes = data.panes;
-	  }
-	  
-	  panes.trigger('deactivate');
-	  
-	  pane.delegate('a[href="#prev"]', 'click', prev);
-	  pane.delegate('a[href="#next"]', 'click', next);
-	  jQuery.event.add(pane[0], 'deactivate', deactivate);
+		 
+		 if (!data) {
+		 	selector = pane.data('selector');
+		 	
+		 	if (selector) {
+		 		panes = jQuery(selector);
+		 	}
+		 	else {
+		 		// Choose all sibling panes of the same class
+		 		panes = pane.siblings(pane.hasClass('tab') ? '.tab' : '.slide').add(e.target);
+		 	}
+		 	
+		 	// Attach the panes object to each of the panes
+		 	l = panes.length;
+		 	while (l--) {
+		 		jQuery.data(panes[l], 'activePane', { panes: panes });
+		 	}
+		 }
+		 else {
+		 	panes = data.panes;
+		 }
+		 
+		 panes.trigger('deactivate');
+		 
+		 pane.delegate('a[href="#prev"]', 'click', prev);
+		 pane.delegate('a[href="#next"]', 'click', next);
+		 jQuery.event.add(pane[0], 'deactivate', deactivate);
 	}
 	
 	function click(e) {
@@ -242,7 +242,7 @@ jQuery.noConflict();
 			elem.trigger('activate');
 			
 			if (!data) {
-			  jQuery.data(elem[0], 'active').type = type;
+				 jQuery.data(elem[0], 'active').type = type;
 			}
 		}
 	})
@@ -260,8 +260,8 @@ jQuery.noConflict();
 	
 	function fieldData(target) {
 		var field = jQuery(target),
-		    name = field.attr('name'),
-		    data = field.data('field');
+				name = field.attr('name'),
+				data = field.data('field');
 		
 		if (!data){
 			data = {
@@ -411,21 +411,21 @@ jQuery.noConflict();
 	//				position = input.position();
 	//				text = input.attr('placeholder');
 	//				placeholder = jQuery('<label/>', {
-	//				  html: text,
-	//				  'for': id, 
-	//				  'class': 'placeholder',
-	//				  
-	//				  // It's not really my style to be setting CSS in
-	//				  // JavaScript, but it seems to make sense here.
-	//				  // Let's see how this plays out.
-	//				  css: {
-	//				  	top: position.top,
-	//				  	left: position.left,
-	//				  	height: height,
-	//				  	lineHeight: height + 'px',
-	//				  	paddingLeft: input.css('paddingLeft'),
-	//				  	paddingRight: input.css('paddingRight')
-	//				  }
+	//					 html: text,
+	//					 'for': id, 
+	//					 'class': 'placeholder',
+	//					 
+	//					 // It's not really my style to be setting CSS in
+	//					 // JavaScript, but it seems to make sense here.
+	//					 // Let's see how this plays out.
+	//					 css: {
+	//					 	top: position.top,
+	//					 	left: position.left,
+	//					 	height: height,
+	//					 	lineHeight: height + 'px',
+	//					 	paddingLeft: input.css('paddingLeft'),
+	//					 	paddingRight: input.css('paddingRight')
+	//					 }
 	//				});
 	//				
 	//				// Use ignore to signal that the inserted node is coming
@@ -456,30 +456,30 @@ jQuery.noConflict();
 			a = 0;
 	
 	function identify(fly){
-	  // Generate an id, apply it to the input node
-	  // and return it.
-	  var id = 'input_' + a++ ;
-	  
-	  fly.id = id;
-	  return id;
+		 // Generate an id, apply it to the input node
+		 // and return it.
+		 var id = 'input_' + a++ ;
+		 
+		 fly.id = id;
+		 return id;
 	}
 	
 	function changeHandler(e) {
 		var input = e.target,
-		  	value = input.value,
-		  	placeholder = store[input.id];
+				value = input.value,
+				placeholder = store[input.id];
 		
 		if ( !value || !value.length ) {
-		  placeholder.css({ display: 'block' });
+			placeholder.css({ display: 'block' });
 		}
 		else {
-		  placeholder.css({ display: 'none' });
+			placeholder.css({ display: 'none' });
 		};
 	}
 	
 	function focusHandler(e) {
 		var input = e.target,
-		  	placeholder = store[input.id];
+				placeholder = store[input.id];
 		
 		placeholder.css({ display: 'none' });
 	}
@@ -508,23 +508,23 @@ jQuery.noConflict();
 			
 			elem.each(function(i){
 				var input = this,
-				    elem = jQuery(this),
-				    id = input.id || identify(input),
-				    value = input.value,
-				    height = input.nodeName.toLowerCase() === 'input' ?
-				    	elem.height() : 20,
-				    text = elem.attr('placeholder'),
-				    placeholder = jQuery('<label/>', {
-				    	'for': id,
-				    	'class': 'placeholder',
-				    	text: text,
-				    	css: {
-				    		height: height + 'px',
-				    		lineHeight: height + 'px',
-				    		paddingLeft: elem.css('padding-left'),
-				    		paddingRight: elem.css('padding-right')
-				    	}
-				    });
+						elem = jQuery(this),
+						id = input.id || identify(input),
+						value = input.value,
+						height = input.nodeName.toLowerCase() === 'input' ?
+							elem.height() : 20,
+						text = elem.attr('placeholder'),
+						placeholder = jQuery('<label/>', {
+							'for': id,
+							'class': 'placeholder',
+							text: text,
+							css: {
+								height: height + 'px',
+								lineHeight: height + 'px',
+								paddingLeft: elem.css('padding-left'),
+								paddingRight: elem.css('padding-right')
+							}
+						});
 				
 				placeholder.insertAfter(elem);
 				
@@ -554,8 +554,8 @@ jQuery.noConflict();
 	
 	function prepareDragData(e){
 		var elem = jQuery( e.target ),
-		    data = elem.data('mimetypes'),
-		    mimetype;
+				data = elem.data('mimetypes'),
+				mimetype;
 	
 		if (!data) { return; }
 	
@@ -567,8 +567,8 @@ jQuery.noConflict();
 	
 	function prepareDragFeedback(e){
 		var elem = jQuery(e.target),
-		    data = elem.data('feedback'),
-		    offset, dragOffset;
+				data = elem.data('feedback'),
+				offset, dragOffset;
 		
 		if (data){
 			if (debug) { console.log('[drag feedback] data:', data); }
@@ -584,18 +584,9 @@ jQuery.noConflict();
 				elem.data('feedback', data);
 			}
 			
-			e.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
-		}
-		else {
-			offset = elem.offset();
-			dragOffset = {
-				offsetX: e.pageX - offset.left,
-				offsetY: e.pageY - offset.top
-			};
-
-			if (debug) { console.log('[drag feedback] offset:', dragOffset); }
-			e.dataTransfer.setDragImage( e.target, dragOffset.left, dragOffset.top );
-			e.dataTransfer.setData( 'webdoc/offset', JSON.stringify(dragOffset) );
+			if (e.dataTransfer.setDragImage) {
+				e.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
+			}
 		}
 	};
 	
