@@ -16,10 +16,7 @@
 	<!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<!-- Disable image toolbar in IE6 -->
 	<!--[if lte IE 6]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
-	
-	<link rel="icon" type="image/png" href="../images/favicon.png" />
-	<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
-	
+
 	<link rel="stylesheet" type="text/css" href="../css/template.reset.css" />
 	<link rel="stylesheet" type="text/css" href="../css/template.typography.css" />
 	<link rel="stylesheet" type="text/css" href="../css/template.typography.14_24.css" />
@@ -29,8 +26,6 @@
 	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="../css/template.ie8.css" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../css/template.ie7.css" /><![endif]-->
 	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../css/template.ie6.css" /><![endif]-->
-	<link rel="stylesheet" type="text/css" href="../css/site.layout.css" />
-	<link rel="stylesheet" type="text/css" href="../css/site.typography.css" />
 
 	<style>
 		section {
@@ -81,6 +76,22 @@
 		.tab.active.transition {
 			position: relative;
 		}
+		
+		.slides_wrap {
+			width: 60%;
+			background-color: red;
+		}
+		
+		.slide {
+			background-color: orange;
+		}
+		
+		.n1_slide { background-color: yellow; }
+		.n2_slide { background-color: orange; }
+		.n3_slide { background-color: fuchsia; }
+		.n4_slide { background-color: purple; }
+		.n5_slide { background-color: blue; }
+
 	</style>
 </head>
 
@@ -113,23 +124,66 @@
 			<li>
 				<a class="button" href="#pop1">Popdown 1</a>
 				<ul class="popdown popdown_buttons_index buttons_index index" id="pop1">
-					<li><a class="menu_button button">Popdown 1</a></li>
+					<li><a class="menu_button button" href="#menu_button1">Popdown 1</a></li>
 				</ul>
 			</li>
 			<li>
 				<a class="button" href="#pop2">Popdown 2</a>
 				<ul class="popdown popdown_buttons_index buttons_index index" id="pop2">
-					<li><a class="menu_button button">Popdown 2</a></li>
+					<li><a class="menu_button button" href="#menu_button2">Popdown 2</a></li>
 				</ul>
 			</li>
 			<li>
 				<a class="button" href="#pop3">Popdown 3</a>
 				<ul class="popdown popdown_buttons_index buttons_index index" id="pop3">
-					<li><a class="menu_button button">Popdown 3</a></li>
+					<li><a class="menu_button button" href="#menu_button3">Popdown 3</a></li>
 					<li><a class="menu_button button" href="#close">Close</a></li>
 				</ul>
 			</li>
 		</ul>
+	</section>
+	
+	<section>
+		<ul class="horizontal tab_buttons_index buttons_index index">
+			<li><a class="slide_button button" href="#slide1">Slide 1</a></li>
+			<li><a class="slide_button button" href="#slide2">Slide 2</a></li>
+			<li><a class="slide_button button" href="#slide3">Slide 3</a></li>
+			<li><a class="slide_button button" href="#slide4">Slide 4</a></li>
+			<li><a class="slide_button button" href="#slide5">Slide 5</a></li>
+		</ul>
+		
+		<div class="slides_wrap wrap">
+			 <div class="n1_slide slide active" id="slide1">
+				<p>Slide 1</p>
+				<a href="#prev">Previous</a>
+				<a href="#next">Next</a>
+			</div
+			
+			><div class="n2_slide slide" id="slide2">
+				<p>Slide 2</p>
+				<a href="#prev">Previous</a>
+				<a href="#next">Next</a>
+			</div
+			
+			><div class="n3_slide slide" id="slide3">
+				<p>Slide 3</p>
+				<a href="#prev">Previous</a>
+				<a href="#next">Next</a>
+				<p>The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. The quick brown fox jumps over the crazy log. </p>
+			</div
+			
+			><div class="n4_slide slide" id="slide4">
+				<p>Slide 4</p>
+				<a href="#prev">Previous</a>
+				<a href="#next">Next</a>
+			</div
+			
+			><div class="n5_slide slide" id="slide5">
+				<p>Slide 5</p>
+				<a href="#prev">Previous</a>
+				<a href="#next">Next</a>
+			</div>
+		</div>
 	</section>
 	
 	<section>
@@ -163,14 +217,33 @@
 			<li><a class="tab_button button" href="#tab3">Tab 3</a></li>
 		</ul>
 		<div class="tabs">
-			<div class="tab active" id="tab1">
+			<div class="group1_tab tab" id="tab1" data-selector=".group1_tab">
 				<p>Tab 1</p>
 			</div>
-			<div class="tab" id="tab2">
+			<div class="group1_tab tab" id="tab2" data-selector=".group1_tab">
 				<p>Tab 2</p>
 			</div>
-			<div class="tab" id="tab3">
+			<div class="group1_tab tab" id="tab3" data-selector=".group1_tab">
 				<p>Tab 3</p>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+		<ul class="horizontal tab_buttons_index buttons_index index">
+			<li><a class="tab_button button" href="#tab4">Tab 4</a></li>
+			<li><a class="tab_button button" href="#tab5">Tab 5</a></li>
+			<li><a class="tab_button button" href="#tab6">Tab 6</a></li>
+		</ul>
+		<div class="tabs">
+			<div class="tab" id="tab4">
+				<p>Tab 4</p>
+			</div>
+			<div class="tab" id="tab5">
+				<p>Tab 5</p>
+			</div>
+			<div class="tab" id="tab6">
+				<p>Tab 6</p>
 			</div>
 		</div>
 	</section>
@@ -182,10 +255,12 @@
 	
 	<script src="../js/js.extensions.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery.js"%3E%3C/script%3E'));</script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="../js/jquery.js"%3E%3C/script%3E'));</script>
 	<script src="../js/jquery.extensions.js"></script>
+	<script src="../js/jquery.event.activate.js"></script>
 	<script src="../js/jquery.transitions.js"></script>
-	<script src="../js/jquery.popup.js"></script>
 	<script src="../js/template.ui.js"></script>
+	
+	<script src="../js/js.debug.js"></script>
 </body>
 </html>

@@ -123,24 +123,31 @@ jQuery.cookie = function(name, value, options) {
   
   jQuery.support.css = {};
   
-  jQuery(document).ready(function(){
+  //jQuery(document).ready(function(){
     // Test for box-sizing support and figure out whether
     // min-width or min-height fucks it or not.  Store in:
     // jQuery.support.css.borderBox
     // jQuery.support.css.borderBoxMinMax
     document.body.appendChild( testElem[0] );
     
-    jQuery.support.css.borderBox = ( testElem.outerWidth() === 100 && testElem.outerHeight() === 100 );
+    /* Legacy */
+    jQuery.support.css.borderBox = (testElem.outerWidth() === 100 && testElem.outerHeight() === 100);
+    
+    /* New */
+    jQuery.support.css.boxSizing = (testElem.outerWidth() === 100 && testElem.outerHeight() === 100) ? 'border-box' : 'content-box';
     
     testElem.css({
+      height: 'auto',
+      width: 'auto',
       minWidth: 100,
       minHeight: 100
     });
     
-    jQuery.support.css.borderBoxMinMax = ( testElem.outerWidth() === 100 && testElem.outerHeight() === 100 );
+    jQuery.support.css.minWidth = testElem.outerWidth() === 100 ? 'border-box' : 'content-box' ;
+    jQuery.support.css.minHeight = testElem.outerHeight() === 100 ? 'border-box' : 'content-box' ;
     
     testElem.remove();
-  });
+  //});
 })(jQuery);
 
 // Stores browser scrollbar width as jQuery.support.scrollbarWidth
@@ -412,6 +419,75 @@ jQuery.fn.extend({
 });
 
 
+// jQuery.fn.blockScroll
+// 
+// Prevent scroll events on this node if this node has come
+// to the limit of it's scroll travel.
+//
+// When scrolling a target inside this element, we check all
+// nodes up the DOM tree until we hit the current one, making
+// sure they have all hit their limits before preventing the
+// scroll events.
+
+(function(jQuery, undefined){
+	function preventScroll(e) {
+		var target = e.target,
+		    delta = e.wheelDelta !== undefined ? -e.wheelDelta : e.detail,
+		    scrollTop, scrollMax;
+		
+		if (delta < 0) {
+			// We're trying to scroll up. Climb down the DOM tree
+			// until we hit the current node to see if any nodes
+			// have not yet hit 0.
+			
+			while (target !== e.currentTarget.parentNode) {
+				if (target.scrollTop > 0) {
+					break;
+				}
+				
+				if (target === e.currentTarget) {
+					e.preventDefault();
+					break;
+				}
+				
+				target = target.parentNode;
+			};
+		}
+		else {
+			// We're trying to scroll down. Climb down the DOM
+			// tree until we hit the current node to see if any
+			// nodes are not yet at their lower limit.
+			
+			while (target !== e.currentTarget.parentNode) {
+				scrollNow = target.scrollTop;
+				target.scrollTop = 999999;
+				scrollMax = target.scrollTop;
+				target.scrollTop = scrollNow;
+				
+				if (target.scrollTop < scrollMax) {
+					break;
+				}
+				
+				if (target === e.currentTarget) {
+					e.preventDefault();
+					break;
+				}
+				
+				target = target.parentNode;
+			};
+		}
+	}
+	
+	jQuery.fn.blockScroll = function(){
+		return this.bind('mousewheel DOMMouseScroll', preventScroll);
+	};
+	
+	jQuery.fn.unblockScroll = function(){
+		return this.unbind('mousewheel DOMMouseScroll', preventScroll);
+	};
+})(jQuery);
+
+
 (function(jQuery, undefined){
 	var debug = this.console && console.log;
 	
@@ -581,4 +657,54 @@ jQuery.render = (function(){
   		) :
   		string.replace(/\{\{(\w+)\}\}/g, replaceStringFn);
   };
+})();
+
+
+// jQuery.prefix(CSSProperty)
+// 
+// Prefixes CSS properties with -vendor- prefix specific to this
+// browser, if necessary. Returns unprefixed or prefixed property,
+// or undefined where the property is not at all supported.
+// 
+// TODO: Support for IE. Need to simply add the IE equivalent of
+// .cssText and .getPropertyValue...
+
+jQuery.prefix = (function(undefined){
+	var style = document.createElement('a').style,
+	    prefixes = ['-o-', '-ms-', '-moz-', '-webkit-', ''],
+	    cache = {},
+	    reduced = false,
+	    reducePrefixes;
+	
+	function reduce(i) {
+		if (i < (prefixes.length - 1)) {
+			// Reduce the number of tests to just this browser's
+			// prefix for next test run.
+			prefixes = [prefixes[i], ''];
+			reducePrefixes = undefined;
+		}
+	}
+	
+	reducePrefixes = reduce;
+	
+	return function(property) {
+		var i, prefixed;
+	
+		if (cache[property]) {
+			return cache[property];
+		}
+	
+		i = prefixes.length;
+		while (i--) {
+			prefixed = prefixes[i] + property;
+	
+			style.cssText = prefixed + ':inherit;';
+	
+			if (style.getPropertyValue(prefixed)) {
+				if (reducePrefixes) { reducePrefixes(i); }
+				cache[property] = prefixed;
+				return prefixed;
+			}
+		}
+	}
 })();

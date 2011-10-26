@@ -5,7 +5,7 @@
 	<meta name="author" content="">
 	<meta name="description" content="">
 	
-	<title>QUnit event.activate test</title>
+	<title>Title</title>
 	
 	<script>document.documentElement.className = 'js';</script>
 	
@@ -22,7 +22,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="../css/template.reset.css" />
 	<link rel="stylesheet" type="text/css" href="../css/template.typography.css" />
-	<link rel="stylesheet" type="text/css" href="../css/template.typography.14_24.css" />
+	<link rel="stylesheet" type="text/css" href="../css/template.typography.12_18.css" />
 	<link rel="stylesheet" type="text/css" href="../css/template.forms.css" />
 	<link rel="stylesheet" type="text/css" href="../css/template.classes.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="../css/template.ie.css" /><![endif]-->
@@ -31,49 +31,68 @@
 	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../css/template.ie6.css" /><![endif]-->
 	
 	<!-- testing -->
-	<link rel="stylesheet" type="text/css" href="/qunit/qunit/qunit.css" media="screen">
+	<!--link rel="stylesheet" type="text/css" href="/qunit/qunit/qunit.css" media="screen"-->
 	<link rel="stylesheet" type="text/css" href="css/test.css" />
+	
+	<style>
+		summary:before {
+			content: '▶';
+			display: inline-block;
+			margin-right: 0.5em;
+			vertical-align: -0.1em;
+		}
+		
+		details[open] summary:before {
+			content: '▼';
+		}
+	</style>
 </head>
 
 <body>
-	<div id="qunit-fixture">
-		<a href="#test1">Activate link 1</a>
-		<a href="#test1">Activate link 2</a>
-
-		<a href="#test2">Activate link 3</a>
-		<a href="#test2">Activate link 4</a>
-		
-		<a href="#test3">Activate link 5</a>
-		<a href="#test3">Activate link 6</a>
-		
-		<a href="#test4">Activate link 5</a>
-		<a href="#test4">Activate link 6</a>
-		
-		<div id="test1"></div>
-		
-		<div id="test2"></div>
-		
-		<div id="test3" class="dropdown"></div>
-		
-		<div id="test4" class="tab"></div>
-	</div>
 	
-	<h1 id="qunit-header">/template</h1>
+	<details open="open">
+		<summary>more</summary>
+		The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. The quick brown fox lumps over the crazy god. 
+	</details>
+	
+	<!--h1 id="qunit-header">/template</h1>
 	<h2 id="qunit-banner"></h2>
 	<div id="qunit-testrunner-toolbar"></div>
 	<h2 id="qunit-userAgent"></h2>
-	<ol id="qunit-tests"></ol>
+	<ol id="qunit-tests"></ol-->
 	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<!--[if IE 6]><script src="iepngfix/iepngfix_tilebg.js"></script><![endif]-->
+	<script src="../js/js.extensions.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery.js"%3E%3C/script%3E'));</script>
-	<script src="../js/jquery.event.activate.js"></script>
 	<script src="../js/jquery.extensions.js"></script>
+	<script src="../js/jquery.validator.js"></script>
 	<script src="../js/jquery.transitions.js"></script>
-	<script src="../js/template.ui.js"></script>
+	<script src="../js/jquery.loading.js"></script>
+	<script src="../js/jquery.popup.js"></script>
+	<script src="../js/ui.site.js"></script>
+	
+	<script>
+		jQuery(document)
+		.delegate('summary', 'click', function(e) {
+			var details = jQuery(e.currentTarget).closest('details');
+			
+			if (details.length === 0) { return; }
+			
+			console.log('click', details, details[0].getAttribute('open'));
+			
+			if (details[0].getAttribute('open')) {
+				details[0].removeAttribute('open');
+			}
+			else {
+				details[0].setAttribute('open', 'open');
+			}
+		});
+	</script>
 	
 	<!-- testing -->
-	<script src="/qunit/qunit/qunit.js"></script>
-	<script src="js/qunit.event.activate.js"></script>
-	<script src="/testswarm/js/inject.js"></script>
+	<!--script src="/qunit/qunit/qunit.js"></script>
+	<script src="js/qunit.col.js"></script>
+	<script src="/testswarm/js/inject.js"></script-->
 </body>
 </html>
