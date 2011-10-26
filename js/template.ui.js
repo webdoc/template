@@ -541,7 +541,13 @@ jQuery.noConflict();
 })(jQuery);
 
 
-// Define event handlers
+// Allow drag feedback to be defined as a jQuery selector in a
+// data-feedback attribute, or as a jQuery object set as
+// .data('feedback', obj).
+// 
+// It is assumed that jQuery has been set up to copy the dataTransfer
+// property over to it's normalised event object. In Template, that
+// code is in jquery.extensions.js.
 
 (function(jQuery, undefined){
 	var debug = (window.console && window.console.log);
@@ -555,7 +561,7 @@ jQuery.noConflict();
 	
 		for (mimetype in data){
 			if (debug) { console.log('[drag data] mimetype:', mimetype, 'data:', data[mimetype]); }
-			e.originalEvent.dataTransfer.setData(mimetype, JSON.stringify(data[mimetype]));
+			e.dataTransfer.setData(mimetype, JSON.stringify(data[mimetype]));
 		}
 	};
 	
@@ -578,7 +584,7 @@ jQuery.noConflict();
 				elem.data('feedback', data);
 			}
 			
-			e.originalEvent.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
+			e.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
 		}
 		else {
 			offset = elem.offset();
@@ -588,8 +594,8 @@ jQuery.noConflict();
 			};
 
 			if (debug) { console.log('[drag feedback] offset:', dragOffset); }
-			e.originalEvent.dataTransfer.setDragImage( e.target, dragOffset.left, dragOffset.top );
-			e.originalEvent.dataTransfer.setData( 'webdoc/offset', JSON.stringify(dragOffset) );
+			e.dataTransfer.setDragImage( e.target, dragOffset.left, dragOffset.top );
+			e.dataTransfer.setData( 'webdoc/offset', JSON.stringify(dragOffset) );
 		}
 	};
 	
