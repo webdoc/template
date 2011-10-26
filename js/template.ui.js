@@ -570,23 +570,24 @@ jQuery.noConflict();
 				data = elem.data('feedback'),
 				offset, dragOffset;
 		
-		if (data){
-			if (debug) { console.log('[drag feedback] data:', data); }
-			
-			if (typeof data === 'string') {
-				// When feedback is a selector string, turn it into
-				// a jQuery object.
-				data = jQuery(data);
-				
-				// Abort if no node has been selected.
-				if (!data.length) { return; }
-				
-				elem.data('feedback', data);
-			}
-			
-			if (e.dataTransfer.setDragImage) {
-				e.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
-			}
+		if (!data) { return; }
+		
+		if (debug) { console.log('[drag feedback] data:', data); }
+		
+		if (typeof data === 'string') {
+		  // When feedback is a selector string, turn it into
+		  // a jQuery object.
+		  data = jQuery(data);
+		  
+		  // Abort if no node has been selected.
+		  if (!data.length) { return; }
+		  
+		  elem.data('feedback', data);
+		}
+		
+		// setDragImage does not exist in IE9. Test for it first.
+		if (e.dataTransfer.setDragImage) {
+		  e.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
 		}
 	};
 	
