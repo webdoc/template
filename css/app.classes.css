@@ -1,5 +1,5 @@
 .app_footer {
-	border-top: 1px solid rgb(179,179,179);
+	border-top: 1px solid rgb(153,154,157);
   background-color: rgb(242,242,242);
 }
 
@@ -8,8 +8,20 @@
 
 .app_header {
   padding: 0.8333em 0.8333em 0.8333em 84px;
-  min-height: 84px;
+  min-height: 80px;
+  
   border-bottom: 1px solid rgb(204,204,204);
+  background-color: rgb(242,242,242);
+  
+	-webkit-transition: height 0.33s ease-in;
+	   -moz-transition: height 0.33s ease-in;
+	    -ms-transition: height 0.33s ease-in;
+	     -o-transition: height 0.33s ease-in;
+	        transition: height 0.33s ease-in;
+}
+
+.min-height_content-box .app_header {
+	min-height: 60px;
 }
 
 .app_header > .thumb {
@@ -36,6 +48,15 @@
 
 /* .title classes */
 
+.app_title {
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: bold;
+	margin-bottom: 0;
+	
+	color: rgb(65,65,65);
+}
+
 .slide_title {
 	font-size: 1.25em;
 	font-weight: bold;
@@ -54,11 +75,17 @@
 .app_thumb {
   /* TODO: this is temporary, so we can see it! */
   background-color: #999999;
+  
+  padding-top: 60px;
+  width: 60px;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
 }
 
 .widget_thumb {
   /* TODO: this is temporary, so we can see it! */
-  background-color: #bbbbbb;
+  background-color: #d0d0d0;
   
   background-image: url('../images/thumbs/thumb_widget.png');
   background-size: auto;
@@ -69,32 +96,55 @@
   background-image: url('../images/thumbs/thumb_image.png');
 }
 
-.l_thumb {
-	width: 230px;
-}
 
-.m_thumb {
-	width: 175px;
-}
-
-.s_thumb {
-	width: 125px;
-}
-
-.drag_thumb:hover,
+/*.drag_thumb:hover,
 .drag_thumb:focus {
 	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	   -moz-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	    -ms-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	     -o-box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	        box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}*/
+
+.widget_thumb,
+.image_thumb,
+.drag_thumb {
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+       -o-border-radius: 4px;
+          border-radius: 4px;
 }
 
-.drag_thumb {
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-       -o-border-radius: 8px;
-          border-radius: 8px;
+.m_drag_thumb   { width: 85px; }
+.l_drag_thumb   { width: 116px; }
+.xl_drag_thumb  { width: 178px; }
+.xxl_drag_thumb { width: 364px; }
+.a_drag_thumb   { width: 95px; }
+
+.arrow_thumb {
+	width: 25px;
+	padding-top: 25px;
+	background-image: url('../images/spritemap.png');
+	background-position: 0 -25px;
+}
+
+.arrow_thumb:hover {
+	background-position: 0 0;
+}
+
+
+/* .selected class */
+
+.selected {
+  border-color: rgb(250,244,0);
+  
+  /* Makes the box shadow render over the top of its neighbours. */
+  z-index: 1;
+  
+  -webkit-box-shadow: 0 0 1px 1px rgb(250,244,0);
+     -moz-box-shadow: 0 0 1px 1px rgb(250,244,0);
+       -o-box-shadow: 0 0 1px 1px rgb(250,244,0);
+          box-shadow: 0 0 1px 1px rgb(250,244,0);
 }
 
 
@@ -115,7 +165,7 @@
      -moz-border-radius: 0.3333em;
           border-radius: 0.3333em;
 
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(203,204,205)), to(rgb(178,179,180)));
   background-image: -webkit-linear-gradient(rgb(203,204,205), rgb(178,179,180));
   background-image:    -moz-linear-gradient(rgb(203,204,205), rgb(178,179,180));
   background-image:     -ms-linear-gradient(rgb(203,204,205), rgb(178,179,180));
@@ -131,7 +181,7 @@
 .back_action_button,
 .submit_action_button,
 .primary_action_button {
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(127,161,214)), to(rgb(99,127,172)));
   background-image: -webkit-linear-gradient(rgb(127,161,214), rgb(99,127,172));
   background-image:    -moz-linear-gradient(rgb(127,161,214), rgb(99,127,172));
   background-image:     -ms-linear-gradient(rgb(127,161,214), rgb(99,127,172));
@@ -149,12 +199,32 @@
 .tab_button.active {
 	color: white;
   background-color: rgb(187,189,191);
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(white), color-stop(0.3, #a6f2c0), color-stop(0.65, rgba(180, 200, 210, .9)), to(black));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(187,189,191)), to(rgb(128,129,132)));
   background-image: -webkit-linear-gradient(rgb(187,189,191), rgb(128,129,132));
   background-image:    -moz-linear-gradient(rgb(187,189,191), rgb(128,129,132));
   background-image:     -ms-linear-gradient(rgb(187,189,191), rgb(128,129,132));
   background-image:      -o-linear-gradient(rgb(187,189,191), rgb(128,129,132));
   background-image:         linear-gradient(rgb(187,189,191), rgb(128,129,132));
+}
+
+.crumb_button {
+	padding-left: 0;
+	padding-right: 0;
+	
+	font-weight: bold;
+	
+	color: rgb(109,155, 208);
+	background: none;
+}
+
+.crumb_button.active:hover,
+.crumb_button.active:focus {
+	color: rgb(109,155, 208);
+}
+
+.crumb_button.active {
+	font-weight: normal;
+	color: rgb(109,155, 208);
 }
 
 .filter_button {
@@ -193,33 +263,6 @@
 	margin-bottom: 0;
 }
 
-.l_col {
-	width: 62.1622%;
-	margin-right: -62.1622%;
-}
-
-.m_col {
-	width: 47.2973%;
-	margin-right: -47.2973%;
-}
-
-.s_col {
-	width: 33.7838%;
-	margin-right: -33.7838%;
-}
-
-.thumb_col {
-	left: 0;
-}
-
-.thumb_col > .thumb {
-	width: 100%;
-}
-
-.text_col.l_col { left: 37.8378%; }
-.text_col.m_col { left: 52.7027%; }
-.text_col.s_col { left: 66.2162%; }
-
 /* .tab classes */
 
 .tab {
@@ -248,16 +291,6 @@
 	height: 3.5em;
 }
 
-.tab > .widgets_index,
-.slide > .widgets_index {
-	/* Tabs have there own padding, but if we want to retain the 
-	   dimensions of these lists - and we do - we must reduce
-	   their padding inside tabs. */
-	padding-left: 0.8333em;
-	padding-right: 0.4167em;
-}
-
-
 /* .index classes */
 
 .tabs_index {
@@ -271,22 +304,31 @@
 
 .widgets_index {
 	margin-bottom: 0.8333em;
-	padding-left: 1.6667em;
-	padding-right: 1.25em;
 }
 
 .widgets_index > li {
-	padding-top: 1.6667em;
-	padding-bottom: 1.6667em;
 	border-bottom: 1px solid rgb(204,204,204);
 }
 
+.slide_crumbs_index > li {
+	/* Width of crumb items needs to be limited, as we have
+	   limited horizontal space. The problem is that we have to
+	   treat them all the same. This will catch a some cases but
+	   not all. If they are all too long, the breadcrumb trail
+	   will be too long.
+	   
+	   In other words, this is a fudge. */
+	max-width: 38%;
+}
+
+.thumbs_index,
 .filters_index {
   /* Compensate for the margin-right on the last li
      of each line. */
   margin-right: -0.6667em;
 }
 
+.thumbs_index > li,
 .filters_index > li {
   margin-right: 0.6667em;
   margin-bottom: 0.8333em;
@@ -294,12 +336,14 @@
 
 /* .index classes with horizontal layout */
 
+.thumbs_index,
 .filters_index {
   /* To form grids with a horizontal index, line-height
      needs to be smaller than the items in the index. */
 	line-height: 0;
 }
 
+.thumbs_index > li,
 .filters_index > li {
   display: inline-block;
   vertical-align: top;
@@ -307,20 +351,117 @@
   line-height: 1.5;
 }
 
+.thumbs_index > li:last-child,
 .filters_index > li:last-child {
   margin-right: 0;
 }
 
+.spaced_thumbs_index {
+	padding-top: 15px;
+	padding-left: 15px;
+	margin-right: -10px;
+}
+
+.spaced_thumbs_index > li {
+	margin-right: 25px;
+	margin-bottom: 30px;
+}
+
+
+/* .card classes */
+
+.card {
+	background-color: transparent;
+	min-height: 0;
+}
+
+.drag_card {
+	padding-top: 0.8333em;
+	padding-bottom: 0.8333em;
+	padding-left: 0.8333em;
+	padding-right: 1.25em;
+}
+
+.drag_card:hover {
+	background-color: rgb(242,242,242);
+}
+
+.l_drag_card {
+	padding-left: 217px;
+}
+
+.m_drag_card {
+	padding-left: 190px;
+}
+
+.s_drag_card {
+	padding-left: 125px;
+}
+
+.drag_card > .thumb {
+  cursor: inherit;
+}
+
+.drag_card > .widget_thumb,
+.drag_card > .image_thumb  {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	top: 0;
+}
+
+.l_drag_card > .widget_thumb,
+.l_drag_card > .image_thumb {
+	width: 192px;
+	margin-right: -192px;
+	left: -207px;
+}
+
+.m_drag_card > .widget_thumb,
+.m_drag_card > .image_thumb {
+	width: 165px;
+	margin-right: -165px;
+	left: -180px;
+}
+
+.s_drag_card > .widget_thumb,
+.s_drag_card > .image_thumb {
+	width: 100px;
+	margin-right: -100px;
+	left: -115px;
+}
+
+.link_card {
+	padding-right: 4.5833em;
+}
+
+.link_card > .arrow_thumb {
+	position: absolute;
+	top: 50%;
+	margin-top: -13px;
+	left: auto;
+	right: 15px;
+}
+
+
 /* forms */
 
 .search_form {
+	position: relative;
 	margin-bottom: 0.8333em;
-	margin-right: 6.75em;
+	padding-right: 6.75em;
 }
 
 .search_form > input {
 	display: inline-block;
 	vertical-align: top;
+}
+
+.search_form .submit_action_button {
+	position: absolute;
+	width: 6em;
+	right: 0;
+	top: 0;
 }
 
 .search_form > input[type="search"] {
@@ -335,6 +476,8 @@
 	width: 100%;
 	margin-right: -100%;
 	height: 2em;
+	line-height: 2em;
+	padding: 0.3333em 0.3333em;
 	
 	border: 1px solid rgb(187,189,191);
 	
