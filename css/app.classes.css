@@ -310,6 +310,21 @@
 	border-bottom: 1px solid rgb(204,204,204);
 }
 
+.crumbs_index > li + li:before {
+	/* Overide default styling of crumbs. TODO: review what is
+	   and what is not needed here. */
+	content: "▶";
+	font-size: 0.75em;
+	display: inline-block;
+	vertical-align: top;
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	margin-left: -2em;
+	margin-right: 0;
+	padding-top: 0.6666em;
+}
+
 .slide_crumbs_index > li {
 	/* Width of crumb items needs to be limited, as we have
 	   limited horizontal space. The problem is that we have to
