@@ -541,9 +541,6 @@ jQuery.noConflict();
 })(jQuery);
 
 
-// Allow drag data to be defined as JSON in a data-mimetype attribute,
-// or by setting a key: value hash via .data('mimetype', obj).
-// 
 // Allow drag feedback to be defined as a jQuery selector in a
 // data-feedback attribute, or as a jQuery object set as
 // .data('feedback', obj).
@@ -557,8 +554,8 @@ jQuery.noConflict();
 	
 	function prepareDragData(e){
 		var elem = jQuery( e.target ),
-				data = elem.data('mimetypes'),
-				mimetype;
+		    data = elem.data('mimetypes'),
+		    mimetype;
 	
 		if (!data) { return; }
 	
@@ -593,7 +590,7 @@ jQuery.noConflict();
 		  e.dataTransfer.setDragImage(data[0], data.outerWidth()/2, data.outerHeight()/2);
 		}
 	};
-	
+
 	jQuery(document).bind('dragstart', prepareDragData);
 	jQuery(document).bind('dragstart', prepareDragFeedback);
 })(jQuery);
