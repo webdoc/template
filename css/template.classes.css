@@ -69,7 +69,7 @@
 .popup_layer {
 	position: fixed;
 	
-	/* Center inline-block contents */
+	/* Center inline-block contents horizontally */
 	text-align: center;
 	
 	background-color: rgba(0,0,0,0.6);
@@ -82,6 +82,19 @@
 	    -ms-transition: opacity 0.06s ease-in;
 	     -o-transition: opacity 0.06s ease-in;
 	        transition: opacity 0.06s ease-in;
+}
+
+.popup_layer:after {
+  /* Center inline-block contents vertically */
+  display: inline-block;
+  content: '';
+  height: 100%;
+  width: 0;
+  vertical-align: middle;
+}
+
+.popup_layer > * {
+	text-align: left;
 }
 
 .popup_layer.active {
@@ -104,11 +117,20 @@
 	   to the width of its contents. */
 	display: inline-block;
   
+  /* Center the popup vertically, working in tandem
+     with the :after rule of .popup_layer. */
+  vertical-align: middle;
+  
+  /* But let's make sure it doesn't touch the top or
+     bottom. */
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+  
   /* Act as position parent */
   position: relative;
   
 	padding: 0.8333em;
-  margin: 5em 0 3em 0;
+  margin: 0;
   max-width: 72%;
   
   background-color: white;
@@ -141,6 +163,7 @@
      -moz-box-shadow: 0 0 24px rgba(0,0,0,0.6);
           box-shadow: 0 0 24px rgba(0,0,0,0.6);
 }
+
 
 /* TODO: We should be able to merge the .gif technique with
    the <canvas> technique, so that when canvas is not available
@@ -206,6 +229,17 @@
 }
 
 
+/* .tip */
+
+.js .tip {
+	display: none;
+}
+
+.js .tip.active {
+	display: block;
+}
+
+
 /* utilities */
 
 .hidden {
@@ -214,10 +248,10 @@
 
 .no_transition {
   -webkit-transition: none !important;
-  -moz-transition:    none !important;
-  -ms-transition:     none !important;
-  -o-transition:      none !important;
-  transition:         none !important;
+     -moz-transition: none !important;
+      -ms-transition: none !important;
+       -o-transition: none !important;
+          transition: none !important;
 }
 
 
@@ -298,14 +332,11 @@
 	content: "▶";
 	font-size: 0.75em;
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: baseline;
 	width: 2em;
-	height: 2em;
 	text-align: center;
 	margin-left: -2em;
 	margin-right: 0;
-	padding-top: 0.6666em;
-	
 }
 
 .crumbs_index > li > .button {
@@ -648,169 +679,98 @@
   margin-right: -100%;
 }
 
-.two_col_wrap .col   { width: 50%;      margin-right: -50%; }
-.three_col_wrap .col { width: 33.3333%; margin-right: -33.3333%; }
-.four_col_wrap .col  { width: 25%;      margin-right: -25%; }
-.five_col_wrap .col  { width: 20%;      margin-right: -20%; }
-.six_col_wrap .col   { width: 16.6667%; margin-right: -16.6667%; }
-.seven_col_wrap .col { width: 14.2857%; margin-right: -14.2857%; }
-.eight_col_wrap .col { width: 12.5%;    margin-right: -12.5%; }
-.nine_col_wrap .col  { width: 11.1111%; margin-right: -11.1111%; }
-.ten_col_wrap .col   { width: 10%;      margin-right: -10%; }
+.two_col_wrap > .col   { width: 50%;      margin-right: -50%; }
+.three_col_wrap > .col { width: 33.3333%; margin-right: -33.3333%; }
+.four_col_wrap > .col  { width: 25%;      margin-right: -25%; }
+.five_col_wrap > .col  { width: 20%;      margin-right: -20%; }
+.six_col_wrap > .col   { width: 16.6667%; margin-right: -16.6667%; }
+.seven_col_wrap > .col { width: 14.2857%; margin-right: -14.2857%; }
+.eight_col_wrap > .col { width: 12.5%;    margin-right: -12.5%; }
+.nine_col_wrap > .col  { width: 11.1111%; margin-right: -11.1111%; }
+.ten_col_wrap > .col   { width: 10%;      margin-right: -10%; }
 
-.two_col_wrap .double_col      { width: 100%; margin-right: -100%; }
+.two_col_wrap > .double_col      { width: 100%; margin-right: -100%; }
 
-.two_col_wrap .first_col       { left: 0; }
-.two_col_wrap .second_col      { left: 100%; margin-right: 0; margin-left: -50%; }
+.two_col_wrap > .first_col       { left: 0; }
+.two_col_wrap > .second_col      { left: 100%; margin-right: 0; margin-left: -50%; }
 
-.three_col_wrap .double_col    { width: 66.6667%; margin-right: -66.6667%; }
-.three_col_wrap .triple_col    { width: 100%; margin-right: -100%; }
+.three_col_wrap > .double_col    { width: 66.6667%; margin-right: -66.6667%; }
+.three_col_wrap > .triple_col    { width: 100%; margin-right: -100%; }
 
-.three_col_wrap .first_col     { left: 0; }
-.three_col_wrap .second_col    { left: 33.3333%; }
-.three_col_wrap .third_col     { left: 100%; margin-right: 0; margin-left: -33.3333%; }
+.three_col_wrap > .first_col     { left: 0; }
+.three_col_wrap > .second_col    { left: 33.3333%; }
+.three_col_wrap > .third_col     { left: 100%; margin-right: 0; margin-left: -33.3333%; }
 
-.four_col_wrap .double_col     { width: 40%; margin-right: -40%; }
-.four_col_wrap .triple_col     { width: 60%; margin-right: -60%; }
-.four_col_wrap .quadruple_col  { width: 100%; margin-right: -100%; }
+.four_col_wrap > .double_col     { width: 40%; margin-right: -40%; }
+.four_col_wrap > .triple_col     { width: 60%; margin-right: -60%; }
+.four_col_wrap > .quadruple_col  { width: 100%; margin-right: -100%; }
 
-.four_col_wrap .first_col      { left: 0; }
-.four_col_wrap .second_col     { left: 25%; }
-.four_col_wrap .third_col      { left: 50%; }
-.four_col_wrap .fourth_col     { left: 100%; margin-right: 0; margin-left: -25%; }
+.four_col_wrap > .first_col      { left: 0; }
+.four_col_wrap > .second_col     { left: 25%; }
+.four_col_wrap > .third_col      { left: 50%; }
+.four_col_wrap > .fourth_col     { left: 100%; margin-right: 0; margin-left: -25%; }
 
-.five_col_wrap .double_col     { width: 40%; margin-right: -40%; }
-.five_col_wrap .triple_col     { width: 60%; margin-right: -60%; }
-.five_col_wrap .quadruple_col  { width: 80%; margin-right: -80%; }
-.five_col_wrap .quintuple_col  { width: 100%; margin-right: -100%; }
+.five_col_wrap > .double_col     { width: 40%; margin-right: -40%; }
+.five_col_wrap > .triple_col     { width: 60%; margin-right: -60%; }
+.five_col_wrap > .quadruple_col  { width: 80%; margin-right: -80%; }
+.five_col_wrap > .quintuple_col  { width: 100%; margin-right: -100%; }
 
-.five_col_wrap .first_col      { left: 0; }
-.five_col_wrap .second_col     { left: 20%; }
-.five_col_wrap .third_col      { left: 40%; }
-.five_col_wrap .fourth_col     { left: 60%; }
-.five_col_wrap .fifth_col      { left: 100%; margin-right: 0; margin-left: -20%; }
+.five_col_wrap > .first_col      { left: 0; }
+.five_col_wrap > .second_col     { left: 20%; }
+.five_col_wrap > .third_col      { left: 40%; }
+.five_col_wrap > .fourth_col     { left: 60%; }
+.five_col_wrap > .fifth_col      { left: 100%; margin-right: 0; margin-left: -20%; }
 
-.six_col_wrap .double_col      { width: 28.5714%; margin-right: -28.5714%; }
-.six_col_wrap .triple_col      { width: 42.8571%; margin-right: -42.8571%; }
-.six_col_wrap .quadruple_col   { width: 57.1429%; margin-right: -57.1429%; }
-.six_col_wrap .quintuple_col   { width: 71.4286%; margin-right: -71.4286%; }
-.six_col_wrap .sextuple_col    { width: 100%; margin-right: -100%; }
+.six_col_wrap > .double_col      { width: 28.5714%; margin-right: -28.5714%; }
+.six_col_wrap > .triple_col      { width: 42.8571%; margin-right: -42.8571%; }
+.six_col_wrap > .quadruple_col   { width: 57.1429%; margin-right: -57.1429%; }
+.six_col_wrap > .quintuple_col   { width: 71.4286%; margin-right: -71.4286%; }
+.six_col_wrap > .sextuple_col    { width: 100%; margin-right: -100%; }
 
-.six_col_wrap .first_col       { left: 0; }
-.six_col_wrap .second_col      { left: 16.6667%; }
-.six_col_wrap .third_col       { left: 33.3333%; }
-.six_col_wrap .fourth_col      { left: 50%; }
-.six_col_wrap .fifth_col       { left: 66.6667%; }
-.six_col_wrap .sixth_col       { left: 100%; margin-right: 0; margin-left: -16.6667%; }
+.six_col_wrap > .first_col       { left: 0; }
+.six_col_wrap > .second_col      { left: 16.6667%; }
+.six_col_wrap > .third_col       { left: 33.3333%; }
+.six_col_wrap > .fourth_col      { left: 50%; }
+.six_col_wrap > .fifth_col       { left: 66.6667%; }
+.six_col_wrap > .sixth_col       { left: 100%; margin-right: 0; margin-left: -16.6667%; }
 
-.seven_col_wrap .double_col    { width: 28.5714%; margin-right: -28.5714%; }
-.seven_col_wrap .triple_col    { width: 42.8571%; margin-right: -42.8571%; }
-.seven_col_wrap .quadruple_col { width: 57.1429%; margin-right: -57.1429%; }
-.seven_col_wrap .quintuple_col { width: 71.4286%; margin-right: -71.4286%; }
-.seven_col_wrap .sextuple_col  { width: 85.7143%; margin-right: -85.7143%; }
-.seven_col_wrap .septuple_col  { width: 100%; margin-right: -100%; }
+.seven_col_wrap > .double_col    { width: 28.5714%; margin-right: -28.5714%; }
+.seven_col_wrap > .triple_col    { width: 42.8571%; margin-right: -42.8571%; }
+.seven_col_wrap > .quadruple_col { width: 57.1429%; margin-right: -57.1429%; }
+.seven_col_wrap > .quintuple_col { width: 71.4286%; margin-right: -71.4286%; }
+.seven_col_wrap > .sextuple_col  { width: 85.7143%; margin-right: -85.7143%; }
+.seven_col_wrap > .septuple_col  { width: 100%; margin-right: -100%; }
 
-.seven_col_wrap .first_col     { left: 0; }
-.seven_col_wrap .second_col    { left: 14.2857%; }
-.seven_col_wrap .third_col     { left: 28.5714%; }
-.seven_col_wrap .fourth_col    { left: 42.8571%; }
-.seven_col_wrap .fifth_col     { left: 57.1429%; }
-.seven_col_wrap .sixth_col     { left: 71.4286%; }
-.seven_col_wrap .seventh_col   { left: 100%; margin-right: 0; margin-left: -14.2857%; }
+.seven_col_wrap > .first_col     { left: 0; }
+.seven_col_wrap > .second_col    { left: 14.2857%; }
+.seven_col_wrap > .third_col     { left: 28.5714%; }
+.seven_col_wrap > .fourth_col    { left: 42.8571%; }
+.seven_col_wrap > .fifth_col     { left: 57.1429%; }
+.seven_col_wrap > .sixth_col     { left: 71.4286%; }
+.seven_col_wrap > .seventh_col   { left: 100%; margin-right: 0; margin-left: -14.2857%; }
 
-.eight_col_wrap .double_col    { width: 25%;   margin-right: -25%; }
-.eight_col_wrap .triple_col    { width: 37.5%; margin-right: -37.5%; }
-.eight_col_wrap .quadruple_col { width: 50%;   margin-right: -50%; }
-.eight_col_wrap .quintuple_col { width: 62.5%; margin-right: -62.5%; }
-.eight_col_wrap .sextuple_col  { width: 75%;   margin-right: -75%; }
-.eight_col_wrap .septuple_col  { width: 87.5%; margin-right: -87.5%; }
-.eight_col_wrap .octuple_col   { width: 100%; margin-right: -100%; }
+.eight_col_wrap > .double_col    { width: 25%;   margin-right: -25%; }
+.eight_col_wrap > .triple_col    { width: 37.5%; margin-right: -37.5%; }
+.eight_col_wrap > .quadruple_col { width: 50%;   margin-right: -50%; }
+.eight_col_wrap > .quintuple_col { width: 62.5%; margin-right: -62.5%; }
+.eight_col_wrap > .sextuple_col  { width: 75%;   margin-right: -75%; }
+.eight_col_wrap > .septuple_col  { width: 87.5%; margin-right: -87.5%; }
+.eight_col_wrap > .octuple_col   { width: 100%; margin-right: -100%; }
 
-.eight_col_wrap .first_col     { left: 0; }
-.eight_col_wrap .second_col    { left: 12.5%; }
-.eight_col_wrap .third_col     { left: 25%; }
-.eight_col_wrap .fourth_col    { left: 37.5%; }
-.eight_col_wrap .fifth_col     { left: 50%; }
-.eight_col_wrap .sixth_col     { left: 62.5%; }
-.eight_col_wrap .seventh_col   { left: 75%; }
-.eight_col_wrap .eighth_col    { left: 100%; margin-right: 0; margin-left: -12.5%; }
+.eight_col_wrap > .first_col     { left: 0; }
+.eight_col_wrap > .second_col    { left: 12.5%; }
+.eight_col_wrap > .third_col     { left: 25%; }
+.eight_col_wrap > .fourth_col    { left: 37.5%; }
+.eight_col_wrap > .fifth_col     { left: 50%; }
+.eight_col_wrap > .sixth_col     { left: 62.5%; }
+.eight_col_wrap > .seventh_col   { left: 75%; }
+.eight_col_wrap > .eighth_col    { left: 100%; margin-right: 0; margin-left: -12.5%; }
 
 .last_col,
-.col_wrap .last_col            { margin-right: 100%; }
+.col_wrap > .last_col            { margin-right: 100%; }
 
 
-/* Vertical centering builds on the technique described here:
-   http://www.jakpsatweb.cz/css/css-vertical-center-solution.html
-   TODO: Fix case in IE7 where centering has to scroll. V difficult. Possibly impossible. */
-
-.center {
-    display: table;
-    width: 100%;
-    height: 100%;
-    
-    /* Stops a mysterious gap at the bottom appearing when content
-       is too tall (except Opera, where there is still a small one) */
-    overflow: hidden;
-    
-    /* IE hacks */
-    position: relative !ie7;
-}
-
-.center_cell {
-    display: table-cell;
-    vertical-align: middle;
-    
-    /* Must have height, or you can't expect FF to know
-       how high to make its children */
-    height: 100%;
-    
-    /* In WebKit and FF iframes cause scrollbars because they
-       have a 'system' margin-bottom. In any case, it's useful
-       to be able to position stuff outside the cell */
-    overflow: visible;
-    
-    /* IE hacks */
-    position: absolute !ie7;
-    top: 50% !ie7;
-}
-
-.center_box {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: visible;
-    margin: 0 auto;
-    
-    /* Acts as position parent for its content */
-    position: relative;
-
-    /* IE hacks */
-    position: relative !ie7;
-    top: -50% !ie7;
-}
-
-.center_box>iframe {
-    width: 100%;
-    height: 100%;
-}
-
-/* Ideally, all elements likely to be put in a centred layer should be
-   listed here */
-
-/*.center_box>div,
-.center_box>form,
-.center_box>img,
-.center_box>object,
-.center_box>embed,
-.center_box>video,
-.center_box>progress,
-.center_box>canvas,
-.center_box>.content {
-    height: 100%;
-}*/
-
-
-/* panel class */
+/* .panel */
 
 .panel {
   position: absolute;
@@ -818,7 +778,7 @@
 }
 
 
-/* .content class */
+/* .content */
 
 .content {
 	/* Content class is used where typography needs to be redefined
@@ -827,16 +787,17 @@
 }
 
 
-
-.tab {
-	display: none;
-	/* The inline-block technique overlays tabs on top of one another
-	   but still allows the height of the blocks to stay in the flow.
-	   It's better than using position: absolute. In short, it rocks. */
+.tab,
+.slide {
+	display: inline-block;
 	vertical-align: top;
 	position: relative;
 	width: 100%;
 	margin-right: -100%;
+}
+
+.tab {
+	display: none;
 	
 	opacity: 0;
 	z-index: 1;
@@ -849,7 +810,11 @@
 }
 
 .tab.active {
+	/* The inline-block technique overlays tabs on top of one another
+	   but still allows the height of the blocks to stay in the flow.
+	   It's better than using position: absolute. It rocks. */
 	display: inline-block;
+
 	opacity: 1;
 	z-index: 2;
 	
@@ -864,14 +829,9 @@
 	display: inline-block;
 }
 
-
 .slide {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-	width: 100%;
+	/* By default all slides are positioned off to the left. */ 
 	left: -100%;
-	margin-right: -100%;
 	
 	/* Steps have no height by default to stop them influencing
 	   scrollbars when they are not the active step. */
@@ -886,20 +846,22 @@
 }
 
 .slide.active {
+	/* The .active slide is positioned in the centre. */
 	left: 0;
 	height: auto;
 	overflow: visible;
+}
+
+.slide.active ~ .slide {
+	/* All slides after the .active slide are positioned off to
+	   the right. */
+	left: 100%;
 }
 
 .slide.transition {
 	height: auto;
 	overflow: visible;
 }
-
-.slide.active ~ .slide {
-	left: 100%;
-}
-
 
 /* .popup, .popdown, .dropdown, .stopdown */
 
@@ -981,6 +943,8 @@
 .button {
   display: inline-block;
   
+  cursor: pointer;
+  
   height: 2em;
   line-height: 2em;
   padding-left: 0.5em;
@@ -1053,7 +1017,8 @@
 /* .thumb */
 
 .thumb {
-  display: block;
+  display: inline-block;
+  vertical-align: baseline;
   overflow: hidden;
   
   /* Hide overflowing text. This technique is better
@@ -1073,6 +1038,11 @@
   
   text-decoration: none;
   color: inherit;
+}
+
+.banner_thumb {
+	display: block;
+	width: auto;
 }
 
 .text_thumb,
@@ -1172,7 +1142,7 @@
   -webkit-user-drag: element;
 }
 
-.card > .thumb {
+.card .thumb {
   position: absolute;
   top: 0.8333em;
   left: 0.8333em;
