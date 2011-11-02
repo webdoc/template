@@ -591,6 +591,7 @@ jQuery.noConflict();
 		}
 	};
 	
+	jQuery(document).bind('dragstart', prepareDragData);
 	jQuery(document).bind('dragstart', prepareDragFeedback);
 	
 })(jQuery);

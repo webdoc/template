@@ -96,6 +96,11 @@ caption        { padding: 4px 10px 4px 5px; }
 .right         { margin: 0.75em 0 0.75em 1em; }
 .note          { font-size: 0.9167em; line-height: 1.8181; }
 
+/* Horizontal layout items need to have the line-height that is
+   zeroed on the parent reset to the base line-height. */
+.horizontal > *,
+.tabs_index > li { line-height: 1.5; }
+
 .xxxxxxxl_text { font-size: 1.6667em; line-height: 0.9em; }
 .xxxxxxl_text  { font-size: 1.5833em; line-height: 0.9474em; }
 .xxxxxl_text   { font-size: 1.5em;    line-height: 1em; }
