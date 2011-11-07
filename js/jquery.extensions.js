@@ -627,7 +627,7 @@ jQuery.render = (function(){
   function replaceStringFn(obj) {
   	return function($0, $1) {
   		// $1 is the template key.
-  		return obj[$1];
+  		return obj[$1] || '';
   	}
   }
   
