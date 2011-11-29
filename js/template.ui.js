@@ -202,7 +202,11 @@ jQuery.noConflict();
 		
 		// Default is prevented indicates that this link has already
 		// been handled. Save ourselves the overhead of further handling.
+		// This logic is a little weak.
 		if (e.isDefaultPrevented()) { return; }
+		
+		// We are only interested in primary (left) button clicks.
+		if (e.which !== 1) { return; }
 		
 		link = jQuery(e.currentTarget);
 		href = link.attr('href');
